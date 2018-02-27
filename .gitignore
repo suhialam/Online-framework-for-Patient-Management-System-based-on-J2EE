@@ -1,3 +1,5 @@
+/pms/nbproject
 /pms/nbproject/private/
-/pms/dist/
-/pms/build/
+
+/pms/dist
+/pms/build
