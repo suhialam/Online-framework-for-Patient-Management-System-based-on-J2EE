@@ -1,6 +1,19 @@
-/pms/nbproject
-/pms/nbproject/private/
 
-/pms/dist
-/pms/build
-/pms/src/java/lib
+######################
+# NetBeans
+######################
+pms/nbproject/
+pms/build/
+pms/nbbuild/
+pms/dist/
+pms/nbdist/
+pms/nbactions.xml
+pms/nb-configuration.xml
+
+nbproject/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
