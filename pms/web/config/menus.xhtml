@@ -1,0 +1,31 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ace="http://www.icefaces.org/icefaces/components"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ace:menuBar id="main_menu_bar" autoSubmenuDisplay="true">
+        <ace:menuItem value="Home" url="index.xhtml" icon="ui-icon ui-icon-home" />
+
+        <ace:submenu id="companies" label="Companies">
+            <ace:menuItem id="add_company" value="Add Company" url="add_company.xhtml" />
+            <ace:menuItem id="update_company" value="Update Company" url="update_company.xhtml" />
+        </ace:submenu>
+        
+        <ace:submenu id="medicines" label="Medicines">
+            <ace:menuItem id="add_medicine" value="Add Medicine" url="add_medicine.xhtml" />
+            <ace:menuItem id="update_medicine" value="Update Medicine" url="update_medicine.xhtml" />
+            <ace:menuItem id="add_medicine_details" value="Add Medicine Details" url="add_medicine_details.xhtml" />
+        </ace:submenu>
+        
+        <ace:submenu id="patients" label="Patients">
+            <ace:menuItem id="register_patient" value="Register Patient" url="register_patient.xhtml" />
+            <ace:menuItem id="update_patient" value="Update Patient" url="update_patient.xhtml" />
+        </ace:submenu>
+        
+        <ace:submenu id="prescription" label="Prescription">
+            <ace:menuItem id="new_prescription" value="New Prescription" url="prescription.xhtml" />
+            <ace:menuItem id="search_patient_history" value="Prescription History" url="search_patient_history.xhtml" />
+        </ace:submenu>
+
+    </ace:menuBar>
+</ui:composition>
