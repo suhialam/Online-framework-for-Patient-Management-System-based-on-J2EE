@@ -16,14 +16,19 @@ charset=UTF-8" />
 	<h:outputStylesheet library="css" name="default.css"></h:outputStylesheet>
 </h:head>
 <h:body>
-
-	<h:form id="inputForm">
-		 <ace:linkButton value="Goto Data table" href="students-data-table.xhtml" />
-		 
-		 <ace:linkButton value="Goto Colors" href="color.xhtml" />
-		 
-		
-	</h:form>
-		 	
+        <!-- header inclusion-->
+    <ui:include src="config/header.xhtml" />
+    
+    <!-- menus inclusion-->
+    <ui:include src="config/menus.xhtml" />
+    
+    <!-- your code starts here-->
+    
+    
+    
+    <!-- your code ends here-->
+    
+    <!-- footer inclusion-->
+    <ui:include src="config/footer.xhtml" />
 </h:body>
 </html>
