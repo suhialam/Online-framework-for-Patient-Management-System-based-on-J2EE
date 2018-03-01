@@ -1,12 +1,71 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Facelet Title</title>
+        <meta http-equiv="Content-Type" content="text/html;
+              charset=UTF-8" />
+        <title>Patient Management System</title>
+        <h:outputStylesheet library="css" name="theme.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="default.css"></h:outputStylesheet>
+        <style>
+            .margin{
+                margin-bottom: 15px !important;
+            }
+
+        </style>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <!-- header inclusion-->
+        <ui:include src="config/header.xhtml" />
+
+        <!-- menus inclusion-->
+        <ui:include src="config/menus.xhtml" />
+
+        <!-- your code starts here-->
+        <h:form>
+            <ace:panel id="update_patient_panel"  header=" Update Patient" style=" width: 50%; height: 100%; margin-left:306px;margin-top: 20px; "  >
+                <h:panelGrid id="inputGrid" width="100%" columns="2" styleClass="textEntryInputTable" >
+
+                    <h:outputLabel id="search_patient" for="search_patient_field"
+                                   value="Search Patient"  />
+                    <ace:textEntry id="search_patient_field" required="true"
+                                   requiredIndicator="*"
+                                   indicatorPosition="right" class="margin" />
+
+                    <h:outputLabel id="cmb_patient" for="patients" value="Select Patient"  />
+                    <ace:comboBox  id="patients" required="true" 
+                                   requiredIndicator="*" indicatorPosition="right" class="margin"
+                                   ></ace:comboBox>
+
+                    <h:outputLabel id="patient_name" for="patient_name_field"
+                                   value="Patient Name"/>
+                    <ace:textEntry id="patient_name_field" class="margin" />
+
+                    <h:outputLabel id="patient_address" for="address" value="Address"/>
+                    <ace:textEntry id="address" class="margin" />
+
+                    <h:outputLabel id="patient_phone_number" for="phone_number" value="Phone Number"/>
+                    <ace:textEntry id="phone_number" class="margin" />
+
+                    <h:outputLabel id="button" for="submit_button" value=""/>
+                    <ace:pushButton id="submitb_utton"  value="Submit" 
+                                    class="margin" style="float: right;" />
+
+                </h:panelGrid>
+            </ace:panel>
+        </h:form>
+
+
+        <!-- your code ends here-->
+
+        <!-- footer inclusion-->
+        <ui:include src="config/footer.xhtml" />
     </h:body>
 </html>
-
