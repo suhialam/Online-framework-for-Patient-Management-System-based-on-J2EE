@@ -9,29 +9,29 @@ package entity;
  *
  * @author babu
  */
-public class Company {
-    private int companyId;
-    private String companyName;
+public class Patient {
+      private int patientId;
+    private String patientName;
     private String address;
     private String phoneNumber;
 
-    public Company() {
+    public Patient() {
     }
 
-    public int getCompanyId() {
-        return companyId;
+    public int getPatientId() {
+        return patientId;
     }
 
-    public void setCompanyId(int companyId) {
-        this.companyId = companyId;
+    public void setPatientId(int patientId) {
+        this.patientId = patientId;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public String getPatientName() {
+        return patientName;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
     }
 
     public String getAddress() {
@@ -49,6 +49,5 @@ public class Company {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
     
 }
