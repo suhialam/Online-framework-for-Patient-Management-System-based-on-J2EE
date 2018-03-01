@@ -71,22 +71,4 @@ public class SQLQueryUtil {
         return connection;
     }
 
-    public static void main(String[] args) {
-        SQLQueryUtil sql = new SQLQueryUtil();
-        sql.connect(false);
-        
-        String query = "select * from pms_schema.users;";
-        try {
-            ResultSet rs = sql.executeQuery(query);
-            
-            while(rs.next()) {
-                System.out.println(rs.getInt("id"));
-            }
-        } catch(SQLException ex) {
-            ex.printStackTrace();
-        }
-        sql.disconnect();
-        
-        
-    }
 }
