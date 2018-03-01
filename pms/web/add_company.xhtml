@@ -23,11 +23,26 @@ charset=UTF-8" />
     <ui:include src="config/menus.xhtml" />
     
     <!-- your code starts here-->
-    
-    
-    
+    <h:form >
+        <ace:panel id="personalInfoInputPanel" header="Add Company"  styleClass="required-styling-demo" style="width: 600px; margin: 0 auto;margin-top: 50px;">
+         <h:panelGrid id="inputGrid" columns="1" width="100%" >
+      
+             <ace:textEntry id="Company_name" value="#{textEntryBean.firstName}" label="Company Name" labelPosition="left"  required="true" requiredIndicator="(*)" indicatorPosition="right" placeholder="Company Name">
+                        <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
+      </ace:textEntry><br></br><br></br>
+               <ace:textEntry id="address" value="#{textEntryBean.firstName}" label="Address" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
+                        <ace:ajax render="@this firystNameOutput firstNameMsg" event="blur"/>
+               </ace:textEntry><br></br><br></br>
+             
+               <ace:textEntry id="phone_number" value="#{textEntryBean.firstName}" label="Phone Number" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
+                        <ace:ajax render="@this firsfvtNameOutput firstNameMsg" event="blur"/>
+               </ace:textEntry><br></br><br></br>
+               
+               <ace:pushButton value="Save" style="width: 150px;margin-left: 130px"/>
+         </h:panelGrid>
+        </ace:panel>
     <!-- your code ends here-->
-    
+    </h:form>
     <!-- footer inclusion-->
     <ui:include src="config/footer.xhtml" />
 </h:body>
