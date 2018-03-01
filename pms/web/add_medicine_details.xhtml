@@ -1,12 +1,49 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Facelet Title</title>
+        <meta http-equiv="Content-Type" content="text/html;
+              charset=UTF-8" />
+        <title>Patient Management System</title>
+        <h:outputStylesheet library="css" name="theme.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="default.css"></h:outputStylesheet>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <!-- header inclusion-->
+        <ui:include src="config/header.xhtml" />
+
+        <!-- menus inclusion-->
+        <ui:include src="config/menus.xhtml" />
+
+        <!-- your code starts here-->
+        <h:form >
+            <ace:panel class="panel" id="personalInfoInputPanel" header="Add Medicine Detail"  styleClass="required-styling-demo" style="width: 600px; margin: 0 auto;margin-top: 50px;">
+                <h:panelGrid id="inputGrid" columns="1" width="100%" styleClass="textEntryInputTable">
+
+                    <ace:comboBox  label="Select Company" labelPosition="left" required="true" >
+                        <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
+                    </ace:comboBox><br></br><br></br>
+                    
+                     <ace:comboBox  label="Select Medicine" labelPosition="left" required="true" >
+                        <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
+                    </ace:comboBox><br></br><br></br>
+                    
+                    <ace:textEntry id="medicine_name"  label="Packing" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
+                        <ace:ajax render="@this firsfvtNameOutput firstNameMsg" event="blur"/>
+                    </ace:textEntry><br></br><br></br>
+                <ace:pushButton value="Save" style="width: 150px;margin-left: 130px"/>
+                </h:panelGrid>
+            </ace:panel>   
+            <!-- your code ends here-->
+        </h:form>
+        <!-- footer inclusion-->
+        <ui:include src="config/footer.xhtml" />
     </h:body>
 </html>
-
