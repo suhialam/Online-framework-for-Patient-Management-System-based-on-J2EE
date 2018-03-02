@@ -38,14 +38,19 @@ body {
     height:40px;
     width:100%;
     color:#fff;
-    background-image: linear-gradient(#FF6600, #FF9900 60%, #FF6600);
-    background-repeat: no-repeat;
-    border-bottom: 1px solid #178acc;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
-    filter: none;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    font-size: 12px;
+    background-color: #FF6600 !important;
+    margin-top: 100px;
+
+}
+
+.footer-text {
+    color:#fff;
+    font-size: 16px;
+    letter-spacing: 2px;
+    width: 518px;
+    height: 20px;
+    margin:0 auto;
+    padding-top: 10px;
 }
 
 .success-message {
