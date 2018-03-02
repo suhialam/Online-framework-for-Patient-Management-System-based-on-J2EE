@@ -8,7 +8,6 @@ body {
 .header {
     height:60px;
     width:100%;
-    
     background-image: linear-gradient(#FF6600, #FF9900 60%, #FF6600) !important;
     background-repeat: no-repeat;
     border-bottom: 1px solid #FF9900;
@@ -49,7 +48,15 @@ body {
     font-size: 12px;
 }
 
+.success-message {
+	font-size: 22px;
+	color: green;
+}
 
+.failure-message {
+	font-size: 22px;
+	color: red;
+}
 
 .ui-widget-header {
     background: none !important;
@@ -67,5 +74,24 @@ input {
         background: none !important;
         background-color: #FF9900 !important;
         color: #000 !important;
-            
+        height: 30px !important;
+        
+}
+
+table tr {
+    height: 60px !important;
+}
+
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.submit {
+    height: 35px !important;
+    border-radius: 5px;
 }

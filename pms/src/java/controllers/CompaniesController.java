@@ -5,10 +5,75 @@
  */
 package controllers;
 
+import entity.Company;
+import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
+import services.CompaniesService;
+
 /**
  *
  * @author babu
  */
-public class CompaniesController {
-    
+
+
+@ManagedBean(name = "companyController")
+@ViewScoped
+public class CompaniesController implements Serializable {
+private static final long serialVersionUID = 1L;
+
+	@ManagedProperty(value = "#{anyCompany}")
+	private Company company;
+	private String message;
+        
+        private String myClass = "";
+        
+        public CompaniesController() {
+		
+	}
+        
+        
+	public String getMyClass() {
+		return myClass;
+	}
+
+	public void setMyClass(String myClass) {
+		this.myClass = myClass;
+	}
+
+	
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public String registerCompany() {
+		boolean status = false;
+
+		          CompaniesService companiesService = new CompaniesService();
+		status = companiesService.registerCompany(company);
+
+		if (status) {
+			message = "\"" + company.getCompanyName() + "\"" + " registered successfully !";
+			myClass = "success-message";
+			return message;
+		} else {
+			message = "\"" + company.getCompanyName() + "\"" + " already exists !";
+			myClass = "failure-message";
+			
+			return message;
+		}
+	}
 }
