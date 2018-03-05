@@ -14,6 +14,11 @@
         <title>Patient Management System</title>
         <h:outputStylesheet library="css" name="theme.css"></h:outputStylesheet>
         <h:outputStylesheet library="css" name="default.css"></h:outputStylesheet>
+        <style>
+            .margin{
+                margin-bottom: 15px !important;
+            }
+        </style>
     </h:head>
     <h:body>
         <!-- header inclusion-->
@@ -25,20 +30,20 @@
         <!-- your code starts here-->
         <h:form >
             <ace:panel class="panel" id="personalInfoInputPanel" header="Add Medicine Detail"  styleClass="required-styling-demo" style="width: 600px; margin: 0 auto;margin-top: 50px;">
-                <h:panelGrid id="inputGrid" columns="1" width="100%" styleClass="textEntryInputTable">
-
-                    <ace:comboBox  label="Select Company" labelPosition="left" required="true" >
+                <h:panelGrid id="inputGrid" columns="2" width="100%" styleClass="textEntryInputTable">
+                    <h:outputLabel  value="Select Company"/>
+                    <ace:comboBox   required="true" class="margin" >
                         <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
-                    </ace:comboBox><br></br><br></br>
-                    
-                     <ace:comboBox  label="Select Medicine" labelPosition="left" required="true" >
+                    </ace:comboBox>
+                    <h:outputLabel value="Select Medicine"/>
+                    <ace:comboBox required="true" class="margin" >
                         <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
-                    </ace:comboBox><br></br><br></br>
-                    
-                    <ace:textEntry id="medicine_name"  label="Packing" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
+                    </ace:comboBox>
+                    <h:outputLabel  value="Packing"/>
+                    <ace:textEntry id="packing"  required="true" class="margin" requiredIndicator="(*)" indicatorPosition="right">
                         <ace:ajax render="@this firsfvtNameOutput firstNameMsg" event="blur"/>
                     </ace:textEntry><br></br><br></br>
-                <ace:pushButton value="Save" style="width: 150px;margin-left: 130px"/>
+                    <ace:pushButton value="Save" style="width: 150px;margin-left: 30px"/>
                 </h:panelGrid>
             </ace:panel>   
             <!-- your code ends here-->

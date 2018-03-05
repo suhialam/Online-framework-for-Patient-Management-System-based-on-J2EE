@@ -14,6 +14,11 @@
         <title>Patient Management System</title>
         <h:outputStylesheet library="css" name="theme.css"></h:outputStylesheet>
         <h:outputStylesheet library="css" name="default.css"></h:outputStylesheet>
+        <style>
+            .margin{
+                margin-bottom: 15px !important;
+            }
+        </style>
     </h:head>
     <h:body>
         <!-- header inclusion-->
@@ -25,13 +30,19 @@
         <!-- your code starts here-->
         <h:form id="textEntryForm">
             <ace:panel id="updateMedicine" header="Update Medicine" style="width: 700px; margin: 0 auto; margin-top: 40px; ">
-                <h:panelGrid id="inputGrid" columns="1" style=" width: 670px;">
-                    <ace:comboBox id="selectCompany" value="" label="Select Company" labelPosition="left"/> <br></br><br></br>
-                    <ace:comboBox id="selectMedicine" value="" label="Select Medicine" labelPosition="left"/> <br></br><br></br>
-                    <ace:textEntry id="medicineName" value="" label="Medicine Name" labelPosition="left"/> <br></br><br></br>
+                <h:panelGrid id="inputGrid" columns="2" style=" width: 670px;">
+                    <h:outputLabel value="Select Company"/>
+                    <ace:comboBox id="selectCompany" value="" class="margin" required="true"/>
+                    
+                    <h:outputLabel value="Select Medicine"/>
+                    <ace:comboBox id="selectMedicine" value="" class="margin"/>
+                    
+                    <h:outputLabel value="Medicine Name"/>
+                    <ace:textEntry id="medicineName" value="" class="margin" /> 
+                    
                     <h:outputLabel id="med" value="Medicine Details"/>
-                    <ace:textEntry id="medi" value=""/> <br></br>
-                    <ace:pushButton  id="btnUpdate" value="Update" style="margin-left: 240px;"/> 
+                    <ace:textEntry id="medi" value="" class="margin"/> <br></br>
+                    <ace:pushButton  id="btnUpdate" value="Update" style="margin-left: 50px;"/> 
                     
                 </h:panelGrid>
 
