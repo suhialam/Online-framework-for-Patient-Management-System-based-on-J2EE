@@ -9,13 +9,35 @@
 	xmlns:icecore="http://www.icefaces.org/icefaces/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html;
-charset=UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+         <meta http-equiv="content-type" content="text/html;charset=UTF-8" charset="UTF-8" />
 	<title>Patient Management System</title>
 	<h:outputStylesheet library="css" name="theme.css"></h:outputStylesheet>
 	<h:outputStylesheet library="css" name="default.css"></h:outputStylesheet>
+         <style>
+            .main_panel {
+                width: 50%; 
+                margin: 50px 10px;
+            }
+            .margin_bottom {
+                margin-bottom: 15px !important;
+            }
+             .ui-button {
+                width: 100% !important;
+                background-image: none;
+                background: #FF9900 ;
+                color: black !important;
+               
+            }
+            .ice-pushbutton{
+                margin-top: 20px;
+                width: 55% !important;
+                
+            }
+        </style>
 </h:head>
 <h:body>
+    
         <!-- header inclusion-->
     <ui:include src="config/header.xhtml" />
     
@@ -23,22 +45,21 @@ charset=UTF-8" />
     <ui:include src="config/menus.xhtml" />
     
     <!-- your code starts here-->
-    <h:form >
+    <h:form id="company_registration_form">
         <ace:panel id="personalInfoInputPanel" header="Add Company"  styleClass="required-styling-demo" style="width: 600px; margin: 0 auto;margin-top: 50px;">
-         <h:panelGrid id="inputGrid" columns="1" width="100%" >
-      
-             <ace:textEntry id="Company_name" value="#{textEntryBean.firstName}" label="Company Name" labelPosition="left"  required="true" requiredIndicator="(*)" indicatorPosition="right" placeholder="Company Name">
-                        <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
-      </ace:textEntry><br></br><br></br>
-               <ace:textEntry id="address" value="#{textEntryBean.firstName}" label="Address" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
-                        <ace:ajax render="@this firystNameOutput firstNameMsg" event="blur"/>
-               </ace:textEntry><br></br><br></br>
-             
-               <ace:textEntry id="phone_number" value="#{textEntryBean.firstName}" label="Phone Number" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
-                        <ace:ajax render="@this firsfvtNameOutput firstNameMsg" event="blur"/>
-               </ace:textEntry><br></br><br></br>
+         <h:panelGrid id="inputGrid" columns="2" width="100%" >
+             <h:outputLabel>Company Name</h:outputLabel>
+             <ace:textEntry id="company_name" value="#{companyController.company.companyName}" required="true" requiredIndicator="(*)" 
+                            indicatorPosition="right"  placeholder="Company Name" />
+                        
+<h:outputLabel>Address</h:outputLabel>
+               <ace:textEntry id="address" value="#{companyController.company.address}" required="true" requiredIndicator="(*)" indicatorPosition="right" />
+             <h:outputLabel>Phone Number</h:outputLabel>
+               <ace:textEntry id="phone_number" value="#{companyController.company.phoneNumber}" required="true" requiredIndicator="(*)" indicatorPosition="right" />
+                        
+               <h:outputLabel>&nbsp;</h:outputLabel>
+               <h:commandButton value="Register Company" action="#{companyController.registerCompany}" class="submit" />
                
-               <ace:pushButton value="Save" style="width: 150px;margin-left: 130px"/>
          </h:panelGrid>
         </ace:panel>
     <!-- your code ends here-->

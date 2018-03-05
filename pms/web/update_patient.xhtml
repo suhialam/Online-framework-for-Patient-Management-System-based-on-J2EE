@@ -17,6 +17,20 @@
         <style>
             .margin{
                 margin-bottom: 15px !important;
+
+            }
+            .ice-pushbutton{
+                margin-top: 20px;
+                width: 55% !important;
+
+            }
+            .ui-button {
+                width: 50% !important;
+                background-image: none;
+                background: #FF9900 !important;
+                color: white !important;
+
+
             }
 
         </style>
@@ -31,12 +45,13 @@
         <!-- your code starts here-->
         <h:form>
             <ace:panel id="update_patient_panel"  header=" Update Patient" style=" width: 50%; height: 100%; margin-left:306px;margin-top: 20px; "  >
-                <h:panelGrid id="inputGrid" width="100%" columns="2" styleClass="textEntryInputTable" >
+                <h:panelGrid id="inputGrid" width="100%" columns="2" 
+                             styleClass="textEntryInputTable" >
 
                     <h:outputLabel id="search_patient" for="search_patient_field"
                                    value="Search Patient"  />
                     <ace:textEntry id="search_patient_field" required="true"
-                                   requiredIndicator="*"
+                                   requiredIndicator="*" placeholder="Search Patient"
                                    indicatorPosition="right" class="margin" />
 
                     <h:outputLabel id="cmb_patient" for="patients" value="Select Patient"  />
@@ -46,17 +61,16 @@
 
                     <h:outputLabel id="patient_name" for="patient_name_field"
                                    value="Patient Name"/>
-                    <ace:textEntry id="patient_name_field" class="margin" />
+                    <ace:textEntry id="patient_name_field" class="margin" placeholder="Patient Name" />
 
                     <h:outputLabel id="patient_address" for="address" value="Address"/>
-                    <ace:textEntry id="address" class="margin" />
+                    <ace:textEntry id="address" class="margin" placeholder="Address" />
 
                     <h:outputLabel id="patient_phone_number" for="phone_number" value="Phone Number"/>
-                    <ace:textEntry id="phone_number" class="margin" />
+                    <ace:textEntry id="phone_number" class="margin" placeholder="Phone Number " />
 
-                    <h:outputLabel id="button" for="submit_button" value=""/>
-                    <ace:pushButton id="submitb_utton"  value="Submit" 
-                                    class="margin" style="float: right;" />
+                    <h:outputLabel id="button" for="update_patient" value=""/>
+                    <ace:pushButton id="update_patient"  value="Submit" class="margin" />
 
                 </h:panelGrid>
             </ace:panel>

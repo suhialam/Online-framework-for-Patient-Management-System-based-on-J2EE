@@ -5,11 +5,21 @@
  */
 package entity;
 
+import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 /**
  *
  * @author babu
  */
-public class Company {
+@ManagedBean(name = "anyCompany")
+@ViewScoped
+
+public class Company implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private int companyId;
     private String companyName;
     private String address;
@@ -50,5 +60,8 @@ public class Company {
         this.phoneNumber = phoneNumber;
     }
 
-    
+    @Override
+    public String toString() {
+        return companyName;
+    }
 }

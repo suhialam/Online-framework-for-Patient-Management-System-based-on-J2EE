@@ -5,10 +5,18 @@
  */
 package services;
 
+import entity.Company;
+
 /**
  *
  * @author babu
  */
 public class CompaniesService {
-    
+   
+    public boolean registerCompany(Company company) {
+        System.out.println(company.getCompanyName());
+        System.out.println(company.getAddress());
+        System.out.println(company.getPhoneNumber());
+        return false;
+    }
 }
