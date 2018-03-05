@@ -14,6 +14,11 @@
         <title>Patient Management System</title>
         <h:outputStylesheet library="css" name="theme.css"></h:outputStylesheet>
         <h:outputStylesheet library="css" name="default.css"></h:outputStylesheet>
+        <style>
+            .margin{
+                margin-bottom: 15px !important;
+            }
+        </style>
     </h:head>
     <h:body>
         <!-- header inclusion-->
@@ -25,12 +30,16 @@
         <!-- your code starts here-->
         <h:form id="textEntryForm">
             <ace:panel id="updateCompany" header="Update Company" style="width: 700px; margin: 0 auto; margin-top: 40px; ">
-                <h:panelGrid id="inputGrid" columns="1" style=" width: 670px;">
-                    <ace:comboBox id="selectCompany" value="" label="Select Company" labelPosition="left" size="200"/> <br></br><br></br>
-                    <ace:textEntry id="companyName" value=""  label="Company Name" labelPosition="left"/> <br></br><br></br><br></br>
-                    <ace:textEntry id="address" value="" label="Address" labelPosition="left"/> <br></br><br></br>
-                    <ace:textEntry id="phoneNumber" value="" label="Phone Number" labelPosition="left"/> <br></br>
-                    <ace:pushButton  id="btnUpdate" value="Update" style="margin-left: 240px;"/>
+                <h:panelGrid id="inputGrid" columns="2" style=" width: 670px;">
+                    <h:outputLabel  value="Select Company"/>
+                    <ace:comboBox id="selectCompany"  required="true" class="margin"/>
+                    <h:outputLabel value="Company Name"/>
+                    <ace:textEntry id="companyName" value="" class="margin" required="true" requiredIndicator="(*)" indicatorPosition="right"/>
+                    <h:outputLabel value="Address" />
+                    <ace:textEntry id="address" value="" class="margin" required="true" requiredIndicator="(*)" indicatorPosition="right"  /> 
+                    <h:outputLabel value="Phone Number"/>
+                    <ace:textEntry id="phoneNumber" class="margin" value="" /> <br></br>
+                    <ace:pushButton  id="btnUpdate" value="Update" style="margin-left: 40px;"/>
 
                 </h:panelGrid>
 
