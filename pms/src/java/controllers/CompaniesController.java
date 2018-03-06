@@ -56,13 +56,13 @@ public class CompaniesController implements Serializable {
         this.message = message;
     }
 
-    public String registerCompany() {
+    public void registerCompany() {
         int rowsAffected = 0;
 
         if (company.getCompanyName().trim().equals("")
                 || company.getAddress().trim().equals("")
                 || company.getPhoneNumber().trim().equals("")) {
-            System.out.println("if condition");
+            System.out.println("empty data can not be sotred.");
             message = "Empty data can not be stored. Please fill the form properly.";
             cssClass = "failure-class";
         } else {
@@ -85,7 +85,7 @@ public class CompaniesController implements Serializable {
             }
         }
 
-        return message;
+        //return message;
 
     }
 
