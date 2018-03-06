@@ -73,6 +73,10 @@ public class CompaniesController implements Serializable {
             if (rowsAffected > 0) {
                 message = company.getCompanyName() + " registered successfully !";
                 cssClass = "success-class";
+                
+                company.setCompanyName("");
+                company.setAddress("");
+                company.setPhoneNumber("");
                  
     //return "/page.xhtml?faces-redirect=true";
             } else {
