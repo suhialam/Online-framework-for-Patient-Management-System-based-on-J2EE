@@ -42,8 +42,9 @@
                     <h:outputLabel  value="Packing"/>
                     <ace:textEntry id="packing"  required="true" class="margin" requiredIndicator="(*)" indicatorPosition="right">
                         <ace:ajax render="@this firsfvtNameOutput firstNameMsg" event="blur"/>
-                    </ace:textEntry><br></br><br></br>
-                    <ace:pushButton value="Save" style="width: 150px;margin-left: 30px"/>
+                    </ace:textEntry><br></br>
+                    <h:commandButton value="Save"  class="submit" />
+
                 </h:panelGrid>
             </ace:panel>   
             <!-- your code ends here-->
