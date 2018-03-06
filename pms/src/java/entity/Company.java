@@ -18,6 +18,11 @@ import javax.faces.bean.ViewScoped;
 
 public class Company implements Serializable {
 
+    /*
+    session scope
+    application scope
+    */
+    
     private static final long serialVersionUID = 1L;
 
     private int companyId;

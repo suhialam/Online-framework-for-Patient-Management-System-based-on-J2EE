@@ -17,7 +17,6 @@ import services.CompaniesService;
  * @author babu
  */
 
-
 @ManagedBean(name = "companyController")
 @ViewScoped
 public class CompaniesController implements Serializable {
@@ -60,12 +59,12 @@ private static final long serialVersionUID = 1L;
 	}
 
 	public String registerCompany() {
-		boolean status = false;
+		int rowsAffected = 0;
 
 		          CompaniesService companiesService = new CompaniesService();
-		status = companiesService.registerCompany(company);
+		rowsAffected = companiesService.registerCompany(company);
 
-		if (status) {
+		if (rowsAffected > 0) {
 			message = "\"" + company.getCompanyName() + "\"" + " registered successfully !";
 			myClass = "success-message";
 			return message;

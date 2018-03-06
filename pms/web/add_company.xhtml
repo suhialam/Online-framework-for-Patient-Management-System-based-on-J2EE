@@ -31,8 +31,7 @@
             }
             .ice-pushbutton{
                 margin-top: 20px;
-                width: 55% !important;
-                
+                width: 55% !important;                
             }
         </style>
 </h:head>
@@ -47,7 +46,7 @@
     <!-- your code starts here-->
     <h:form id="company_registration_form">
         <ace:panel id="personalInfoInputPanel" header="Add Company"  styleClass="required-styling-demo" style="width: 600px; margin: 0 auto;margin-top: 50px;">
-         <h:panelGrid id="inputGrid" columns="2" width="100%" >
+         <h:panelGrid id="inputGrid" columns="2" width="100%">
              <h:outputLabel>Company Name</h:outputLabel>
              <ace:textEntry id="company_name" value="#{companyController.company.companyName}" required="true" requiredIndicator="(*)" 
                             indicatorPosition="right"  placeholder="Company Name" />
