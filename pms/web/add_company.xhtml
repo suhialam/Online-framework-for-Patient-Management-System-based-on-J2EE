@@ -48,18 +48,22 @@
         <ace:panel id="personalInfoInputPanel" header="Add Company"  styleClass="required-styling-demo" style="width: 600px; margin: 0 auto;margin-top: 50px;">
          <h:panelGrid id="inputGrid" columns="2" width="100%">
              <h:outputLabel>Company Name</h:outputLabel>
-             <ace:textEntry id="company_name" value="#{companyController.company.companyName}" required="true" requiredIndicator="(*)" 
-                            indicatorPosition="right"  placeholder="Company Name" />
-                        
+             <ace:textEntry id="company_name" value="#{companyController.company.companyName}" required="true" requiredMessage="Please fill out this field." requiredIndicator="(*)" 
+                               indicatorPosition="right"  placeholder="Company Name" />
+                 
+                 <!--<h:message for="company_name" />-->       
 <h:outputLabel>Address</h:outputLabel>
                <ace:textEntry id="address" value="#{companyController.company.address}" required="true" requiredIndicator="(*)" indicatorPosition="right" />
              <h:outputLabel>Phone Number</h:outputLabel>
-               <ace:textEntry id="phone_number" value="#{companyController.company.phoneNumber}" required="true" requiredIndicator="(*)" indicatorPosition="right" />
+             <ace:textEntry id="phone_number" value="#{companyController.company.phoneNumber}" required="true"  requiredMessage="Please fill out this field." requiredIndicator="(*)" indicatorPosition="right" />
                         
                <h:outputLabel>&nbsp;</h:outputLabel>
                <h:commandButton value="Register Company" action="#{companyController.registerCompany}" class="submit" />
                
          </h:panelGrid>
+            <div style="width: 100%; min-height: 30px; text-align: center;">
+		<h:outputText value="#{companyController.message}" class="#{companyController.cssClass}" />
+	</div>
         </ace:panel>
     <!-- your code ends here-->
     </h:form>

@@ -16,63 +16,72 @@ import services.CompaniesService;
  *
  * @author babu
  */
-
 @ManagedBean(name = "companyController")
 @ViewScoped
 public class CompaniesController implements Serializable {
-private static final long serialVersionUID = 1L;
 
-	@ManagedProperty(value = "#{anyCompany}")
-	private Company company;
-	private String message;
-        
-        private String myClass = "";
-        
-        public CompaniesController() {
-		
-	}
-        
-        
-	public String getMyClass() {
-		return myClass;
-	}
+    private static final long serialVersionUID = 1L;
 
-	public void setMyClass(String myClass) {
-		this.myClass = myClass;
-	}
+    @ManagedProperty(value = "#{anyCompany}")
+    private Company company;
+    private String message;
 
-	
-	public Company getCompany() {
-		return company;
-	}
+    private String cssClass = "";
 
-	public void setCompany(Company company) {
-		this.company = company;
-	}
+    public CompaniesController() {
 
-	public String getMessage() {
-		return message;
-	}
+    }
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
+    public String getCssClass() {
+        return cssClass;
+    }
 
-	public String registerCompany() {
-		int rowsAffected = 0;
+    public void setCssClass(String cssClass) {
+        this.cssClass = cssClass;
+    }
 
-		          CompaniesService companiesService = new CompaniesService();
-		rowsAffected = companiesService.registerCompany(company);
+    public Company getCompany() {
+        return company;
+    }
 
-		if (rowsAffected > 0) {
-			message = "\"" + company.getCompanyName() + "\"" + " registered successfully !";
-			myClass = "success-message";
-			return message;
-		} else {
-			message = "\"" + company.getCompanyName() + "\"" + " already exists !";
-			myClass = "failure-message";
-			
-			return message;
-		}
-	}
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String registerCompany() {
+        int rowsAffected = 0;
+
+        if (company.getCompanyName().trim().equals("")
+                || company.getAddress().trim().equals("")
+                || company.getPhoneNumber().trim().equals("")) {
+            System.out.println("if condition");
+            message = "Empty data can not be stored. Please fill the form properly.";
+            cssClass = "failure-class";
+        } else {
+            System.out.println("else condition");
+            CompaniesService companiesService = new CompaniesService();
+            rowsAffected = companiesService.registerCompany(company);
+
+            if (rowsAffected > 0) {
+                message = company.getCompanyName() + " registered successfully !";
+                cssClass = "success-class";
+                return message;
+            } else {
+                message = company.getCompanyName() + " already exists !";
+                cssClass = "failure-class";
+            }
+        }
+
+        return message;
+
+    }
+
 }
