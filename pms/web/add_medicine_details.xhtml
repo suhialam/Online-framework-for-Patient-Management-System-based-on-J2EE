@@ -18,6 +18,9 @@
             .margin{
                 margin-bottom: 15px !important;
             }
+            .width-size{
+                width: 150px;
+            }
         </style>
     </h:head>
     <h:body>
@@ -43,7 +46,7 @@
                     <ace:textEntry id="packing"  required="true" class="margin text-entry_size" requiredIndicator="(*)" indicatorPosition="right">
                         <ace:ajax render="@this firsfvtNameOutput firstNameMsg" event="blur"/>
                     </ace:textEntry><br></br>
-                    <h:commandButton value="Save"  class="submit" />
+                    <h:commandButton value="Save"  class="submit width-size" />
 
                 </h:panelGrid>
             </ace:panel>   
