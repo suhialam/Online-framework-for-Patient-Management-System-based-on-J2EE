@@ -32,15 +32,15 @@
             <ace:panel class="panel" id="personalInfoInputPanel" header="Add Medicine Detail"  styleClass="required-styling-demo" style="width: 600px; margin: 0 auto;margin-top: 50px;">
                 <h:panelGrid id="inputGrid" columns="2" width="100%" styleClass="textEntryInputTable">
                     <h:outputLabel  value="Select Company"/>
-                    <ace:comboBox   required="true" class="margin" >
+                    <ace:comboBox   required="true" class="margin " width="208" >
                         <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
                     </ace:comboBox>
                     <h:outputLabel value="Select Medicine"/>
-                    <ace:comboBox required="true" class="margin" >
+                    <ace:comboBox required="true" class="margin " width="208" >
                         <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
                     </ace:comboBox>
                     <h:outputLabel  value="Packing"/>
-                    <ace:textEntry id="packing"  required="true" class="margin" requiredIndicator="(*)" indicatorPosition="right">
+                    <ace:textEntry id="packing"  required="true" class="margin text-entry_size" requiredIndicator="(*)" indicatorPosition="right">
                         <ace:ajax render="@this firsfvtNameOutput firstNameMsg" event="blur"/>
                     </ace:textEntry><br></br>
                     <h:commandButton value="Save"  class="submit" />

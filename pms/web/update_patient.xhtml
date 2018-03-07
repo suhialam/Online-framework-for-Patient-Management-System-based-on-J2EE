@@ -52,22 +52,21 @@
                                    value="Search Patient"  />
                     <ace:textEntry id="search_patient_field" required="true"
                                    requiredIndicator="*" placeholder="Search Patient"
-                                   indicatorPosition="right" class="margin" />
+                                   indicatorPosition="right" class="margin text-entry_size" />
 
                     <h:outputLabel id="cmb_patient" for="patients" value="Select Patient"  />
                     <ace:comboBox  id="patients" required="true" 
-                                   requiredIndicator="*" indicatorPosition="right" class="margin"
-                                   ></ace:comboBox>
+                                   requiredIndicator="*" indicatorPosition="right" class="margin " width="208"/>
 
                     <h:outputLabel id="patient_name" for="patient_name_field"
                                    value="Patient Name"/>
-                    <ace:textEntry id="patient_name_field" class="margin" placeholder="Patient Name" />
+                    <ace:textEntry id="patient_name_field" class="margin text-entry_size" placeholder="Patient Name" />
 
                     <h:outputLabel id="patient_address" for="address" value="Address"/>
-                    <ace:textEntry id="address" class="margin" placeholder="Address" />
+                    <ace:textEntry id="address" class="margin text-entry_size" placeholder="Address" />
 
                     <h:outputLabel id="patient_phone_number" for="phone_number" value="Phone Number"/>
-                    <ace:textEntry id="phone_number" class="margin" placeholder="Phone Number " />
+                    <ace:textEntry id="phone_number" class="margin text-entry_size" placeholder="Phone Number " />
 
                     <h:outputLabel id="button" for="update_patient" value=""/>
                     <ace:pushButton id="update_patient"  value="Submit" class="margin" />
