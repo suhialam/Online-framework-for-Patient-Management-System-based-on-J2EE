@@ -47,19 +47,23 @@
                 <ace:panel id="panel" header="Register Patient" class="main_panel">
                     <h:panelGrid id="input_grid"  columns="2" width="100%">
                         <h:outputLabel id="name" for="patient_name">Patient Name</h:outputLabel>
-                        <ace:textEntry id="patient_name" value="" class="margin_bottom" required="true" requiredIndicator="(*)" indicatorPosition="right" />
+                        <ace:textEntry id="patient_name" value="#{patientBean.patient.patientName}" class="margin_bottom" required="true" requiredIndicator="(*)" indicatorPosition="right" />
                         
                         <h:outputLabel id="address" for="patient_address" value="Address"/>
-                        <ace:textEntry id="patient_address" value="" class="margin_bottom" required="true" requiredIndicator="(*)" indicatorPosition="right">
+                        <ace:textEntry id="patient_address" value="#{patientBean.patient.address}" class="margin_bottom" required="true" requiredIndicator="(*)" indicatorPosition="right">
                         </ace:textEntry>
 
                         <h:outputLabel id="phone_number" for="patient_phone_number" value="Phone Number"/>
-                        <ace:textEntry id="patient_phone_number" value="" class="margin_bottom" required="true" requiredIndicator="(*)" indicatorPosition="right">
+                        <ace:textEntry id="patient_phone_number" value="#{patientBean.patient.phoneNumber}" class="margin_bottom" required="true" requiredIndicator="(*)" indicatorPosition="right">
                         </ace:textEntry>
 
                         <h:outputLabel id="save" for="save_patient" value=""/>
-                        <ace:pushButton value="Save" id="Save_patient" />
+                        <ace:pushButton value="Save" action="#{patientBean.registerPatient}" id="Save_patient" />
                     </h:panelGrid>
+                    
+                     <div style="width: 100%; min-height: 30px; text-align: center;">
+                         <h:outputText value="#{patientBean.message}" class="#{patientBean.cssClass}" />
+                </div>
 
                 </ace:panel>
             </center>

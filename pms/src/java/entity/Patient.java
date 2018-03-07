@@ -5,16 +5,28 @@
  */
 package entity;
 
+import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 /**
  *
  * @author babu
  */
-public class Patient {
-      private int patientId;
+@ManagedBean(name = "anyPatient")
+@ViewScoped
+
+public class Patient implements Serializable{
+    
+    private static final long serialVersionUID = 1L;
+    
+    private int patientId;
     private String patientName;
     private String address;
     private String phoneNumber;
 
+    
+    
     public Patient() {
     }
 
