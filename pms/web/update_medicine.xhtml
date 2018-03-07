@@ -32,13 +32,13 @@
             <ace:panel id="updateMedicine" header="Update Medicine" style="width: 700px; margin: 0 auto; margin-top: 40px; ">
                 <h:panelGrid id="inputGrid" columns="2" style=" width: 670px;">
                     <h:outputLabel value="Select Company"/>
-                    <ace:comboBox id="selectCompany" value="" class="margin" required="true"/>
+                    <ace:comboBox id="selectCompany" value="" class="margin " required="true" width="208"/>
                     
                     <h:outputLabel value="Select Medicine"/>
-                    <ace:comboBox id="selectMedicine" value="" class="margin"/>
+                    <ace:comboBox id="selectMedicine" value="" class="margin " width="208" />
                     
                     <h:outputLabel value="Medicine Name"/>
-                    <ace:textEntry id="medicineName" value="" class="margin" /> 
+                    <ace:textEntry id="medicineName" value="" class="margin text-entry_size" /> 
                     
                     <h:outputLabel>&nbsp;</h:outputLabel>
                <h:commandButton value="Update" class="submit" />

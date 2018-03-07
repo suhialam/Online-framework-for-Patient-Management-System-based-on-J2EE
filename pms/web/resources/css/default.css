@@ -99,6 +99,8 @@ table tr {
 .submit {
     height: 35px !important;
     border-radius: 5px;
+    
+    
 }
 
 .success-class {
@@ -111,5 +113,12 @@ table tr {
     font-size: 16px;
     color: #FF6600 !important;
     font-weight: bold;
+}
+
+.text-entry_size{
+    width: 200px !important;
+}
+.combo-box-size{
+    width: 300px !important;
 }
 
