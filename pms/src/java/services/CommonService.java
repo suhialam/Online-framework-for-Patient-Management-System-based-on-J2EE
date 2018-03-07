@@ -22,7 +22,7 @@ public class CommonService {
 
     }
 
-    public List<Company> getListCompanys() {
-        return commonDAO.getListCompanys();
+    public List<Company> getListCompanies() {
+        return commonDAO.getListCompanies();
     }
 }

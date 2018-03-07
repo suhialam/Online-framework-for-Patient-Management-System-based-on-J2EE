@@ -18,13 +18,13 @@ import util.SQLQueryUtil;
  */
 public class CommonDAO {
 
-    public List<Company> getListCompanys() {
+    public List<Company> getListCompanies() {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
 
         Company company;
 
-        List<Company> listCompanys = new ArrayList<Company>();
+        List<Company> listCompanies = new ArrayList<Company>();
 
         String query = "SELECT * FROM pms_schema.companies ORDER BY id ASC;";
         try {
@@ -36,7 +36,7 @@ public class CommonDAO {
                 company.setAddress(rs.getString("address"));
                 company.setPhoneNumber(rs.getString("phone_number"));
 
-                listCompanys.add(company);
+                listCompanies.add(company);
 
                 
             }
@@ -47,7 +47,7 @@ public class CommonDAO {
             sql.disconnect();
         }
         
-        return listCompanys;
+        return listCompanies;
     }
 
 }
