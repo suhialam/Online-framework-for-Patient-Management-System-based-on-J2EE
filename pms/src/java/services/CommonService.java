@@ -5,10 +5,24 @@
  */
 package services;
 
+import dao.CommonDAO;
+import entity.Company;
+import java.util.List;
+
 /**
  *
  * @author babu
  */
 public class CommonService {
-    
+
+    private CommonDAO commonDAO;
+
+    public CommonService() {
+        commonDAO = new CommonDAO();
+
+    }
+
+    public List<Company> getListCompanys() {
+        return commonDAO.getListCompanys();
+    }
 }
