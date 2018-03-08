@@ -121,4 +121,9 @@ table tr {
 .combo-box-size{
     width: 300px !important;
 }
+.ui-combobox-cell-right{
+    display: table-cell;
+    white-space: nowrap;
+    background-color: #FF9900;
+}
 

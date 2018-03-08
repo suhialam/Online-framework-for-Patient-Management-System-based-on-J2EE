@@ -62,4 +62,8 @@ public class Patient implements Serializable{
         this.phoneNumber = phoneNumber;
     }
     
+    @Override
+    public String toString(){
+        return patientName;
+    }
 }

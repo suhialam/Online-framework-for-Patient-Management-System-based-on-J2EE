@@ -6,6 +6,7 @@
 package dao;
 
 import entity.Company;
+import entity.Medicine;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -38,16 +39,48 @@ public class CommonDAO {
 
                 listCompanies.add(company);
 
-                
             }
-                            
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
             sql.disconnect();
         }
+
         
+       
         return listCompanies;
+    }
+
+    public List<Medicine> getListMedicines() {
+        SQLQueryUtil sql = new SQLQueryUtil();
+        sql.connect(false);
+
+        Medicine medicine;
+        Company company = new Company();
+        List<Medicine> listMedicines = new ArrayList<Medicine>();
+
+        String query = "SELECT * FROM pms_schema.medicines where company_id="
+                + company.getCompanyId()+ ";";
+        try {
+            ResultSet rs = sql.executeQuery(query);
+            while (rs.next()) {
+                medicine = new Medicine();
+                medicine.setMedicineId(rs.getInt("id"));
+                medicine.setMedicineName(rs.getString("medicine_name"));
+
+                medicine.setCompany(company);
+                listMedicines.add(medicine);
+
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            sql.disconnect();
+        }
+
+        return listMedicines;
     }
 
 }
