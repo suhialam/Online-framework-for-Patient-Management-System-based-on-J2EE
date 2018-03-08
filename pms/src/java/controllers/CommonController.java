@@ -28,13 +28,12 @@ public class CommonController implements Serializable {
     CommonService commonService;
 
     public CommonController() {
-        commonService = new CommonService();
         
+        commonService = new CommonService();        
+        listCompanies = commonService.getListCompanies();
     }
 
     public List<Company> getListCompanies() {
-        listCompanies = commonService.getListCompanies();
-        
         
         return listCompanies;
     }
