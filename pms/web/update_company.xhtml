@@ -32,13 +32,23 @@
             <ace:panel id="updateCompany" header="Update Company" style="width: 700px; margin: 0 auto; margin-top: 40px; ">
                 <h:panelGrid id="inputGrid" columns="2" style=" width: 670px;">
                     <h:outputLabel  value="Select Company"/>
-                    <ace:comboBox id="selectCompany"  required="true" class="margin " width="208" />
+                    <ace:comboBox id="selectCompany" value="SELECT COMPANY" required="true" class="margin " width="208">
+                        <c:forEach   items="#{commonControllerBean.listCompanies}" var="ob" varStatus="true">
+                            <f:selectItem itemValue="#{ob.companyId}" itemLabel="#{ob.companyId} #{ob.companyName}">
+                                
+                            </f:selectItem>
+                        </c:forEach>
+                    </ace:comboBox>
+                    
                     <h:outputLabel value="Company Name"/>
-                    <ace:textEntry id="companyName" value="" class="margin text-entry_size" required="true" requiredIndicator="(*)" indicatorPosition="right"/>
+                    <ace:textEntry id="companyName" value="#{commonControllerBean.company.companyName}" class="margin text-entry_size" required="true" requiredIndicator="(*)" indicatorPosition="right"/>
+                    
                     <h:outputLabel value="Address" />
-                    <ace:textEntry id="address" value="" class="margin text-entry_size" required="true" requiredIndicator="(*)" indicatorPosition="right"  /> 
+                    <ace:textEntry id="address" value="#{commonControllerBean.company.address}" class="margin text-entry_size" required="true" requiredIndicator="(*)" indicatorPosition="right"  /> 
+                   
                     <h:outputLabel value="Phone Number"/>
-                    <ace:textEntry id="phoneNumber" class="margin text-entry_size" value="" /> <br></br>
+                    <ace:textEntry id="phoneNumber" class="margin text-entry_size" value="#{commonControllerBean.company.phoneNumber}" /> <br></br>
+                    
                     <h:commandButton value="Update Company"  class="submit" />
 
                 </h:panelGrid>
