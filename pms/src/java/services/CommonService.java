@@ -7,6 +7,7 @@ package services;
 
 import dao.CommonDAO;
 import entity.Company;
+import entity.Medicine;
 import java.util.List;
 
 /**
@@ -25,4 +26,11 @@ public class CommonService {
     public List<Company> getListCompanies() {
         return commonDAO.getListCompanies();
     }
+    
+    
+  
+       public List<Medicine> getListMedicines(){
+        return commonDAO.getListMedicines();
+    }
+    
 }

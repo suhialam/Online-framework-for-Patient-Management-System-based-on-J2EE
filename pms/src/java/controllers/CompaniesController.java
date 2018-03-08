@@ -92,6 +92,7 @@ public class CompaniesController implements Serializable {
                 message = company.getCompanyName() + " already exists !";
                 cssClass = "failure-class";
             }
+            
         }
 
     }

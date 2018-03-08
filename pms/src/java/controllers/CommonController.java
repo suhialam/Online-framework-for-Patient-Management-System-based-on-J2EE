@@ -6,6 +6,7 @@
 package controllers;
 
 import entity.Company;
+import entity.Medicine;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -36,6 +37,10 @@ public class CommonController implements Serializable {
     public List<Company> getListCompanies() {
         
         return listCompanies;
+    }
+    
+    public List<Medicine> getListMedicine(){
+        return commonService.getListMedicines();
     }
 
     public void setListCompanies(List<Company> listCompanies) {

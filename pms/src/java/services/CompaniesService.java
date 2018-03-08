@@ -29,24 +29,24 @@ public class CompaniesService {
 
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
-       
-            String queryCheck = "SELECT count(*) as count from pms_schema.companies where company_name like('" + company.getCompanyName() + "');";
 
-            try {
-                ResultSet resultSet = sql.executeQuery(queryCheck);
-                resultSet.next();
+        String queryCheck = "SELECT count(*) as count from pms_schema.companies where company_name like('" + company.getCompanyName() + "');";
+        System.out.println(queryCheck);
+        try {
+            ResultSet resultSet = sql.executeQuery(queryCheck);
+            resultSet.next();
 
-                count = resultSet.getInt("count");
+            count = resultSet.getInt("count");
 
-                if (count == 0) {
-                    rowsAffected = companiesDAO.registerCompany(company);
-                }
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            } finally {
-                sql.disconnect();
+            if (count == 0) {
+                rowsAffected = companiesDAO.registerCompany(company);
             }
-       
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            sql.disconnect();
+        }
+
         return rowsAffected;
 
     }
