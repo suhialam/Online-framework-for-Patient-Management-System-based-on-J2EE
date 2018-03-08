@@ -97,6 +97,12 @@ public class CompaniesController implements Serializable {
 
     }
     
-    
+    public void onCompanyChange() {
+        //this.company = this.selectedCompany;
+        
+        System.out.println(companyId);
+        System.out.println("on change");
+        System.out.println();
+    }    
 
 }

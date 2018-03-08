@@ -35,7 +35,8 @@
                     
                     <h:outputLabel  value="Select Company"/>
                     <h:selectOneMenu id="select_company" required="true" class="margin" value="#{companyController.companyId}">
-                           <f:selectItem itemValue="0" itemLabel="Select Company" />
+                           <ace:ajax listener="#{companyController.onCompanyChange}" />
+                           <f:selectItem itemValue="" itemLabel="Select Company" />
                             <f:selectItems value="#{commonController.listCompanies}" var="myCompany" itemLabel="#{myCompany.companyName}" itemValue="#{myCompany.companyId}" />
                             
                     </h:selectOneMenu>

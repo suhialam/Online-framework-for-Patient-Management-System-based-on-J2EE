@@ -28,9 +28,8 @@ public class CommonController implements Serializable {
     
     CommonService commonService;
 
-    public CommonController() {
-        
-        commonService = new CommonService();        
+    public CommonController() {        
+        commonService = new CommonService();
         listCompanies = commonService.getListCompanies();
     }
 
