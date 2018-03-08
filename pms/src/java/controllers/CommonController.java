@@ -23,14 +23,25 @@ public class CommonController implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private List<Company> listCompanies;
+    
     CommonService commonService;
 
     public CommonController() {
         commonService = new CommonService();
+        
     }
 
     public List<Company> getListCompanies() {
-        return commonService.getListCompanies();
+        listCompanies = commonService.getListCompanies();
+        
+        
+        return listCompanies;
     }
+
+    public void setListCompanies(List<Company> listCompanies) {
+        this.listCompanies = listCompanies;
+    }
+
 
 }

@@ -27,9 +27,11 @@ public class CompaniesController implements Serializable {
     private String message;
 
     private String cssClass = "";
-
+    
+    private String companyId;
+    
     public CompaniesController() {
-
+        
     }
 
     public String getCssClass() {
@@ -56,6 +58,14 @@ public class CompaniesController implements Serializable {
         this.message = message;
     }
 
+    public String getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
+    }
+
     public void registerCompany() {
         int rowsAffected = 0;
 
@@ -77,16 +87,15 @@ public class CompaniesController implements Serializable {
                 company.setCompanyName("");
                 company.setAddress("");
                 company.setPhoneNumber("");
-                 
-    //return "/page.xhtml?faces-redirect=true";
+
             } else {
                 message = company.getCompanyName() + " already exists !";
                 cssClass = "failure-class";
             }
         }
 
-        //return message;
-
     }
+    
+    
 
 }

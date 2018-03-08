@@ -47,7 +47,8 @@ public class CommonDAO {
             sql.disconnect();
         }
         
+       
         return listCompanies;
     }
-
+    
 }
