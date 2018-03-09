@@ -20,7 +20,6 @@ public class CommonService {
 
     public CommonService() {
         commonDAO = new CommonDAO();
-
     }
 
     public List<Company> getListCompanies() {
@@ -33,4 +32,7 @@ public class CommonService {
         return commonDAO.getListMedicines();
     }
     
+       public Company findCompany(String companyId) {
+        return commonDAO.findCompany(companyId);
+       }
 }

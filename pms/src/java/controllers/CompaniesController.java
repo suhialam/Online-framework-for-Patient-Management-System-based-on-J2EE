@@ -10,6 +10,7 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import services.CommonService;
 import services.CompaniesService;
 
 /**
@@ -29,6 +30,8 @@ public class CompaniesController implements Serializable {
     private String cssClass = "";
     
     private String companyId;
+    
+    private CommonService commonService;
     
     public CompaniesController() {
         
@@ -98,11 +101,14 @@ public class CompaniesController implements Serializable {
     }
     
     public void onCompanyChange() {
-        //this.company = this.selectedCompany;
+        commonService = new CommonService();
         
-        System.out.println(companyId);
-        System.out.println("on change");
-        System.out.println();
+        company = commonService.findCompany(companyId);
+        
+        System.out.println(company.getCompanyId());
+        System.out.println(company.getCompanyName());
+        System.out.println(company.getAddress());
+        System.out.println(company.getPhoneNumber());
     }    
 
 }
