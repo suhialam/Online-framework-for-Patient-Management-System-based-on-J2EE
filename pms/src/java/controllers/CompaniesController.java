@@ -105,14 +105,15 @@ public class CompaniesController implements Serializable {
 
         company = commonService.findCompany(companyId);
 
-        System.out.println(company.getCompanyId());
-        System.out.println(company.getCompanyName());
-        System.out.println(company.getAddress());
-        System.out.println(company.getPhoneNumber());
+
     }
 
     public void updateCompany() {
         int rowsAffected = 0;
+                System.out.println(company.getCompanyId());
+        System.out.println(company.getCompanyName());
+        System.out.println(company.getAddress());
+        System.out.println(company.getPhoneNumber());
 
         if (company.getCompanyName().trim().equals("")
                 || company.getAddress().trim().equals("")
@@ -139,7 +140,7 @@ public class CompaniesController implements Serializable {
             }
 
         }
-        System.out.println("hello");
+        
     }
 
 }

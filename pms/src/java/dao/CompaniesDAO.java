@@ -45,7 +45,8 @@ public class CompaniesDAO {
         sql.connect(false);
 
         String queryInsert = "UPDATE pms_schema.companies  SET company_name='"
-                 + company.getCompanyName() + "', address='" + company.getAddress() + "', phone_number='" + company.getPhoneNumber() + "';";
+                 + company.getCompanyName() + "', address='" + company.getAddress() + "', phone_number='" + company.getPhoneNumber()
+                + "' WHERE id=" + company.getCompanyId() + ";";
 
         System.out.println(queryInsert);
 
