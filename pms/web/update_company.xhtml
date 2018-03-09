@@ -4,9 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:ace="http://www.icefaces.org/icefaces/components"
-      xmlns:icecore="http://www.icefaces.org/icefaces/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html;
@@ -48,9 +46,9 @@
                     <ace:textEntry id="address" value="#{companyController.company.address}" class="margin text-entry_size" required="true" requiredIndicator="(*)" indicatorPosition="right"  /> 
                     
                     <h:outputLabel value="Phone Number"/>
-                    <ace:textEntry id="phoneNumber" class="margin text-entry_size" value="#{companyController.company.phoneNumber}" /> <br></br>
+                    <ace:textEntry id="phoneNumber" class="margin text-entry_size" value="#{companyController.company.phoneNumber}" required="true" /> <br></br>
                     
-                    <h:commandButton value="Update Company"  class="submit" />
+                    <h:commandButton value="Update Company" action="updateCompany"  class="submit" />
 
                 </h:panelGrid>
 

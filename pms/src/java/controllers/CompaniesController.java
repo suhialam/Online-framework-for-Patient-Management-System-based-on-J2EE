@@ -28,13 +28,13 @@ public class CompaniesController implements Serializable {
     private String message;
 
     private String cssClass = "";
-    
+
     private String companyId;
-    
+
     private CommonService commonService;
-    
+
     public CompaniesController() {
-        
+
     }
 
     public String getCssClass() {
@@ -75,7 +75,7 @@ public class CompaniesController implements Serializable {
         if (company.getCompanyName().trim().equals("")
                 || company.getAddress().trim().equals("")
                 || company.getPhoneNumber().trim().equals("")) {
-            System.out.println("empty data can not be sotred.");
+            System.out.println("empty data can not be stored.");
             message = "Empty data can not be stored. Please fill the form properly.";
             cssClass = "failure-class";
         } else {
@@ -86,7 +86,7 @@ public class CompaniesController implements Serializable {
             if (rowsAffected > 0) {
                 message = company.getCompanyName() + " registered successfully !";
                 cssClass = "success-class";
-                
+
                 company.setCompanyName("");
                 company.setAddress("");
                 company.setPhoneNumber("");
@@ -95,20 +95,51 @@ public class CompaniesController implements Serializable {
                 message = company.getCompanyName() + " already exists !";
                 cssClass = "failure-class";
             }
-            
+
         }
 
     }
-    
+
     public void onCompanyChange() {
         commonService = new CommonService();
-        
+
         company = commonService.findCompany(companyId);
-        
+
         System.out.println(company.getCompanyId());
         System.out.println(company.getCompanyName());
         System.out.println(company.getAddress());
         System.out.println(company.getPhoneNumber());
-    }    
+    }
+
+    public void updateCompany() {
+        int rowsAffected = 0;
+
+        if (company.getCompanyName().trim().equals("")
+                || company.getAddress().trim().equals("")
+                || company.getPhoneNumber().trim().equals("")) {
+            System.out.println("empty data can not be updated.");
+            message = "Empty data can not be updated. Please fill the form properly.";
+            cssClass = "failure-class";
+        } else {
+            
+            CompaniesService companiesService = new CompaniesService();
+            rowsAffected = companiesService.updateCompany(company);
+
+            if (rowsAffected > 0) {
+                message = company.getCompanyName() + " registered successfully !";
+                cssClass = "success-class";
+
+                company.setCompanyName("");
+                company.setAddress("");
+                company.setPhoneNumber("");
+
+            } else {
+                message = company.getCompanyName() + " already exists !";
+                cssClass = "failure-class";
+            }
+
+        }
+        System.out.println("hello");
+    }
 
 }

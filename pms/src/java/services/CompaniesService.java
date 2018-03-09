@@ -51,4 +51,7 @@ public class CompaniesService {
 
     }
 
+    public int updateCompany(Company company) {
+        return companiesDAO.updateCompany(company);
+    }
 }
