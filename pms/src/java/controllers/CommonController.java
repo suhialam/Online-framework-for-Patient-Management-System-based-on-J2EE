@@ -9,9 +9,7 @@ import entity.Company;
 import entity.Medicine;
 import java.io.Serializable;
 import java.util.List;
-import javax.faces.bean.CustomScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import services.CommonService;
 
@@ -19,7 +17,7 @@ import services.CommonService;
  *
  * @author babu
  */
-@ManagedBean(name = "commonControllerBean")
+@ManagedBean(name = "commonController")
 @ViewScoped
 
 public class CommonController implements Serializable {
@@ -29,7 +27,7 @@ public class CommonController implements Serializable {
     private List<Company> listCompanies;
     
     CommonService commonService;
-
+    private Company company;
     public CommonController() {        
         commonService = new CommonService();
         listCompanies = commonService.getListCompanies();
