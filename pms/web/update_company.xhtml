@@ -42,13 +42,13 @@
                     </h:selectOneMenu>
                     
                     <h:outputLabel value="Company Name"/>
-                    <ace:textEntry id="companyName" value="" class="margin text-entry_size" required="true" requiredIndicator="(*)" indicatorPosition="right"/>
+                    <ace:textEntry id="companyName" value="#{companyController.company.companyName}" class="margin text-entry_size" required="true" requiredIndicator="(*)" indicatorPosition="right" />
                     
                     <h:outputLabel value="Address" />
-                    <ace:textEntry id="address" value="" class="margin text-entry_size" required="true" requiredIndicator="(*)" indicatorPosition="right"  /> 
+                    <ace:textEntry id="address" value="#{companyController.company.address}" class="margin text-entry_size" required="true" requiredIndicator="(*)" indicatorPosition="right"  /> 
                     
                     <h:outputLabel value="Phone Number"/>
-                    <ace:textEntry id="phoneNumber" class="margin text-entry_size" value="" /> <br></br>
+                    <ace:textEntry id="phoneNumber" class="margin text-entry_size" value="#{companyController.company.phoneNumber}" /> <br></br>
                     
                     <h:commandButton value="Update Company"  class="submit" />
 

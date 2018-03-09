@@ -84,7 +84,7 @@ public class CommonDAO {
     }
 
     public Company findCompany(String companyId) {
-        Company company2 = new Company();
+        Company selectedCompany = new Company();
         
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
@@ -95,17 +95,17 @@ public class CommonDAO {
             ResultSet resultSet = sql.executeQuery(query);
             resultSet.next();
             
-            company2.setCompanyId(resultSet.getInt("id"));
-            company2.setCompanyName(resultSet.getString("company_name"));
-            company2.setAddress(resultSet.getString("address"));
-            company2.setPhoneNumber(resultSet.getString("phone_number"));
+            selectedCompany.setCompanyId(resultSet.getInt("id"));
+            selectedCompany.setCompanyName(resultSet.getString("company_name"));
+            selectedCompany.setAddress(resultSet.getString("address"));
+            selectedCompany.setPhoneNumber(resultSet.getString("phone_number"));
             
         } catch(SQLException ex) {
             ex.printStackTrace();
         } finally {
             sql.disconnect();
         }
-        return company2;        
+        return selectedCompany;        
        }
 
 }
