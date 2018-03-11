@@ -27,11 +27,21 @@ public class CommonController implements Serializable {
     private List<Company> listCompanies;
     
     CommonService commonService;
-
+    private Company company;
     public CommonController() {        
         commonService = new CommonService();
         listCompanies = commonService.getListCompanies();
     }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+    
+    
 
     public List<Company> getListCompanies() {
         

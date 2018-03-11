@@ -83,4 +83,29 @@ public class CommonDAO {
         return listMedicines;
     }
 
+    public Company findCompany(String companyId) {
+        Company selectedCompany = new Company();
+        
+        SQLQueryUtil sql = new SQLQueryUtil();
+        sql.connect(false);
+        
+        String query = "SELECT * FROM pms_schema.companies where id=" + companyId + ";";
+    System.out.println(query);
+        try {
+            ResultSet resultSet = sql.executeQuery(query);
+            resultSet.next();
+            
+            selectedCompany.setCompanyId(resultSet.getInt("id"));
+            selectedCompany.setCompanyName(resultSet.getString("company_name"));
+            selectedCompany.setAddress(resultSet.getString("address"));
+            selectedCompany.setPhoneNumber(resultSet.getString("phone_number"));
+            
+        } catch(SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            sql.disconnect();
+        }
+        return selectedCompany;        
+       }
+
 }
