@@ -3,10 +3,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:ace="http://www.icefaces.org/icefaces/components"
-      xmlns:icecore="http://www.icefaces.org/icefaces/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html;
@@ -14,6 +11,12 @@
         <title>Patient Management System</title>
         <h:outputStylesheet library="css" name="theme.css"></h:outputStylesheet>
         <h:outputStylesheet library="css" name="default.css"></h:outputStylesheet>
+        <style>
+            .margin{
+                margin-bottom: 15px !important;
+            }
+        </style>
+
     </h:head>
     <h:body>
         <!-- header inclusion-->
@@ -24,26 +27,42 @@
 
         <!-- your code starts here-->
         <h:form >
-            <ace:panel id="personalInfoInputPanel" header="New perscription"  styleClass="required-styling-demo" style="width: 600px; margin: 0 auto;margin-top: 50px;">
-                <h:panelGrid id="inputGrid" columns="1" width="100%" >
+            <ace:panel id="personalInfoInputPanel" header="New perscription"  styleClass="required-styling-demo" style="width: 800px; margin: 0 auto;margin-top: 50px;">
+                <h:panelGrid id="inputGrid" columns="2" width="100%" >
 
-                    <ace:textEntry id="patient_name" value="#{textEntryBean.firstName}" label="patient name" labelPosition="left"  required="true" requiredIndicator="(*)" indicatorPosition="right" placeholder="Company Name">
+                    <h:outputLabel  value="Select Company"/>
+                    <ace:comboBox  required="true" class="margin" width="208" value=""  >
                         <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
-                    </ace:textEntry><br></br><br></br>
+                    </ace:comboBox>
 
-                    <ace:textEntry id="quantity" value="#{textEntryBean.firstName}" label="quantity" labelPosition="left"  required="true" requiredIndicator="(*)" indicatorPosition="right" placeholder="Company Name">
+                    <h:outputLabel  value="Select Medicine"/>
+                    <ace:comboBox  required="true" class="margin" width="208" value=""  >
                         <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
-                    </ace:textEntry><br></br><br></br>
+                    </ace:comboBox>
 
-                    <ace:textEntry id="dosage" value="#{textEntryBean.firstName}" label="dosage" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
-                        <ace:ajax render="@this firystNameOutput firstNameMsg" event="blur"/>
-                    </ace:textEntry><br></br><br></br>
+                    <h:outputLabel  value="Select Packing"/>
+                    <ace:comboBox  required="true" class="margin" width="208" value=""  >
+                        <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
+                    </ace:comboBox>
 
-                    <ace:textEntry id="prescription_date" value="#{textEntryBean.firstName}" label="prescription date" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
+                    <h:outputLabel value="Dosage"/>
+                    <ace:textEntry id="select_quantity" required="true" class="margin text-entry_size" requiredIndicator="(*)" indicatorPosition="right">
                         <ace:ajax render="@this firsfvtNameOutput firstNameMsg" event="blur"/>
-                    </ace:textEntry><br></br><br></br>
-
-                    <ace:pushButton value="Save" style="width: 150px;margin-left: 130px"/>
+                    </ace:textEntry>      
+                </h:panelGrid >
+                <h:panelGrid id="dtPanelGrid" width="100%">
+                    <ace:dataTable id="new_prescription" value="" paginator="true" paginatorPosition="bottom" rows="10">
+                        <ace:column id="searchPatient" headerText="Search Patient" sortBy="#{student.studentName}"
+                                    filterBy="#{student.studentName}" filterMatchMode="contains">
+                        </ace:column>
+                        <ace:column id="selectPatient" headerText="Select Patient" sortBy="#{student.studentName}"
+                                    filterBy="#{student.studentName}" filterMatchMode="contains">
+                        </ace:column>
+                        <ace:column id="prescriptionDate" headerText="Prescription date" sortBy="#{student.studentName}"
+                                    filterBy="#{student.studentName}" filterMatchMode="contains">
+                        </ace:column>
+                    </ace:dataTable>
+                    <ace:pushButton value="Save" style="width: 150px;margin-left: 290px"/>
                 </h:panelGrid>
             </ace:panel>
             <!-- your code ends here-->
