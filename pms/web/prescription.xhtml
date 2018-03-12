@@ -46,21 +46,27 @@
                     </ace:comboBox>
 
                     <h:outputLabel value="Dosage"/>
-                    <ace:textEntry id="select_quantity" required="true" class="margin text-entry_size" requiredIndicator="(*)" indicatorPosition="right">
+                    <ace:textEntry id="select_quantity" required="true" class="margin text-entry_size"  indicatorPosition="right">
                         <ace:ajax render="@this firsfvtNameOutput firstNameMsg" event="blur"/>
                     </ace:textEntry>      
                 </h:panelGrid >
                 <h:panelGrid id="dtPanelGrid" width="100%">
-                    <ace:dataTable id="new_prescription" value="" paginator="true" paginatorPosition="bottom" rows="10">
-                        <ace:column id="searchPatient" headerText="Search Patient" sortBy="#{student.studentName}"
-                                    filterBy="#{student.studentName}" filterMatchMode="contains">
+                    <ace:dataTable id="prescription" value="" paginator="true" paginatorPosition="bottom" rows="10">
+                                   <ace:column id="a" headerText="Search patient" sortBy=""
+                                filterBy="#{patient}" filterMatchMode="contains">
+                            <h:outputText id="ab" value="" />
                         </ace:column>
-                        <ace:column id="selectPatient" headerText="Select Patient" sortBy="#{student.studentName}"
-                                    filterBy="#{student.studentName}" filterMatchMode="contains">
+
+                        <ace:column id="b" headerText="Select patient" sortBy=""
+                                    filterBy="#{patient}" filterMatchMode="contains">
+                            <h:outputText id="bc" value="" />
                         </ace:column>
-                        <ace:column id="prescriptionDate" headerText="Prescription date" sortBy="#{student.studentName}"
-                                    filterBy="#{student.studentName}" filterMatchMode="contains">
+
+                        <ace:column id="c" headerText="Prescription date" sortBy=""
+                                    filterBy="#{patient}" filterMatchMode="contains">
+                            <h:outputText id="cd" value="" />
                         </ace:column>
+                        
                     </ace:dataTable>
                     <ace:pushButton value="Save" style="width: 150px;margin-left: 290px"/>
                 </h:panelGrid>
