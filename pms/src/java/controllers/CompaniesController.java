@@ -127,7 +127,7 @@ public class CompaniesController implements Serializable {
             rowsAffected = companiesService.updateCompany(company);
 
             if (rowsAffected > 0) {
-                message = company.getCompanyName() + " registered successfully !";
+                message = company.getCompanyName() + " Updated successfully !";
                 cssClass = "success-class";
 
                 company.setCompanyName("");

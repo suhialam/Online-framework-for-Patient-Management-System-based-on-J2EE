@@ -16,6 +16,11 @@
             .margin{
                 margin-bottom: 15px !important;
             }
+            .combobox-size{
+               width: 200px !important;
+                height: 30px !important;
+                
+            }
 
         </style>
     </h:head>
@@ -32,7 +37,7 @@
                 <h:panelGrid id="inputGrid" columns="2" style=" width: 670px;">
 
                     <h:outputLabel  value="Select Company"/>
-                    <h:selectOneMenu id="select_company" required="true" class="margin" value="#{companyController.companyId}">
+                    <h:selectOneMenu id="select_company" required="true" class="margin combobox-size"  value="#{companyController.companyId}">
                         <ace:ajax listener="#{companyController.onCompanyChange}" />
                         <f:selectItem itemValue="" itemLabel="Select Company" />
                         <f:selectItems value="#{commonController.listCompanies}" var="myCompany" itemLabel="#{myCompany.companyName}" itemValue="#{myCompany.companyId}" />
