@@ -55,5 +55,9 @@ public class PatientService {
             sql.disconnect();
         }
         return rowsAffected;
-    } 
+    }
+    
+     public int updatePatient(Patient patient, String patientId) {
+         return patientsDAO.updatePatient(patient,patientId);
+     }
 }

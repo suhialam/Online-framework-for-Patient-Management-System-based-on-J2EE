@@ -48,30 +48,33 @@
                 <h:panelGrid id="inputGrid" width="100%" columns="2" 
                              styleClass="textEntryInputTable" >
 
-                    <h:outputLabel id="search_patient" for="search_patient_field"
-                                   value="Search Patient"  />
-                    <ace:textEntry id="search_patient_field" required="true"
-                                   requiredIndicator="*" placeholder="Search Patient"
-                                   indicatorPosition="right" class="margin text-entry_size" />
+                   
 
-                    <h:outputLabel id="cmb_patient" for="patients" value="Select Patient"  />
-                    <ace:comboBox  id="patients" required="true" 
-                                   requiredIndicator="*" indicatorPosition="right" class="margin " width="208"/>
+                    <h:outputLabel value="Select Patient"  />
+                
+                    <h:selectOneMenu id="select_patient" required="true" class="margin" value="#{patientBean.patientId}">
+                        <ace:ajax listener="#{patientBean.onPatientChange}" />
+                        <f:selectItem itemValue="" itemLabel="Select Patient" />
+                        <f:selectItems value="#{commonController.listPatient}" var="myPatient" itemLabel="#{myPatient.patientName}" itemValue="#{myPatient.patientId}" />
 
-                    <h:outputLabel id="patient_name" for="patient_name_field"
-                                   value="Patient Name"/>
-                    <ace:textEntry id="patient_name_field" class="margin text-entry_size" placeholder="Patient Name" />
+                    </h:selectOneMenu>
 
-                    <h:outputLabel id="patient_address" for="address" value="Address"/>
-                    <ace:textEntry id="address" class="margin text-entry_size" placeholder="Address" />
+                    
+                    <h:outputLabel value="Patient Name"/>
+                    <ace:textEntry id="patient_name_field"  value="#{patientBean.patient.patientName}" class="margin text-entry_size" placeholder="Patient Name" />
 
-                    <h:outputLabel id="patient_phone_number" for="phone_number" value="Phone Number"/>
-                    <ace:textEntry id="phone_number" class="margin text-entry_size" placeholder="Phone Number " />
+                    <h:outputLabel value="Address"/>
+                    <ace:textEntry id="address"  value="#{patientBean.patient.address}" class="margin text-entry_size" placeholder="Address" />
 
-                    <h:outputLabel id="button" for="update_patient" value=""/>
-                    <ace:pushButton id="update_patient"  value="Submit" class="margin" />
+                    <h:outputLabel  value="Phone Number"/>
+                    <ace:textEntry id="phone_number"  value="#{patientBean.patient.phoneNumber}" class="margin text-entry_size" placeholder="Phone Number " />
+
+                    <h:commandButton value="Update Patient" action="#{patientBean.updatePatient}"  class="submit" />
 
                 </h:panelGrid>
+                <div style="width: 100%; min-height: 20px; text-align: center;">
+                    <h:outputText value="#{patientBean.message}" class="#{patientBean.cssClass}" />
+                </div>
             </ace:panel>
         </h:form>
 

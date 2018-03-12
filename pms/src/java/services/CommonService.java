@@ -8,6 +8,7 @@ package services;
 import dao.CommonDAO;
 import entity.Company;
 import entity.Medicine;
+import entity.Patient;
 import java.util.List;
 
 /**
@@ -25,14 +26,20 @@ public class CommonService {
     public List<Company> getListCompanies() {
         return commonDAO.getListCompanies();
     }
-    
-    
-  
-       public List<Medicine> getListMedicines(){
+
+    public List<Medicine> getListMedicines() {
         return commonDAO.getListMedicines();
     }
-    
-       public Company findCompany(String companyId) {
+
+    public Company findCompany(String companyId) {
         return commonDAO.findCompany(companyId);
-       }
+    }
+
+    public List<Patient> getListPatient() {
+        return commonDAO.getListPatient();
+
+    }
+     public Patient findPatient(String patientId) {
+         return commonDAO.findPatient(patientId);
+     }
 }

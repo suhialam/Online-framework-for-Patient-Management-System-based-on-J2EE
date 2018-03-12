@@ -7,6 +7,7 @@ package controllers;
 
 import entity.Company;
 import entity.Medicine;
+import entity.Patient;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -25,12 +26,13 @@ public class CommonController implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private List<Company> listCompanies;
-    
     CommonService commonService;
     private Company company;
-    public CommonController() {        
+
+    public CommonController() {
         commonService = new CommonService();
         listCompanies = commonService.getListCompanies();
+
     }
 
     public Company getCompany() {
@@ -40,15 +42,13 @@ public class CommonController implements Serializable {
     public void setCompany(Company company) {
         this.company = company;
     }
-    
-    
 
     public List<Company> getListCompanies() {
-        
+
         return listCompanies;
     }
-    
-    public List<Medicine> getListMedicine(){
+
+    public List<Medicine> getListMedicine() {
         return commonService.getListMedicines();
     }
 
@@ -56,5 +56,8 @@ public class CommonController implements Serializable {
         this.listCompanies = listCompanies;
     }
 
+    public List<Patient> getListPatient() {
+        return commonService.getListPatient();
+    }
 
 }

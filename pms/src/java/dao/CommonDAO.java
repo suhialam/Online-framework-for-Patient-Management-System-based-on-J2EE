@@ -7,6 +7,7 @@ package dao;
 
 import entity.Company;
 import entity.Medicine;
+import entity.Patient;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -47,8 +48,6 @@ public class CommonDAO {
             sql.disconnect();
         }
 
-        
-       
         return listCompanies;
     }
 
@@ -61,7 +60,7 @@ public class CommonDAO {
         List<Medicine> listMedicines = new ArrayList<Medicine>();
 
         String query = "SELECT * FROM pms_schema.medicines where company_id="
-                + company.getCompanyId()+ ";";
+                + company.getCompanyId() + ";";
         try {
             ResultSet rs = sql.executeQuery(query);
             while (rs.next()) {
@@ -85,27 +84,83 @@ public class CommonDAO {
 
     public Company findCompany(String companyId) {
         Company selectedCompany = new Company();
-        
+
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
-        
+
         String query = "SELECT * FROM pms_schema.companies where id=" + companyId + ";";
-    System.out.println(query);
+        System.out.println(query);
         try {
             ResultSet resultSet = sql.executeQuery(query);
             resultSet.next();
-            
+
             selectedCompany.setCompanyId(resultSet.getInt("id"));
             selectedCompany.setCompanyName(resultSet.getString("company_name"));
             selectedCompany.setAddress(resultSet.getString("address"));
             selectedCompany.setPhoneNumber(resultSet.getString("phone_number"));
-            
-        } catch(SQLException ex) {
+
+        } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
             sql.disconnect();
         }
-        return selectedCompany;        
-       }
+        return selectedCompany;
+    }
+
+    public List<Patient> getListPatient() {
+        SQLQueryUtil sql = new SQLQueryUtil();
+        sql.connect(false);
+
+        List<Patient> listPatient = new ArrayList<Patient>();
+        Patient patient;
+
+        String query = "SELECT * FROM pms_schema.patients ORDER BY id ASC;";
+
+        try {
+            ResultSet rs = sql.executeQuery(query);
+            while (rs.next()) {
+                patient = new Patient();
+                patient.setPatientId(rs.getInt("id"));
+                patient.setPatientName(rs.getString("patient_name"));
+                patient.setAddress(rs.getString("address"));
+                patient.setPhoneNumber(rs.getString("phone_number"));
+
+                listPatient.add(patient);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            sql.disconnect();
+        }
+        return listPatient;
+
+    }
+
+    public Patient findPatient(String patientId) {
+        Patient selectedPatient = new Patient();
+
+        SQLQueryUtil sql = new SQLQueryUtil();
+        sql.connect(false);
+
+        String query = "SELECT * FROM pms_schema.patients where id=" + patientId + ";";
+
+        try {
+            ResultSet rs = sql.executeQuery(query);
+            rs.next();
+            
+            selectedPatient = new Patient();
+            selectedPatient.setPatientId(rs.getInt("id"));
+            selectedPatient.setPatientName(rs.getString("patient_name"));
+            selectedPatient.setAddress(rs.getString("address"));
+            selectedPatient.setPhoneNumber(rs.getString("phone_number"));
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            sql.disconnect();
+        }
+        return selectedPatient;
+
+    }
 
 }
