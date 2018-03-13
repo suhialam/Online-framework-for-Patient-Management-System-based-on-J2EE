@@ -32,16 +32,24 @@
             <ace:panel class="panel" id="personalInfoInputPanel" header="Add Medicine"  styleClass="required-styling-demo" style="width: 600px; margin: 0 auto;margin-top: 50px;">
                 <h:panelGrid id="inputGrid" columns="2" width="100%" styleClass="textEntryInputTable">
                     <h:outputLabel  value="Select Company"/>
-                    <ace:comboBox  required="true" class="margin" width="208" value=""  >
-                        <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
+                    <ace:comboBox  required="true" placeholder="Select Company" class="margin" width="208" value="#{medicineController.companyId}"  >
+                        
+                        <c:forEach items="#{commonController.listCompanies}" var="ob" >
+                          
+                            <f:selectItem  itemValue="#{ob.companyId}" itemLabel="#{ob.companyName}" />
+                        </c:forEach>
+                       
                     </ace:comboBox>
                     <h:outputLabel value="Medicine Name"/>
-                    <ace:textEntry id="medicine_name" required="true" class="margin text-entry_size" requiredIndicator="(*)" indicatorPosition="right">
+                    <ace:textEntry id="medicine_name" value="#{medicineController.medicine.medicineName}" required="true" class="margin text-entry_size" requiredIndicator="(*)" indicatorPosition="right">
                         <ace:ajax render="@this firsfvtNameOutput firstNameMsg" event="blur"/>
                     </ace:textEntry><br></br>
-                  <h:commandButton value="Add Medicine" class="submit" />
+                    <h:commandButton value="Add Medicine" class="submit" action="#{medicineController.registerMedicine}"/>
 
                 </h:panelGrid>
+                <div style="width: 100%; min-height: 30px; text-align: center;">
+                    <h:outputText value="#{medicineController.message}" class="#{medicineController.cssClass}" />
+                </div>
             </ace:panel>   
             <!-- your code ends here-->
         </h:form>

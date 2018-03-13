@@ -31,23 +31,22 @@
                 </h:panelGrid>
                 <h:panelGrid id="dtPanelGrid" width="100%">
                      <ace:dataTable id="patientHistory" value="" paginator="true" paginatorPosition="bottom" rows="10">
-                                   <ace:column id="Pname" headerText="Patient Name" sortBy="#{student.studentName}"
-                                filterBy="#{student.studentName}" filterMatchMode="contains">
-                            <h:outputText id="PnameCell" value="#{student.studentName}" />
+                         <ace:column  headerText="Comapany Name" >
+                            
+                        </ace:column>          
+                         <ace:column headerText="Medicine Name" filterMatchMode="contains">
+                           
                         </ace:column>
 
-                        <ace:column id="quantity" headerText="Quantity" sortBy="#{student.address}"
-                                    filterBy="#{student.address}" filterMatchMode="contains">
-                            <h:outputText id="quantityCell" value="#{student.address}" />
+                        <ace:column id="quantity" headerText="Quantity" >
+                            
                         </ace:column>
 
-                        <ace:column id="dosage" headerText="Dosage" sortBy="#{student.phoneNumber}"
-                                    filterBy="#{student.phoneNumber}" filterMatchMode="contains">
-                            <h:outputText id="dosageCell" value="#{student.phoneNumber}" />
+                        <ace:column id="dosage" headerText="Dosage" >
+                            
                         </ace:column>
-                        <ace:column id="prescriptionDate" headerText="Prescription Date" sortBy="#{student.phoneNumber}"
-                                    filterBy="#{student.phoneNumber}" filterMatchMode="contains">
-                            <h:outputText id="prescriptionDateCell" value="#{student.phoneNumber}" />
+                        <ace:column id="prescriptionDate" headerText="Prescription Date" >
+                            
                         </ace:column>
                     </ace:dataTable>
                 </h:panelGrid>

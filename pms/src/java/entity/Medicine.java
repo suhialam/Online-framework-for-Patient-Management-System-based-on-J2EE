@@ -5,11 +5,17 @@
  */
 package entity;
 
+import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 /**
  *
  * @author babu
  */
-public class Medicine {
+@ManagedBean(name = "anyMedicine")
+@ViewScoped
+public class Medicine implements Serializable{
 
     private Company company;
     
