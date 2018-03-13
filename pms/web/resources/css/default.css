@@ -149,4 +149,5 @@ table tr {
 
 .ui-combobox-cell-right {
     background-color: #f3f1f0 !important;   
+    background:none !important;
 }
