@@ -146,3 +146,7 @@ table tr {
 .btn-width {
     width: 207px !important;
 }
+
+.ui-combobox-cell-right {
+    background:none !important;
+}
