@@ -143,3 +143,6 @@ table tr {
     padding: 10px;
 }
 
+.btn-width {
+    width: 207px !important;
+}
