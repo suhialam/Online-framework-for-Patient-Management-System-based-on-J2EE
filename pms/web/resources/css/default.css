@@ -146,9 +146,7 @@ table tr {
 .btn-width {
     width: 207px !important;
 }
-.ui-combobox-cell-left {
-    padding-right: 7px !important;
-}
+
 .ui-combobox-cell-right {
     background-color: #f3f1f0 !important;   
 }
