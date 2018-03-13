@@ -54,13 +54,13 @@ body {
 }
 
 .success-message {
-	font-size: 22px;
-	color: green;
+    font-size: 22px;
+    color: green;
 }
 
 .failure-message {
-	font-size: 22px;
-	color: red;
+    font-size: 22px;
+    color: red;
 }
 
 .ui-widget-header {
@@ -75,12 +75,12 @@ body {
 
 
 input {
-        border: 1px solid #FF9900 !important;
-        background: none !important;
-        background-color: #FF9900 !important;
-        color: #000 !important;
-        height: 30px !important;
-        
+    border: 1px solid #FF9900 !important;
+    background: none !important;
+    background-color: #FF9900 !important;
+    color: #000 !important;
+    height: 30px !important;
+
 }
 
 table tr {
@@ -99,8 +99,8 @@ table tr {
 .submit {
     height: 35px !important;
     border-radius: 5px;
-    
-    
+
+
 }
 
 .success-class {
@@ -131,7 +131,7 @@ table tr {
     margin-top: 100px;
     width: 100%;
     height: 400px;
-    
+
 }
 
 .login {
@@ -145,4 +145,10 @@ table tr {
 
 .btn-width {
     width: 207px !important;
+}
+.ui-combobox-cell-left {
+    padding-right: 7px !important;
+}
+.ui-combobox-cell-right {
+    background-color: #f3f1f0 !important;   
 }
