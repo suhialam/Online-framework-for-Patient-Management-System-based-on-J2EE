@@ -79,7 +79,7 @@ public class PatientsController implements Serializable {
             rowsAffected = patientService.registerPatient(patient);
 
             if (rowsAffected > 0) {
-                message = patient.getPatientName() + " Patient Updated Successfully !";
+                message = patient.getPatientName() + " Patient Register Successfully !";
                 cssClass = "success-class";
 
                 patient.setPatientName("");
@@ -118,7 +118,7 @@ public class PatientsController implements Serializable {
             rowsAffected = patientService.updatePatient(patient, patientId);
 
             if (rowsAffected > 0) {
-                message = patient.getPatientName() + " registered successfully !";
+                message = patient.getPatientName() + " Updated successfully !";
                 cssClass = "success-class";
 
                 patient.setPatientName("");
