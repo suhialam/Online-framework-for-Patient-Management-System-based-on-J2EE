@@ -35,8 +35,8 @@
             <ace:panel id="updateMedicine" header="Update Medicine" style="width: 700px; margin: 0 auto; margin-top: 40px; ">
                 <h:panelGrid id="inputGrid" columns="2" style=" width: 670px;">
                     <h:outputLabel value="Select Company"/>
-                     <ace:comboBox  required="true" placeholder="Select Company" class="margin" width="208" value="#{medicineController.companyId}"  >
-                        
+                     <ace:comboBox  required="true" placeholder="Select Company" class="margin" width="208" value="#{medicineController.companyId}">
+                         <ace:ajax listener="#{medicineController.onCompanyChange}" />
                         <c:forEach items="#{commonController.listCompanies}" var="ob" >
                           
                             <f:selectItem  itemValue="#{ob.companyId}" itemLabel="#{ob.companyName}" />

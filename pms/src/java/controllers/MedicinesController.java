@@ -79,8 +79,6 @@ public class MedicinesController implements Serializable {
     public void onCompanyChange() {
         commonService = new CommonService();
         System.out.println(companyId);
-        medicine = new Medicine();
-        medicine = commonService.findMedicine(companyId, medicineId);
 
     }
 
