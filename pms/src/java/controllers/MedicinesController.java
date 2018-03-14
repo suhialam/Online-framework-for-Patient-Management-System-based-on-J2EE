@@ -76,16 +76,41 @@ public class MedicinesController implements Serializable {
             rowAffected = medicineService.registerMedicine(medicine, companyId);
 
             if (rowAffected > 0) {
-                message = medicine.getMedicineName()+" registered successfully";
+                message = medicine.getMedicineName() + " registered successfully";
                 cssClass = "success-class";
-                
+
                 medicine.setMedicineName("");
-            }else{
-                message = medicine.getMedicineName() +" already exists";
+            } else {
+                message = medicine.getMedicineName() + " already exists";
                 cssClass = "failure-class";
             }
         }
 
+    }
+
+    public void updateMedicine() {
+        int rowsAffected = 0;
+        System.out.println(medicine.getMedicineId());
+
+        if (medicine.getMedicineName().trim().equals("")) {
+            System.out.println("Empty data can not be updated");
+            message = "Empty data can not be updated. Please fill the form properly.";
+            cssClass = "failure-class";
+        } else {
+            MedicineService medicineService = new MedicineService();
+            rowsAffected = medicineService.updateMedicine(medicine);
+
+            if (rowsAffected > 0) {
+                message = medicine.getMedicineName() + " Updated Successfully ! ";
+                cssClass = "success-class";
+
+                medicine.setMedicineName("");
+            } else {
+                message = medicine.getMedicineName() + " already exists !";
+                cssClass = "failure-class";
+
+            }
+        }
     }
 
 }

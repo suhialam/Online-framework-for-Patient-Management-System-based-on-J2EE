@@ -50,5 +50,10 @@ public class MedicineService {
         }
        return rowsAffected;
     }
+    public int updateMedicine(Medicine medicine){
+        return medicinesDAO.updateMedicine(medicine);
+        
+    }
+        
     
 }
