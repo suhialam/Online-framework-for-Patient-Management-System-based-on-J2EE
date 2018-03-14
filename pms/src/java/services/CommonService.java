@@ -9,14 +9,15 @@ import dao.CommonDAO;
 import entity.Company;
 import entity.Medicine;
 import entity.Patient;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author babu
  */
-public class CommonService {
-
+public class CommonService implements Serializable {
+private static final long serialVersionUID = 1L;
     private CommonDAO commonDAO;
 
     public CommonService() {
