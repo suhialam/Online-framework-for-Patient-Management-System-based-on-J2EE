@@ -7,7 +7,6 @@ package dao;
 
 import entity.Medicine;
 import java.sql.SQLException;
-import java.sql.SQLXML;
 import util.SQLQueryUtil;
 
 /**
@@ -15,24 +14,46 @@ import util.SQLQueryUtil;
  * @author babu
  */
 public class MedicinesDAO {
-    
-    public int registerMedicine(Medicine medicine,String companyId) {
+
+    public int registerMedicine(Medicine medicine, String companyId) {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
         int rowsAffected = 0;
-        
+
         String insertQuery = "insert into pms_schema.medicines (medicine_name,company_id)"
-                + " values('" + medicine.getMedicineName()  + "'," + companyId + ");";
-        try{
-           rowsAffected = sql.executeUpdate(insertQuery);
-           sql.commit();
+                + " values('" + medicine.getMedicineName() + "'," + companyId + ");";
+        try {
+            rowsAffected = sql.executeUpdate(insertQuery);
+            sql.commit();
             System.out.println(insertQuery);
-            
-        } catch(SQLException ex) {
+
+        } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
             sql.disconnect();
         }
         return rowsAffected;
+    }
+
+    public int updateMedicine(Medicine medicine) {
+        int rowAffected = 0;
+        SQLQueryUtil sql = new SQLQueryUtil();
+        sql.connect(false);
+
+        String Updatequery = "";
+
+        System.out.println(Updatequery);
+
+        try {
+            rowAffected = sql.executeUpdate(Updatequery);
+            sql.commit();
+            System.out.println(Updatequery);
+            System.out.println("Medicine updated successfully.");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            sql.disconnect();
+        }
+        return rowAffected;
     }
 }

@@ -29,10 +29,13 @@ public class CommonController implements Serializable {
     CommonService commonService;
     private Company company;
 
+    private Medicine medicine;
+    private List<Medicine> listMedicines;
+
     public CommonController() {
         commonService = new CommonService();
         listCompanies = commonService.getListCompanies();
-
+        listMedicines = commonService.getListMedicines();
     }
 
     public Company getCompany() {
@@ -48,9 +51,22 @@ public class CommonController implements Serializable {
         return listCompanies;
     }
 
-    public List<Medicine> getListMedicine() {
-        return commonService.getListMedicines();
+    public Medicine getMedicine() {
+        return medicine;
     }
+
+    public void setMedicine(Medicine medicine) {
+        this.medicine = medicine;
+    }
+
+    public List<Medicine> getListMedicine() {
+        return listMedicines;
+    }
+
+    public void setListMedicines(List<Medicine> listMedicines) {
+        this.listMedicines = listMedicines;
+    }
+    
 
     public void setListCompanies(List<Company> listCompanies) {
         this.listCompanies = listCompanies;

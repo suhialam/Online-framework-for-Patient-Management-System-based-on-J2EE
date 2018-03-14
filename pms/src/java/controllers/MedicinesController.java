@@ -10,6 +10,7 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import services.CommonService;
 import services.MedicineService;
 
 /**
@@ -25,6 +26,9 @@ public class MedicinesController implements Serializable {
     @ManagedProperty(value = "#{anyMedicine}")
     private Medicine medicine;
     private String companyId;
+    private String medicineId;
+
+   CommonService commonService;
 
     private String message;
     private String cssClass = "";
@@ -47,6 +51,14 @@ public class MedicinesController implements Serializable {
     public void setCompanyId(String companyId) {
         this.companyId = companyId;
     }
+    
+     public String getMedicineId() {
+        return medicineId;
+    }
+
+    public void setMedicineId(String medicineId) {
+        this.medicineId = medicineId;
+    }
 
     public String getMessage() {
         return message;
@@ -63,6 +75,14 @@ public class MedicinesController implements Serializable {
     public void setCssClass(String cssClass) {
         this.cssClass = cssClass;
     }
+    
+    public void onCompanyChange() {
+        commonService = new CommonService();
+        System.out.println(companyId);
+        medicine = new Medicine();
+        medicine = commonService.findMedicine(companyId, medicineId);
+
+    }
 
     public void registerMedicine() {
         int rowAffected = 0;
@@ -76,16 +96,43 @@ public class MedicinesController implements Serializable {
             rowAffected = medicineService.registerMedicine(medicine, companyId);
 
             if (rowAffected > 0) {
-                message = medicine.getMedicineName()+" registered successfully";
+                message = medicine.getMedicineName() + " registered successfully";
                 cssClass = "success-class";
-                
+
                 medicine.setMedicineName("");
-            }else{
-                message = medicine.getMedicineName() +" already exists";
+            } else {
+                message = medicine.getMedicineName() + " already exists";
                 cssClass = "failure-class";
             }
         }
 
+    }
+    
+ 
+
+    public void updateMedicine() {
+        int rowsAffected = 0;
+        System.out.println(medicine.getMedicineId());
+
+        if (medicine.getMedicineName().trim().equals("")) {
+            System.out.println("Empty data can not be updated");
+            message = "Empty data can not be updated. Please fill the form properly.";
+            cssClass = "failure-class";
+        } else {
+            MedicineService medicineService = new MedicineService();
+            rowsAffected = medicineService.updateMedicine(medicine);
+
+            if (rowsAffected > 0) {
+                message = medicine.getMedicineName() + " Updated Successfully ! ";
+                cssClass = "success-class";
+
+                medicine.setMedicineName("");
+            } else {
+                message = medicine.getMedicineName() + " already exists !";
+                cssClass = "failure-class";
+
+            }
+        }
     }
 
 }
