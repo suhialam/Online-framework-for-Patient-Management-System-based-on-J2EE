@@ -35,29 +35,29 @@
             <ace:panel class="panel" id="personalInfoInputPanel" header="Add Medicine Detail"  styleClass="required-styling-demo" style="width: 600px; margin: 0 auto;margin-top: 50px;">
                 <h:panelGrid id="inputGrid" columns="2" width="100%" styleClass="textEntryInputTable">
                     <h:outputLabel  value="Select Company"/>
-                    <ace:comboBox   required="true" class="margin " width="208" placeholder="Select Company" value="#{medicineController.medicineId}" >
-                       
+                    <ace:comboBox   required="true" class="margin " width="208" placeholder="Select Company" value="#{medicineController.companyId}" >
+                        <ace:ajax listener="#{medicineController.onCompanyChange()}" />
                         <c:forEach items="#{commonController.listCompanies}" var="ob" >
-                          
+
                             <f:selectItem  itemValue="#{ob.companyId}" itemLabel="#{ob.companyName}" />
                         </c:forEach> 
                         <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
                     </ace:comboBox>
                     <h:outputLabel value="Select Medicine"/>
-                    <ace:comboBox required="true" class="margin " width="208" placeholder="Select Medicine" value="#{medicineController.companyId}">
-                        <ace:ajax listener="#{medicineController.onCompanyChange()}" />
-                        <c:forEach items="#{commonController.listMedicine}" var="ob" >
-                          
+                    <ace:comboBox required="true" class="margin " width="208" value="#{medicineController.medicineId}" placeholder="Select Medicine" >
+                       
+                        <c:forEach items="#{medicineController.listMedicines}" var="ob" >
+
                             <f:selectItem  itemValue="#{ob.medicineId}" itemLabel="#{ob.medicineName}" />
                         </c:forEach>
-                        
+
                         <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
                     </ace:comboBox>
                     <h:outputLabel  value="Packing"/>
-                    <ace:textEntry id="packing"  required="true" class="margin text-entry_size" requiredIndicator="(*)" indicatorPosition="right">
+                    <ace:textEntry id="packing"  required="true" class="margin text-entry_size" value="#{medicineController.medicine.packing}" requiredIndicator="(*)" indicatorPosition="right">
                         <ace:ajax render="@this firsfvtNameOutput firstNameMsg" event="blur"/>
                     </ace:textEntry><br></br>
-                    <h:commandButton value="Save"  class="submit width-size" />
+                    <h:commandButton value="Save"  class="submit width-size" action="#{medicineController.addMedicineDetail()}" />
 
                 </h:panelGrid>
             </ace:panel>   

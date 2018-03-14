@@ -55,5 +55,9 @@ public class MedicineService {
         
     }
         
-    
+    public int addMedicineDetail(Medicine medicine){
+        int rowsAffected = 0;
+        rowsAffected = medicinesDAO.addMedicineDetail(medicine);
+        return rowsAffected;
+    }
 }

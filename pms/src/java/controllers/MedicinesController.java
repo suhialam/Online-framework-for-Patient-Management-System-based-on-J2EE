@@ -72,6 +72,14 @@ public class MedicinesController implements Serializable {
         this.medicineId = medicineId;
     }
 
+    public String getPacking() {
+        return packing;
+    }
+
+    public void setPacking(String packing) {
+        this.packing = packing;
+    }
+
     public String getMessage() {
         return message;
     }
@@ -94,6 +102,8 @@ public class MedicinesController implements Serializable {
 
         listMedicines = commonService.getListMedicines(companyId);
     }
+    
+  
 
     public void onMedicineChange() {
         commonService = new CommonService();
@@ -146,6 +156,29 @@ public class MedicinesController implements Serializable {
                 message = medicine.getMedicineName() + " already exists !";
                 cssClass = "failure-class";
 
+            }
+        }
+    }
+    
+    public void addMedicineDetail(){
+          int rowAffected = 0;
+
+        if (medicine.getPacking().trim().equals("")) {
+            System.out.println("Empty Data Cannot Be Stored");
+            message = "Empty data can not be stored. Please fill the form properly.";
+            cssClass = "failure-class";
+        } else {
+            MedicineService medicineService = new MedicineService();
+            rowAffected = medicineService.addMedicineDetail(medicine);
+
+            if (rowAffected > 0) {
+                message = medicine.getMedicineName() + " registered successfully";
+                cssClass = "success-class";
+
+                medicine.setMedicineName("");
+            } else {
+                message = medicine.getMedicineName() + " already exists";
+                cssClass = "failure-class";
             }
         }
     }
