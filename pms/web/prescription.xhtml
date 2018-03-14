@@ -28,51 +28,79 @@
         <!-- your code starts here-->
         <h:form >
             <ace:panel id="personalInfoInputPanel" header="New perscription"  styleClass="required-styling-demo" style="width: 800px; margin: 0 auto;margin-top: 50px;">
-                <h:panelGrid id="inputGrid" columns="2" width="100%" >
+                <h:panelGrid id="inputGrid" columns="4" width="100%" >
+
+                    <h:outputLabel  value="Select Patient"/>
+                    <ace:comboBox  required="true" class="margin" width="208" value=""  >
+                        <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
+                    </ace:comboBox>
+
+                    <h:outputLabel  value="Date"/>
+                    <ace:dateTimeEntry id="cal"
+                                       value="#{datePopup.selectedDate}"
+                                       timeZone="Canada/Mountain"
+                                       pattern="MMM/dd/yyyy"
+                                       renderAsPopup="true"/>
 
                     <h:outputLabel  value="Select Company"/>
                     <ace:comboBox  required="true" class="margin" width="208" value=""  >
                         <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
                     </ace:comboBox>
 
+                    <h:outputLabel value="Dosage"/>
+                    <ace:textEntry id="select_dosage" required="true" class="margin text-entry_size"  indicatorPosition="right">
+                        <ace:ajax render="@this firsfvtNameOutput firstNameMsg" event="blur"/>
+                    </ace:textEntry>      
+
                     <h:outputLabel  value="Select Medicine"/>
                     <ace:comboBox  required="true" class="margin" width="208" value=""  >
                         <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
                     </ace:comboBox>
 
-                    <h:outputLabel  value="Select Packing"/>
+                    <h:outputLabel value="Quantity"/>
+                    <ace:textEntry id="select_quantity" required="true" class="margin text-entry_size"  indicatorPosition="right">
+                        <ace:ajax render="@this firsfvtNameOutput firstNameMsg" event="blur"/>
+                    </ace:textEntry>   
+
+                    <h:outputLabel  value="Packing"/>
                     <ace:comboBox  required="true" class="margin" width="208" value=""  >
                         <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
                     </ace:comboBox>
 
-                    <h:outputLabel value="Dosage"/>
-                    <ace:textEntry id="select_quantity" required="true" class="margin text-entry_size"  indicatorPosition="right">
-                        <ace:ajax render="@this firsfvtNameOutput firstNameMsg" event="blur"/>
-                    </ace:textEntry>      
                 </h:panelGrid >
                 <h:panelGrid id="dtPanelGrid" width="100%">
                     <ace:dataTable id="prescription" value="" paginator="true" paginatorPosition="bottom" rows="10">
-                                   <ace:column id="a" headerText="Search patient" sortBy=""
-                                filterBy="#{patient}" filterMatchMode="contains">
-                            <h:outputText id="ab" value="" />
+
+                        <ace:column id="b" headerText="Company Name" sortBy=""
+                                    filterBy="#{patient}" filterMatchMode="contains">
                         </ace:column>
 
-                        <ace:column id="b" headerText="Select patient" sortBy=""
+                        <ace:column id="d" headerText="Medicine" sortBy=""
                                     filterBy="#{patient}" filterMatchMode="contains">
-                            <h:outputText id="bc" value="" />
+                        </ace:column>
+
+                        <ace:column id="e" headerText="Packing" sortBy=""
+                                    filterBy="#{patient}" filterMatchMode="contains">
+                        </ace:column>
+
+                        <ace:column id="f" headerText="Dosage" sortBy=""
+                                    filterBy="#{patient}" filterMatchMode="contains">
                         </ace:column>
 
                         <ace:column id="c" headerText="Prescription date" sortBy=""
                                     filterBy="#{patient}" filterMatchMode="contains">
-                            <h:outputText id="cd" value="" />
                         </ace:column>
-                        
+
                     </ace:dataTable>
-                    <ace:pushButton value="Save" style="width: 150px;margin-left: 290px"/>
-                </h:panelGrid>
+                   </h:panelGrid>
+                <center>
+                    <h:commandButton value="Clear" class="submit" style="width: 40px;" /> &nbsp;
+                <h:commandButton value="Save" class="submit" style="width: 40px;" />
+                </center>
             </ace:panel>
             <!-- your code ends here-->
         </h:form>
+
         <!-- footer inclusion-->
         <ui:include src="config/footer.xhtml" />
     </h:body>
