@@ -10,6 +10,7 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import services.CommonService;
 import services.MedicineService;
 
 /**
@@ -25,6 +26,9 @@ public class MedicinesController implements Serializable {
     @ManagedProperty(value = "#{anyMedicine}")
     private Medicine medicine;
     private String companyId;
+    private String medicineId;
+
+   CommonService commonService;
 
     private String message;
     private String cssClass = "";
@@ -47,6 +51,14 @@ public class MedicinesController implements Serializable {
     public void setCompanyId(String companyId) {
         this.companyId = companyId;
     }
+    
+     public String getMedicineId() {
+        return medicineId;
+    }
+
+    public void setMedicineId(String medicineId) {
+        this.medicineId = medicineId;
+    }
 
     public String getMessage() {
         return message;
@@ -62,6 +74,14 @@ public class MedicinesController implements Serializable {
 
     public void setCssClass(String cssClass) {
         this.cssClass = cssClass;
+    }
+    
+    public void onCompanyChange() {
+        commonService = new CommonService();
+        System.out.println(companyId);
+        medicine = new Medicine();
+        medicine = commonService.findMedicine(companyId, medicineId);
+
     }
 
     public void registerMedicine() {
@@ -87,6 +107,8 @@ public class MedicinesController implements Serializable {
         }
 
     }
+    
+ 
 
     public void updateMedicine() {
         int rowsAffected = 0;
