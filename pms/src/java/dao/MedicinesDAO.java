@@ -40,7 +40,8 @@ public class MedicinesDAO {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
 
-        String Updatequery = "";
+        String Updatequery = "UPDATE pms_schema.medicines SET medicine_name = '" + 
+                medicine.getMedicineName()+ "' WHERE id=" + medicine.getMedicineId()  +"; ";
 
         System.out.println(Updatequery);
 

@@ -138,23 +138,21 @@ public class CommonDAO {
         return selectedCompany;
     }
 
-     public Medicine findMedicine(String companyId,String medicineId) {
+     public Medicine findMedicine(String medicineId) {
         Medicine selectedMedcine = new Medicine();
-        Company company = new Company();
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
 
-       String query = "SELECT * FROM pms_schema.medicines where company_id="
-                + company.getCompanyId() + ";";
+       String query = "SELECT * FROM pms_schema.medicines where id="
+                + medicineId + ";";
          System.out.println(query);
         try {
             ResultSet resultSet = sql.executeQuery(query);
             resultSet.next();
 
-            selectedMedcine.setMedicineDetailId(resultSet.getInt("id"));
-           selectedMedcine.setMedicineId(resultSet.getInt("medicine_id"));
+            selectedMedcine.setMedicineId(resultSet.getInt("id"));
+           selectedMedcine.setMedicineName(resultSet.getString("medicine_name"));
            
-            selectedMedcine.setCompany(company);
             System.out.println(selectedMedcine);
         } catch (SQLException ex) {
             ex.printStackTrace();

@@ -39,6 +39,9 @@ private static final long serialVersionUID = 1L;
     public Company findCompany(String companyId) {
         return commonDAO.findCompany(companyId);
     }
+    public Medicine findMedicine(String medicineId){
+        return commonDAO.findMedicine(medicineId);
+    }
     
     public List<Patient> getListPatient() {
         return commonDAO.getListPatient();

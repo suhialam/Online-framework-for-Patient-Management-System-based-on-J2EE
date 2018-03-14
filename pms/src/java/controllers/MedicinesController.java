@@ -29,13 +29,14 @@ public class MedicinesController implements Serializable {
     private String companyId;
     private String medicineId;
 
-   CommonService commonService;
+    CommonService commonService;
+    MedicineService medicineService;
 
     private String message;
     private String cssClass = "";
 
     private List<Medicine> listMedicines;
-    
+
     public MedicinesController() {
     }
 
@@ -46,7 +47,6 @@ public class MedicinesController implements Serializable {
     public void setListMedicines(List<Medicine> listMedicines) {
         this.listMedicines = listMedicines;
     }
-    
 
     public Medicine getMedicine() {
         return medicine;
@@ -63,8 +63,8 @@ public class MedicinesController implements Serializable {
     public void setCompanyId(String companyId) {
         this.companyId = companyId;
     }
-    
-     public String getMedicineId() {
+
+    public String getMedicineId() {
         return medicineId;
     }
 
@@ -87,12 +87,18 @@ public class MedicinesController implements Serializable {
     public void setCssClass(String cssClass) {
         this.cssClass = cssClass;
     }
-    
+
     public void onCompanyChange() {
         commonService = new CommonService();
         System.out.println(companyId);
 
         listMedicines = commonService.getListMedicines(companyId);
+    }
+
+    public void onMedicineChange() {
+        commonService = new CommonService();
+        System.out.println(medicineId);
+        medicine = commonService.findMedicine(medicineId);
     }
 
     public void registerMedicine() {
@@ -118,8 +124,6 @@ public class MedicinesController implements Serializable {
         }
 
     }
-    
- 
 
     public void updateMedicine() {
         int rowsAffected = 0;

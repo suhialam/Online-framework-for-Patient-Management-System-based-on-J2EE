@@ -45,7 +45,8 @@
                          
                     </ace:comboBox>
                     <h:outputLabel value="Select Medicine"/>
-                    <ace:comboBox id="selectMedicine" value="" class="margin " width="208">
+                    <ace:comboBox id="selectMedicine" value="#{medicineController.medicineId}" class="margin " width="208">
+                        <ace:ajax listener="#{medicineController.onMedicineChange}"/>
                         <c:forEach items="#{medicineController.listMedicines}" var="med">
                           
                             <f:selectItem  itemValue="#{med.medicineId}" itemLabel="#{med.medicineName}" />
@@ -55,14 +56,16 @@
                     </ace:comboBox>
                     
                     <h:outputLabel value="Medicine Name"/>
-                    <ace:textEntry id="medicineName" value="" class="margin text-entry_size" /> 
+                    <ace:textEntry id="medicineName" value="#{medicineController.medicine.medicineName}" class="margin text-entry_size" /> 
                     
                     <h:outputLabel>&nbsp;</h:outputLabel>
-               <h:commandButton value="Update" class="submit width-size" />
-               
-                   
-                    
+                    <h:commandButton value="Update" class="submit width-size" action="#{medicineController.updateMedicine()}" />
+                 
                 </h:panelGrid>
+                <div style="width: 100%; min-height: 20px; text-align: center;">
+                    <h:outputText value="#{medicineController.message}" class="#{medicineController.cssClass}" />
+                </div>
+
 
             </ace:panel>
 
