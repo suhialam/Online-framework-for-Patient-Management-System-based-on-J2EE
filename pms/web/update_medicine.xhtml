@@ -45,7 +45,14 @@
                          
                     </ace:comboBox>
                     <h:outputLabel value="Select Medicine"/>
-                    <ace:comboBox id="selectMedicine" value="" class="margin " width="208" />
+                    <ace:comboBox id="selectMedicine" value="" class="margin " width="208">
+                        <c:forEach items="#{medicineController.listMedicines}" var="med">
+                          
+                            <f:selectItem  itemValue="#{med.medicineId}" itemLabel="#{med.medicineName}" />
+                           
+                        </c:forEach>
+                        
+                    </ace:comboBox>
                     
                     <h:outputLabel value="Medicine Name"/>
                     <ace:textEntry id="medicineName" value="" class="margin text-entry_size" /> 

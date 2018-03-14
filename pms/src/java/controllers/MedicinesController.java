@@ -39,6 +39,15 @@ public class MedicinesController implements Serializable {
     public MedicinesController() {
     }
 
+    public List<Medicine> getListMedicines() {
+        return listMedicines;
+    }
+
+    public void setListMedicines(List<Medicine> listMedicines) {
+        this.listMedicines = listMedicines;
+    }
+    
+
     public Medicine getMedicine() {
         return medicine;
     }
