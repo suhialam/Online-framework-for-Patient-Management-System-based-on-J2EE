@@ -7,6 +7,7 @@ package controllers;
 
 import entity.Medicine;
 import java.io.Serializable;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -33,6 +34,8 @@ public class MedicinesController implements Serializable {
     private String message;
     private String cssClass = "";
 
+    private List<Medicine> listMedicines;
+    
     public MedicinesController() {
     }
 
@@ -80,6 +83,7 @@ public class MedicinesController implements Serializable {
         commonService = new CommonService();
         System.out.println(companyId);
 
+        listMedicines = commonService.get
     }
 
     public void registerMedicine() {

@@ -81,6 +81,37 @@ public class CommonDAO {
 
         return listMedicines;
     }
+    
+    public List<Medicine> getListMedicines(String companyId) {
+        SQLQueryUtil sql = new SQLQueryUtil();
+        sql.connect(false);
+
+        Medicine medicine;
+        
+        List<Medicine> listMedicines = new ArrayList<Medicine>();
+
+        String query = "SELECT * FROM pms_schema.medicines where company_id="
+                + companyId + ";";
+        try {
+            ResultSet rs = sql.executeQuery(query);
+            while (rs.next()) {
+                medicine = new Medicine();
+                medicine.setMedicineId(rs.getInt("id"));
+                medicine.setMedicineName(rs.getString("medicine_name"));
+
+                //medicine.setCompany(company);
+                listMedicines.add(medicine);
+
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            sql.disconnect();
+        }
+
+        return listMedicines;
+    }
 
     public Company findCompany(String companyId) {
         Company selectedCompany = new Company();
