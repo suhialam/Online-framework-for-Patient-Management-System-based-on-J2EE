@@ -7,7 +7,6 @@ package dao;
 
 import entity.Medicine;
 import java.sql.SQLException;
-import java.sql.SQLXML;
 import util.SQLQueryUtil;
 
 /**

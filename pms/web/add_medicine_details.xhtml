@@ -35,11 +35,22 @@
             <ace:panel class="panel" id="personalInfoInputPanel" header="Add Medicine Detail"  styleClass="required-styling-demo" style="width: 600px; margin: 0 auto;margin-top: 50px;">
                 <h:panelGrid id="inputGrid" columns="2" width="100%" styleClass="textEntryInputTable">
                     <h:outputLabel  value="Select Company"/>
-                    <ace:comboBox   required="true" class="margin " width="208" >
+                    <ace:comboBox   required="true" class="margin " width="208" placeholder="Select Company" value="#{medicineController.medicineId}" >
+                       
+                        <c:forEach items="#{commonController.listCompanies}" var="ob" >
+                          
+                            <f:selectItem  itemValue="#{ob.companyId}" itemLabel="#{ob.companyName}" />
+                        </c:forEach> 
                         <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
                     </ace:comboBox>
                     <h:outputLabel value="Select Medicine"/>
-                    <ace:comboBox required="true" class="margin " width="208" >
+                    <ace:comboBox required="true" class="margin " width="208" placeholder="Select Medicine" value="#{medicineController.companyId}">
+                        <ace:ajax listener="#{medicineController.onCompanyChange()}" />
+                        <c:forEach items="#{commonController.listMedicine}" var="ob" >
+                          
+                            <f:selectItem  itemValue="#{ob.medicineId}" itemLabel="#{ob.medicineName}" />
+                        </c:forEach>
+                        
                         <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
                     </ace:comboBox>
                     <h:outputLabel  value="Packing"/>
