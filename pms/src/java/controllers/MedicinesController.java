@@ -28,7 +28,7 @@ public class MedicinesController implements Serializable {
     private Medicine medicine;
     private String companyId;
     private String medicineId;
-
+    private String packing;
     CommonService commonService;
     MedicineService medicineService;
 
@@ -102,8 +102,6 @@ public class MedicinesController implements Serializable {
 
         listMedicines = commonService.getListMedicines(companyId);
     }
-    
-  
 
     public void onMedicineChange() {
         commonService = new CommonService();
@@ -159,9 +157,9 @@ public class MedicinesController implements Serializable {
             }
         }
     }
-    
-    public void addMedicineDetail(){
-          int rowAffected = 0;
+
+    public void addMedicineDetail() {
+        int rowAffected = 0;
 
         if (medicine.getPacking().trim().equals("")) {
             System.out.println("Empty Data Cannot Be Stored");
