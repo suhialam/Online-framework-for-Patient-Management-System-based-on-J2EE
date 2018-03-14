@@ -83,7 +83,7 @@ public class MedicinesController implements Serializable {
         commonService = new CommonService();
         System.out.println(companyId);
 
-        listMedicines = commonService.get
+        listMedicines = commonService.getListMedicines(companyId);
     }
 
     public void registerMedicine() {
