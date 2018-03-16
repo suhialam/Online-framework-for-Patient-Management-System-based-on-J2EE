@@ -160,8 +160,9 @@ public class MedicinesController implements Serializable {
 
     public void addMedicineDetail() {
         int rowAffected = 0;
-
-        if (medicine.getPacking().trim().equals("")) {
+        System.out.println(medicineId);
+        System.out.println(packing);
+        /*if (medicine.getPacking().trim().equals("")) {
             System.out.println("Empty Data Cannot Be Stored");
             message = "Empty data can not be stored. Please fill the form properly.";
             cssClass = "failure-class";
@@ -178,7 +179,7 @@ public class MedicinesController implements Serializable {
                 message = medicine.getMedicineName() + " already exists";
                 cssClass = "failure-class";
             }
-        }
+        }*/
     }
 
 }
