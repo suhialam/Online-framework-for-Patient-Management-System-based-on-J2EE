@@ -80,11 +80,10 @@ input {
     background-color: #FF9900 !important;
     color: #000 !important;
     height: 30px !important;
-
 }
 
 table tr {
-    height: 60px !important;
+    /*height: 60px !important;*/
 }
 
 
