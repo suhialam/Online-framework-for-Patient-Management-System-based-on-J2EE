@@ -3,7 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:ace="http://www.icefaces.org/icefaces/components">
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Patient Management System</title>
         <h:outputStylesheet library="css" name="theme.css"></h:outputStylesheet>
@@ -22,31 +24,36 @@
         <h:form id="searchPatientHistory">
             <ace:panel id="patientHistoryInputPanel" header="Prescription History"  styleClass="required-styling-demo" style="width: 900px; margin: 0 auto;margin-top: 50px;">
                 <h:panelGrid id="inputGrid" columns="4" width="100%">
-                    <h:outputLabel>Search Patient</h:outputLabel>
-                    <ace:textEntry id="searchPatient" value=" " required="true" requiredMessage="Please fill out this field." requiredIndicator="(*)" />
+
                     <h:outputLabel>Select Patient</h:outputLabel>
-                    <ace:comboBox  id="cmbSelectPatient" required="true"  requiredIndicator="(*)" indicatorPosition="right" width="210" />
-                    
-                   
+                    <ace:comboBox  id="cmbSelectPatient" value="#{patientBean.patientId}" width="210" >
+                        <c:forEach items="#{commonController.listPatient}" var="pat">
+                            <f:selectItem itemValue="#{pat.patientId}" itemLabel="#{pat.patientName}" />
+                        </c:forEach>
+                    </ace:comboBox>
+   
+                    <h:outputLabel id="search" for="search_patient" value=""/>
+                    <ace:pushButton value="search" onclick="#{commonController.listPrescription}"  id="search_patient" />
+
                 </h:panelGrid>
                 <h:panelGrid id="dtPanelGrid" width="100%">
-                     <ace:dataTable id="patientHistory" value="" paginator="true" paginatorPosition="bottom" rows="10">
-                         <ace:column  headerText="Comapany Name" >
-                            
+                    <ace:dataTable id="patientHistory" value="" paginator="true" paginatorPosition="bottom" rows="10">
+                        <ace:column  headerText="Comapany Name" >
+
                         </ace:column>          
-                         <ace:column headerText="Medicine Name" filterMatchMode="contains">
-                           
+                        <ace:column headerText="Medicine Name" filterMatchMode="contains">
+
                         </ace:column>
 
                         <ace:column id="quantity" headerText="Quantity" >
-                            
+
                         </ace:column>
 
                         <ace:column id="dosage" headerText="Dosage" >
-                            
+
                         </ace:column>
                         <ace:column id="prescriptionDate" headerText="Prescription Date" >
-                            
+
                         </ace:column>
                     </ace:dataTable>
                 </h:panelGrid>

@@ -9,6 +9,7 @@ import dao.CommonDAO;
 import entity.Company;
 import entity.Medicine;
 import entity.Patient;
+import entity.Prescription;
 import java.io.Serializable;
 import java.util.List;
 
@@ -50,4 +51,8 @@ private static final long serialVersionUID = 1L;
      public Patient findPatient(String patientId) {
          return commonDAO.findPatient(patientId);
      }
+     public List<Prescription> getListPrescription(Patient patient){
+        return commonDAO.getListPrescription(patient); 
+     }
+        
 }
