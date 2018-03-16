@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ace="http://www.icefaces.org/icefaces/components"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html;
               charset=UTF-8" />
@@ -27,7 +28,7 @@
 
         <!-- your code starts here-->
         <h:form >
-            <ace:panel id="personalInfoInputPanel" header="New perscription"  styleClass="required-styling-demo" style="width: 800px; margin: 0 auto;margin-top: 50px;">
+            <ace:panel id="personalInfoInputPanel" header="New perscription"  styleClass="required-styling-demo" style="width: 800px;height: 500px; margin: 0 auto;margin-top: 50px;">
                 <h:panelGrid id="inputGrid" columns="4" width="100%" >
 
                     <h:outputLabel  value="Select Patient"/>
@@ -39,7 +40,7 @@
                     <ace:dateTimeEntry id="cal"
                                        value="#{datePopup.selectedDate}"
                                        timeZone="Canada/Mountain"
-                                       pattern="MMM/dd/yyyy"
+                                       pattern="yyyy-mm-dd"
                                        renderAsPopup="true"/>
 
                     <h:outputLabel  value="Select Company"/>
@@ -58,9 +59,7 @@
                     </ace:comboBox>
 
                     <h:outputLabel value="Quantity"/>
-                    <ace:textEntry id="select_quantity" required="true" class="margin text-entry_size"  indicatorPosition="right">
-                        <ace:ajax render="@this firsfvtNameOutput firstNameMsg" event="blur"/>
-                    </ace:textEntry>   
+                    <p:spinner value="1" min="1" max="10" /> 
 
                     <h:outputLabel  value="Packing"/>
                     <ace:comboBox  required="true" class="margin" width="208" value=""  >
@@ -68,6 +67,11 @@
                     </ace:comboBox>
 
                 </h:panelGrid >
+
+                <center>
+                    <h:commandButton value="Add To List" class="submit" style="width: 150px;" /> &nbsp;&nbsp;
+                    <h:commandButton value="Clear" class="submit" style="width: 120px;" /> &nbsp;
+                </center>
                 <h:panelGrid id="dtPanelGrid" width="100%">
                     <ace:dataTable id="prescription" value="" paginator="true" paginatorPosition="bottom" rows="10">
 
@@ -92,11 +96,11 @@
                         </ace:column>
 
                     </ace:dataTable>
-                   </h:panelGrid>
-                <center>
-                    <h:commandButton value="Clear" class="submit" style="width: 100px;" /> &nbsp;
-                <h:commandButton value="Save" class="submit" style="width: 100px;" />
-                </center>
+                </h:panelGrid>
+
+
+                <h:commandButton value="Save" class="submit" style="width: 150px; float: right;" />
+
             </ace:panel>
             <!-- your code ends here-->
         </h:form>
