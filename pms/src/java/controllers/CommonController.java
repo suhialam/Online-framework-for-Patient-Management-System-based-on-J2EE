@@ -40,7 +40,7 @@ public class CommonController implements Serializable {
         listCompanies = commonService.getListCompanies();
         listMedicines = commonService.getListMedicines();
        
-        listPrescription = commonService.getListPrescription(patient);
+      
     }
 
     public Company getCompany() {
