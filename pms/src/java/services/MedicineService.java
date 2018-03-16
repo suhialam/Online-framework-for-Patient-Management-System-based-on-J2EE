@@ -60,4 +60,12 @@ public class MedicineService {
         rowsAffected = medicinesDAO.addMedicineDetail(medicine);
         return rowsAffected;
     }
+    
+    public int addMedicineDetail(String medicineId, String packing){
+        System.out.println(medicineId);
+        System.out.println(packing);
+        int rowsAffected = 0;
+        rowsAffected = medicinesDAO.addMedicineDetail(null);
+        return rowsAffected;
+    }
 }
