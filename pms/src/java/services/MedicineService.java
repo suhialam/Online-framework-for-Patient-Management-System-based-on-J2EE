@@ -65,7 +65,7 @@ public class MedicineService {
         System.out.println(medicineId);
         System.out.println(packing);
         int rowsAffected = 0;
-        rowsAffected = medicinesDAO.addMedicineDetail(null);
+        //rowsAffected = medicinesDAO.addMedicineDetail(null);
         return rowsAffected;
     }
 }
