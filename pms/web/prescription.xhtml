@@ -28,7 +28,7 @@
 
         <!-- your code starts here-->
         <h:form >
-            <ace:panel id="personalInfoInputPanel" header="New perscription"  styleClass="required-styling-demo" style="width: 800px;height: 500px; margin: 0 auto;margin-top: 50px;">
+            <ace:panel id="personalInfoInputPanel" header="New perscription"  styleClass="required-styling-demo" style="width: 1000px;height: 500px; margin: 0 auto;margin-top: 50px;">
                 <h:panelGrid id="inputGrid" columns="4" width="100%" >
 
                     <h:outputLabel  value="Select Patient"/>
@@ -37,7 +37,7 @@
                     </ace:comboBox>
 
                     <h:outputLabel  value="Date"/>
-                    <ace:dateTimeEntry id="cal"
+                    <ace:dateTimeEntry id="cal" class="text-entry_size"
                                        value="#{datePopup.selectedDate}"
                                        timeZone="Canada/Mountain"
                                        pattern="yyyy-mm-dd"
