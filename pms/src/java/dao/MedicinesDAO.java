@@ -58,19 +58,18 @@ public class MedicinesDAO {
         return rowAffected;
     }
     
-    public int addMedicineDetail(Medicine medicine){
+    public int addMedicineDetail(String medicineId, String packing) {
         int rowsAffected = 0;
-        System.out.println("Medicine Detail begins here");
+        
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
         
-        String query = "insert into pms_schema.medicine_details (medicine_id,packing)"
-                + " values(" + medicine.getMedicineId()+ ",'" + medicine.getPacking()+ "');";
+        String query = "insert into pms_schema.medicine_details (packing, medicine_id)"
+                + " values('" + packing + "', " + medicineId + ");";
         System.out.println(query);
         try {
             rowsAffected = sql.executeUpdate(query);
             sql.commit();
-            System.out.println(query);
 
         } catch (SQLException ex) {
             ex.printStackTrace();

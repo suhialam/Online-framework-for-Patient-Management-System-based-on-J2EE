@@ -54,18 +54,12 @@ public class MedicineService {
         return medicinesDAO.updateMedicine(medicine);
         
     }
-        
-    public int addMedicineDetail(Medicine medicine){
-        int rowsAffected = 0;
-        rowsAffected = medicinesDAO.addMedicineDetail(medicine);
-        return rowsAffected;
-    }
     
     public int addMedicineDetail(String medicineId, String packing){
         System.out.println(medicineId);
         System.out.println(packing);
         int rowsAffected = 0;
-        //rowsAffected = medicinesDAO.addMedicineDetail(null);
+        rowsAffected = medicinesDAO.addMedicineDetail(medicineId, packing);
         return rowsAffected;
     }
 }

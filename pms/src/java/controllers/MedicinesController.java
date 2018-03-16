@@ -162,7 +162,7 @@ public class MedicinesController implements Serializable {
         int rowAffected = 0;
         
         packing = packing.trim();
-        if (packing.equals("")) {
+        if (packing.equals("") || medicineId.equals("")) {
             System.out.println("Empty Data Cannot Be Stored");
             message = "Empty data can not be stored. Please fill the form properly.";
             cssClass = "failure-class";
