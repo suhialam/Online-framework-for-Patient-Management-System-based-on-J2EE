@@ -7,6 +7,7 @@ package entity;
 
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
 /**
@@ -17,6 +18,9 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class Medicine implements Serializable{
 
+    private static final long serialVersionUID = 1L;
+    
+    
     private Company company;
     
     private int medicineId;

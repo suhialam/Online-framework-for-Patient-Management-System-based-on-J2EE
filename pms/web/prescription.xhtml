@@ -5,7 +5,9 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ace="http://www.icefaces.org/icefaces/components"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html;
               charset=UTF-8" />
@@ -16,6 +18,7 @@
             .margin{
                 margin-bottom: 15px !important;
             }
+             
         </style>
 
     </h:head>
@@ -32,38 +35,51 @@
                 <h:panelGrid id="inputGrid" columns="4" width="100%" >
 
                     <h:outputLabel  value="Select Patient"/>
-                    <ace:comboBox  required="true" class="margin" width="208" value=""  >
-                        <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
+                    <ace:comboBox id="p_combobox" required="true" class="margin" 
+                                  width="208" value="#{prescriptionController.prescription.patient.patientId}" >
+                        
+                        <c:forEach items="#{commonController.listPatient}" var="objPatient" >
+                            <f:selectItem itemValue="#{objPatient.patientId}" itemLabel="#{objPatient.patientName} from #{objPatient.address}" />
+                        </c:forEach>
+                        <ace:ajax listener="#{prescriptionController.onMedicineChange}" />
                     </ace:comboBox>
 
                     <h:outputLabel  value="Date"/>
                     <ace:dateTimeEntry id="cal" class="text-entry_size"
-                                       value="#{datePopup.selectedDate}"
+                                       value="#{prescriptionController.prescription.currentDate}"
                                        timeZone="Canada/Mountain"
                                        pattern="yyyy-mm-dd"
-                                       renderAsPopup="true"/>
+                                       renderAsPopup="true" />
 
                     <h:outputLabel  value="Select Company"/>
-                    <ace:comboBox  required="true" class="margin" width="208" value=""  >
-                        <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
+                    <ace:comboBox  required="true" class="margin" width="208" value="#{medicineController.companyId}"  >
+                        <c:forEach items="#{commonController.listCompanies}" var="objCompany" >
+                            <f:selectItem itemValue="#{objCompany.companyId}" itemLabel="#{objCompany.companyName}" />
+                        </c:forEach>
+                        <ace:ajax listener="#{medicineController.onCompanyChange}" />
                     </ace:comboBox>
 
                     <h:outputLabel value="Dosage"/>
-                    <ace:textEntry id="select_dosage" required="true" class="margin text-entry_size"  indicatorPosition="right">
+                    <ace:textEntry id="select_dosage" value="#{prescriptionController.prescription.dosage}" required="true" class="margin text-entry_size"  indicatorPosition="right">
                         <ace:ajax render="@this firsfvtNameOutput firstNameMsg" event="blur"/>
                     </ace:textEntry>      
 
                     <h:outputLabel  value="Select Medicine"/>
-                    <ace:comboBox  required="true" class="margin" width="208" value=""  >
-                        <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
+                    <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.medicine.medicineId}"  >
+                        <c:forEach items="#{medicineController.listMedicines}" var="objMedicine" >
+                            <f:selectItem itemValue="#{objMedicine.medicineId}" itemLabel="#{objMedicine.medicineName}" />
+                        </c:forEach>
+                        <ace:ajax listener="#{prescriptionController.onMedicineChange}" />
                     </ace:comboBox>
 
                     <h:outputLabel value="Quantity"/>
-                    <p:spinner value="1" min="1" max="10" /> 
+                    <p:spinner value="#{prescriptionController.prescription.quantity}" min="1" max="10" id="spin_Control" /> 
 
                     <h:outputLabel  value="Packing"/>
-                    <ace:comboBox  required="true" class="margin" width="208" value=""  >
-                        <ace:ajax render="@this firstNameOutput firstNameMsg" event="blur"/>
+                    <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.medicine.packing}"  >
+                        <c:forEach items="#{prescriptionController.listofPacking}" var="objPacking" >
+                            <f:selectItem itemValue="#{objPacking.medicineDetailId}" itemLabel="#{objPacking.packing}" />
+                        </c:forEach>
                     </ace:comboBox>
 
                 </h:panelGrid >
@@ -75,24 +91,23 @@
                 <h:panelGrid id="dtPanelGrid" width="100%">
                     <ace:dataTable id="prescription" value="" paginator="true" paginatorPosition="bottom" rows="10">
 
-                        <ace:column id="b" headerText="Company Name" sortBy=""
-                                    filterBy="#{patient}" filterMatchMode="contains">
+                        <ace:column id="b" headerText="Company Name" sortBy="">
                         </ace:column>
 
-                        <ace:column id="d" headerText="Medicine" sortBy=""
-                                    filterBy="#{patient}" filterMatchMode="contains">
+                        <ace:column id="d" headerText="Medicine" sortBy="">
+                                    
                         </ace:column>
 
-                        <ace:column id="e" headerText="Packing" sortBy=""
-                                    filterBy="#{patient}" filterMatchMode="contains">
+                        <ace:column id="e" headerText="Packing" sortBy="">
+                        </ace:column>
+                        
+                        <ace:column id="q" headerText="Quantity" sortBy="">
                         </ace:column>
 
-                        <ace:column id="f" headerText="Dosage" sortBy=""
-                                    filterBy="#{patient}" filterMatchMode="contains">
+                        <ace:column id="f" headerText="Dosage" sortBy="">
                         </ace:column>
 
-                        <ace:column id="c" headerText="Prescription date" sortBy=""
-                                    filterBy="#{patient}" filterMatchMode="contains">
+                        <ace:column id="c" headerText="Prescription date" sortBy="">
                         </ace:column>
 
                     </ace:dataTable>

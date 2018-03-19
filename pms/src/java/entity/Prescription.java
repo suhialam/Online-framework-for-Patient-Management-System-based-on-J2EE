@@ -5,21 +5,35 @@
  */
 package entity;
 
+import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
+
 /**
  *
  * @author ucs
  */
-public class Prescription {
+@ManagedBean(name = "anyPrescription")
+@ViewScoped
+public class Prescription implements Serializable {
 
-private int prescriptionId;
+    private static final long serialVersionUID = 1L;
 
-private Company company;
-private Medicine medicine;
-private Patient patient;
+    private int prescriptionId;
+    
+    @ManagedProperty(value = "#{anyCompany}")
+    private Company company;
+    
+    @ManagedProperty(value = "#{anyMedicine}")
+    private Medicine medicine;
+    
+    @ManagedProperty(value= "#{anyPatient}")
+    private Patient patient;
 
-private int quantity;
-private String currentDate;
-private String dosage;
+    private int quantity;
+    private String currentDate;
+    private String dosage;
 
     public Prescription() {
     }
@@ -80,8 +94,4 @@ private String dosage;
         this.dosage = dosage;
     }
 
-
-
 }
-
-
