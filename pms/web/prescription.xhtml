@@ -53,7 +53,7 @@
                                        renderAsPopup="true"/>
 
                     <h:outputLabel  value="Select Company"/>
-                    <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.medicine.medicineId}"  >
+                    <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.company.companyId}"  >
                         <c:forEach items="#{commonController.listCompanies}" var="objCompany" >
                             <f:selectItem itemValue="#{objCompany.companyId}" itemLabel="#{objCompany.companyName}" />
                         </c:forEach>
@@ -67,7 +67,7 @@
 
                     <h:outputLabel  value="Select Medicine"/>
                     <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.medicine.medicineId}"  >
-                        <c:forEach items="#{medicineController.listMedicines}" var="objMedicine" >
+                        <c:forEach items="#{prescriptionController.listMedicines}" var="objMedicine" >
                             <f:selectItem itemValue="#{objMedicine.medicineId}" itemLabel="#{objMedicine.medicineName}" />
                         </c:forEach>
                         <ace:ajax listener="#{prescriptionController.onMedicineChange}" />

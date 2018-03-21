@@ -98,7 +98,7 @@ public class PrescriptionController implements Serializable {
         commonService = new CommonService();
        
 
-        listMedicines = commonService.getListMedicines(prescription.getMedicine().getMedicineId());
+        listMedicines = commonService.getListMedicines(prescription.getCompany().getCompanyId());
     }
      
     public void onMedicineChange() {
