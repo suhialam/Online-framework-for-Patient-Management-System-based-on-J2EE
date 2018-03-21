@@ -5,14 +5,21 @@
  */
 package controllers;
 
+import entity.Company;
 import entity.Medicine;
+import entity.Patient;
 import entity.Prescription;
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import services.CommonService;
+import services.PrescriptionService;
+import util.SQLQueryUtil;
 
 /**
  *
@@ -32,6 +39,14 @@ public class PrescriptionController implements Serializable {
 
     @ManagedProperty(value = "#{anyPrescription}")
     Prescription prescription;
+    
+    private List<Prescription> listPrescription;
+    private PrescriptionService prescriptionService;
+    private Company company;
+    private Patient patient;
+    private Medicine medicine;
+    private String patientId;
+    
 
     public PrescriptionController() {
         commonService = new CommonService();
@@ -101,6 +116,89 @@ public class PrescriptionController implements Serializable {
         System.out.println(prescription.getPatient().getPatientName());
         CommonService commonService = new CommonService();
         listofPacking = commonService.findPacking(prescription);
+    }
+
+    public String getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(String patientId) {
+        this.patientId = patientId;
+    }
+    public static final int DEFAULT_ROWS;
+    public static final int DEFAULT_LIST_SIZE;
+
+    static {
+        DEFAULT_ROWS = 8;
+        DEFAULT_LIST_SIZE = 30;
+
+    }
+
+    public void prescriptionTable() {
+        SQLQueryUtil sql = new SQLQueryUtil();
+
+        sql.connect(false);
+
+        listPrescription = new ArrayList<Prescription>();
+
+        String query = "SELECT * FROM pms_schema.companies AS c, pms_schema.medicines AS m,"
+                + " pms_schema.medicine_details AS md, pms_schema.patient_history AS ph"
+                + " WHERE c.id=m.company_id AND m.id=md.medicine_id AND md.id=ph.medicine_detail_id"
+                + " AND ph.patient_id=" + patientId + " ORDER by patient_id ASC;";
+        try {
+
+            ResultSet rs = sql.executeQuery(query);
+
+            prescription = new Prescription();
+            company = new Company();
+            medicine = new Medicine();
+            patient = new Patient();
+
+            while (rs.next()) {
+                prescription = new Prescription();
+
+                company = new Company();
+
+                medicine = new Medicine();
+
+                company.setCompanyId(rs.getString("id"));
+                company.setCompanyName(rs.getString("company_name"));
+                medicine.setCompany(company);
+
+                medicine.setMedicineId(rs.getInt("id"));
+                medicine.setMedicineDetailId(rs.getInt("id"));
+                medicine.setPacking(rs.getString("packing"));
+                medicine.setMedicineName(rs.getString("medicine_name"));
+
+                prescription.setPatient(patient);
+                prescription.setCompany(company);
+                prescription.setMedicine(medicine);
+
+                prescription.setQuantity(rs.getInt("quantity"));
+                prescription.setDosage(rs.getString("dosage"));
+                prescription.setCurrentDate(rs.getDate("prescription_date"));
+
+                listPrescription.add(prescription);
+
+                System.out.println(query);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            sql.disconnect();
+        }
+    }
+
+    public List<Prescription> getListPrescription(Patient patient) {
+        return prescriptionService.getListPrescription(patient);
+    }
+
+    public List<Prescription> getListPrescription() {
+        return listPrescription;
+    }
+
+    public void setListPrescription(List<Prescription> listPrescription) {
+        this.listPrescription = listPrescription;
     }
 
 }

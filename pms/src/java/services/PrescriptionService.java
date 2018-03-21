@@ -5,10 +5,26 @@
  */
 package services;
 
+import dao.CommonDAO;
+import dao.PrescriptionDAO;
+import entity.Patient;
+import entity.Prescription;
+import java.util.List;
+
 /**
  *
  * @author babu
  */
 public class PrescriptionService {
+
     
+    private PrescriptionDAO prescriptionDAO;
+    public PrescriptionService() {
+    }
+    
+
+    public List<Prescription> getListPrescription(Patient patient) {
+        return prescriptionDAO.getListPrescription(patient);
+    }
+
 }

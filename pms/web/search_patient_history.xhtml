@@ -26,34 +26,38 @@
                 <h:panelGrid id="inputGrid" columns="4" width="100%">
 
                     <h:outputLabel>Select Patient</h:outputLabel>
-                    <ace:comboBox  id="cmbSelectPatient" value="#{patientBean.patientId}" width="210" >
+                    <ace:comboBox  id="cmbSelectPatient" value="#{prescriptionController.patientId}" width="210" >
                         <c:forEach items="#{commonController.listPatient}" var="pat">
                             <f:selectItem itemValue="#{pat.patientId}" itemLabel="#{pat.patientName}" />
                         </c:forEach>
                     </ace:comboBox>
    
                     <h:outputLabel id="search" for="search_patient" value=""/>
-                    <ace:pushButton value="search" onclick="#{commonController.listPrescription}"  id="search_patient" />
-
+                    <h:commandButton value="Search" action="#{prescriptionController.prescriptionTable}" />
                 </h:panelGrid>
                 <h:panelGrid id="dtPanelGrid" width="100%">
-                    <ace:dataTable id="patientHistory" value="" paginator="true" paginatorPosition="bottom" rows="10">
-                        <ace:column  headerText="Comapany Name" >
-
+                    <ace:dataTable id="patientHistory" value="#{prescriptionController.listPrescription}" paginator="true" paginatorPosition="bottom" rows="10">
+                        <ace:column  headerText="Comapany Name" sortBy="#{prescriptionController.prescription.company.companyName}"
+                                     filterBy="#{prescriptionController.prescription.company.companyName}" >
+                            <h:outputText id="company_name" value="#{prescriptionController.prescription.company.companyName}" />
                         </ace:column>          
-                        <ace:column headerText="Medicine Name" filterMatchMode="contains">
-
+                        <ace:column headerText="Medicine Name" sortBy="#{prescriptionController.prescription.medicine.medicineName}" filterMatchMode="contains"
+                                    filterBy="#{prescriptionController.prescription.medicine.medicineName}">
+                            <h:outputText id="medicine_name" value="#{prescriptionController.prescription.medicine.medicineName}" />
                         </ace:column>
 
-                        <ace:column id="quantity" headerText="Quantity" >
-
+                        <ace:column id="quantity" sortBy="#{prescriptionController.prescription.quantity}" 
+                                    filterBy="#{prescriptionController.prescription.quantity}" headerText="Quantity" >
+                            <h:outputText id="quantity_pre" value="#{prescriptionController.prescription.quantity}"  />
                         </ace:column>
 
-                        <ace:column id="dosage" headerText="Dosage" >
-
+                        <ace:column id="dosage" sortBy="#{prescriptionController.prescription.dosage}"
+                                    filterBy="#{prescriptionController.prescription.dosage}" headerText="Dosage" >
+                            <h:outputText id="dosage_pre" value="#{prescriptionController.prescription.dosage}" />
                         </ace:column>
-                        <ace:column id="prescriptionDate" headerText="Prescription Date" >
-
+                        <ace:column id="prescriptionDate" sortBy="#{prescriptionController.prescription.currentDate}"
+                                    filterBy="#{prescriptionController.prescription.currentDate}" headerText="Prescription Date" >
+                            <h:outputText id="current_date" value="#{prescriptionController.prescription.currentDate}" />
                         </ace:column>
                     </ace:dataTable>
                 </h:panelGrid>

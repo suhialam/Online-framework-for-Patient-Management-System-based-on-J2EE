@@ -32,8 +32,6 @@ public class CommonController implements Serializable {
 
     private Medicine medicine;
     private List<Medicine> listMedicines;
-    private Patient patient;
-    private List<Prescription> listPrescription;
     
     public CommonController() {
         commonService = new CommonService();
@@ -81,16 +79,5 @@ public class CommonController implements Serializable {
         return commonService.getListPatient();
     }
 
-    public List<Prescription> getListPrescription(Patient patient){
-        return commonService.getListPrescription(patient);
-    }
-
-    public List<Prescription> getListPrescription() {
-        return listPrescription;
-    }
-
-    public void setListPrescription(List<Prescription> listPrescription) {
-        this.listPrescription = listPrescription;
-    }
     
 }
