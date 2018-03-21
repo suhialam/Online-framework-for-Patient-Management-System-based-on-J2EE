@@ -38,34 +38,33 @@
             <ace:panel id="personalInfoInputPanel" header="New perscription"  styleClass="required-styling-demo" style="width: 1000px;height: 500px; margin: 0 auto;margin-top: 50px;">
                 <h:panelGrid id="inputGrid" columns="4" width="100%" >
 
-                    <h:outputLabel  value="Select Patient"/>
+                    <h:outputLabel value="Select Patient" />
                     <ace:comboBox id="p_combobox" required="true" class="margin" 
-                                  width="208" value="#{prescriptionController.prescription.patient.patientId}" >
-                        <c:forEach items="#{commonController.listPatient}" var="objPatient" >
+                                  width="208" value="#{prescriptionController.prescription.patient.patientId}">
+                        <c:forEach items="#{commonController.listPatient}" var="objPatient">
                             <f:selectItem itemValue="#{objPatient.patientId}" itemLabel="#{objPatient.patientName} from #{objPatient.address}" />
                         </c:forEach>
                      </ace:comboBox>
 
-                    <h:outputLabel  value="Date"/>
+                    <h:outputLabel  value="Date" />
                     <ace:dateTimeEntry id="cal" class="text-entry_size" required="true"
                                        value="#{prescriptionController.date}"
                                        pattern="yyyy-mm-dd"
-                                       renderAsPopup="true"/>
+                                       renderAsPopup="true" />
 
-                    <h:outputLabel  value="Select Company"/>
-                    <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.company.companyId}"  >
+                    <h:outputLabel  value="Select Company" />
+                    <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.company.companyId}">
                         <c:forEach items="#{commonController.listCompanies}" var="objCompany" >
                             <f:selectItem itemValue="#{objCompany.companyId}" itemLabel="#{objCompany.companyName}" />
                         </c:forEach>
                         <ace:ajax listener="#{prescriptionController.onCompanyChange}" />
                     </ace:comboBox>
 
-                    <h:outputLabel value="Dosage"/>
+                    <h:outputLabel value="Dosage" />
                     <ace:textEntry id="select_dosage" value="#{prescriptionController.prescription.dosage}" required="true" class="margin text-entry_size"  indicatorPosition="right">
-                        <ace:ajax render="@this firsfvtNameOutput firstNameMsg" event="blur"/>
                     </ace:textEntry>      
 
-                    <h:outputLabel  value="Select Medicine"/>
+                    <h:outputLabel  value="Select Medicine" />
                     <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.medicine.medicineId}"  >
                         <c:forEach items="#{prescriptionController.listMedicines}" var="objMedicine" >
                             <f:selectItem itemValue="#{objMedicine.medicineId}" itemLabel="#{objMedicine.medicineName}" />
@@ -77,7 +76,7 @@
                     <p:spinner value="#{prescriptionController.prescription.quantity}"
                                min="1" max="10" id="spin_Control" /> 
 
-                    <h:outputLabel  value="Packing"/>
+                    <h:outputLabel  value="Packing" />
                     <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.medicine.medicineDetailId}"  >
                         <c:forEach items="#{prescriptionController.listofPacking}" var="objPacking" >
                             <f:selectItem itemValue="#{objPacking.medicineDetailId}" itemLabel="#{objPacking.packing}" />
@@ -87,9 +86,9 @@
                 </h:panelGrid >
 
                 <center>
-                    <h:commandButton value="Add To List" class="submit" action="#{prescriptionController.setPrescriptionObject}"
+                    <ace:pushButton value="Add To List" class="submit" action="#{prescriptionController.setPrescriptionObject}"
                                      style="width: 150px;" /> &nbsp;&nbsp;
-                    <h:commandButton value="Clear" class="submit" style="width: 120px;" /> &nbsp;
+                    <ace:pushButton value="Clear" class="submit" style="width: 120px;" /> &nbsp;
                 </center>
                 
                 <h:panelGrid id="dtPanelGrid" width="100%">
