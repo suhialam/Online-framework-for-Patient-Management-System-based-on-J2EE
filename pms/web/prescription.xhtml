@@ -65,7 +65,7 @@
                     </ace:textEntry>      
 
                     <h:outputLabel  value="Select Medicine" />
-                    <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.medicine.medicineId}"  >
+                    <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.medicine.medicineId}" id="medicine">
                         <c:forEach items="#{prescriptionController.listMedicines}" var="objMedicine" >
                             <f:selectItem itemValue="#{objMedicine.medicineId}" itemLabel="#{objMedicine.medicineName}" />
                         </c:forEach>

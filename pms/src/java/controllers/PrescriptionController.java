@@ -23,36 +23,32 @@ import services.CommonService;
 public class PrescriptionController implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     private List<Medicine> listofPacking;
     private List<Prescription> listofPrescription;
-    
+
     private CommonService commonService;
     private List<Medicine> listMedicines;
-    
-    @ManagedProperty(value= "#{anyPrescription}")
+
+    @ManagedProperty(value = "#{anyPrescription}")
     Prescription prescription;
 
     public PrescriptionController() {
-       commonService = new CommonService();
+        commonService = new CommonService();
     }
-    
-    
 
-                        /*some extra work here*/
+    /*some extra work here*/
+    private String date;
 
-                        private String date;
+    public String getDate() {
+        return date;
+    }
 
-                        public String getDate() {
-                            return date;
-                        }
+    public void setDate(String date) {
+        this.date = date;
+    }
 
-                        public void setDate(String date) {
-                            this.date = date;
-                        }
-
-                        /*end here*/
-
+    /*end here*/
     public List<Medicine> getListMedicines() {
         return listMedicines;
     }
@@ -60,9 +56,7 @@ public class PrescriptionController implements Serializable {
     public void setListMedicines(List<Medicine> listMedicines) {
         this.listMedicines = listMedicines;
     }
-    
-                        
-                        
+
     public Prescription getPrescription() {
         return prescription;
     }
@@ -86,26 +80,27 @@ public class PrescriptionController implements Serializable {
     public void setListofPrescription(List<Prescription> listofPrescription) {
         this.listofPrescription = listofPrescription;
     }
-    
+
     public void setPrescriptionObject() {
-        System.out.println(date);
-        CommonService commonService = new CommonService();
-        prescription = commonService.setPrescriptionObject(prescription);
+        
+        System.out.println("hello world");
+        //System.out.println(date);
+        //CommonService commonService = new CommonService();
+        //prescription = commonService.setPrescriptionObject(prescription);
         //listofPrescription.add(prescription);
     }
-    
-     public void onCompanyChange() {
+
+    public void onCompanyChange() {
         commonService = new CommonService();
-       
 
         listMedicines = commonService.getListMedicines(prescription.getCompany().getCompanyId());
     }
-     
+
     public void onMedicineChange() {
         System.out.println(prescription.getPatient().getPatientId());
         System.out.println(prescription.getPatient().getPatientName());
         CommonService commonService = new CommonService();
         listofPacking = commonService.findPacking(prescription);
     }
-    
+
 }

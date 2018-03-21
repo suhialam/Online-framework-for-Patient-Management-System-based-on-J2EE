@@ -23,15 +23,15 @@ public class SQLQueryUtil {
     public void connect(boolean autoCommit) {
         try {
             Class.forName("org.postgresql.Driver");
-            System.out.println("Driver Loaded.");
+            //System.out.println("Driver Loaded.");
 
             connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/"
                     + "pms", "pms_user", "pms_user");
-            System.out.println("Connection established.");
+            //System.out.println("Connection established.");
 
             connection.setAutoCommit(autoCommit);
             statement = connection.createStatement();
-            System.out.println("Statement Created.");
+            //System.out.println("Statement Created.");
         } catch (Throwable th) {
             th.printStackTrace();
         }
