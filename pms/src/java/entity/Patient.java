@@ -19,7 +19,7 @@ public class Patient implements Serializable{
     
     private static final long serialVersionUID = 1L;
     
-    private int patientId;
+    private String patientId;
     private String patientName;
     private String address;
     private String phoneNumber;
@@ -29,11 +29,11 @@ public class Patient implements Serializable{
     public Patient() {
     }
 
-    public int getPatientId() {
+    public String getPatientId() {
         return patientId;
     }
 
-    public void setPatientId(int patientId) {
+    public void setPatientId(String patientId) {
         this.patientId = patientId;
     }
 
