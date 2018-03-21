@@ -25,7 +25,7 @@ public class Company implements Serializable {
     
     private static final long serialVersionUID = 1L;
 
-    private int companyId;
+    private String companyId;
     private String companyName;
     private String address;
     private String phoneNumber;
@@ -33,11 +33,11 @@ public class Company implements Serializable {
     public Company() {
     }
 
-    public int getCompanyId() {
+    public String getCompanyId() {
         return companyId;
     }
 
-    public void setCompanyId(int companyId) {
+    public void setCompanyId(String companyId) {
         this.companyId = companyId;
     }
 

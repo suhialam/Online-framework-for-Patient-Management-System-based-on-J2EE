@@ -6,6 +6,7 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -32,7 +33,7 @@ public class Prescription implements Serializable {
     private Patient patient;
 
     private int quantity;
-    private String currentDate;
+    private Date currentDate = new Date();
     private String dosage;
 
     public Prescription() {
@@ -78,11 +79,12 @@ public class Prescription implements Serializable {
         this.quantity = quantity;
     }
 
-    public String getCurrentDate() {
+    public Date getCurrentDate() {
         return currentDate;
     }
 
-    public void setCurrentDate(String currentDate) {
+    public void setCurrentDate(Date currentDate) {
+        
         this.currentDate = currentDate;
     }
 

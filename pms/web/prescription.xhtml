@@ -18,6 +18,10 @@
             .margin{
                 margin-bottom: 15px !important;
             }
+            #spin_Control input {
+                width: 60px !important;
+                text-align: left !important;
+            }
              
         </style>
 
@@ -30,33 +34,30 @@
         <ui:include src="config/menus.xhtml" />
 
         <!-- your code starts here-->
-        <h:form >
+        <h:form id="prescription_form">
             <ace:panel id="personalInfoInputPanel" header="New perscription"  styleClass="required-styling-demo" style="width: 1000px;height: 500px; margin: 0 auto;margin-top: 50px;">
                 <h:panelGrid id="inputGrid" columns="4" width="100%" >
 
                     <h:outputLabel  value="Select Patient"/>
                     <ace:comboBox id="p_combobox" required="true" class="margin" 
                                   width="208" value="#{prescriptionController.prescription.patient.patientId}" >
-                        
                         <c:forEach items="#{commonController.listPatient}" var="objPatient" >
                             <f:selectItem itemValue="#{objPatient.patientId}" itemLabel="#{objPatient.patientName} from #{objPatient.address}" />
                         </c:forEach>
-                        <ace:ajax listener="#{prescriptionController.onMedicineChange}" />
-                    </ace:comboBox>
+                     </ace:comboBox>
 
                     <h:outputLabel  value="Date"/>
-                    <ace:dateTimeEntry id="cal" class="text-entry_size"
-                                       value="#{prescriptionController.prescription.currentDate}"
-                                       timeZone="Canada/Mountain"
+                    <ace:dateTimeEntry id="cal" class="text-entry_size" required="true"
+                                       value="#{prescriptionController.date}"
                                        pattern="yyyy-mm-dd"
-                                       renderAsPopup="true" />
+                                       renderAsPopup="true"/>
 
                     <h:outputLabel  value="Select Company"/>
-                    <ace:comboBox  required="true" class="margin" width="208" value="#{medicineController.companyId}"  >
+                    <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.company.companyId}"  >
                         <c:forEach items="#{commonController.listCompanies}" var="objCompany" >
                             <f:selectItem itemValue="#{objCompany.companyId}" itemLabel="#{objCompany.companyName}" />
                         </c:forEach>
-                        <ace:ajax listener="#{medicineController.onCompanyChange}" />
+                        <ace:ajax listener="#{prescriptionController.onCompanyChange}" />
                     </ace:comboBox>
 
                     <h:outputLabel value="Dosage"/>
@@ -66,17 +67,18 @@
 
                     <h:outputLabel  value="Select Medicine"/>
                     <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.medicine.medicineId}"  >
-                        <c:forEach items="#{medicineController.listMedicines}" var="objMedicine" >
+                        <c:forEach items="#{prescriptionController.listMedicines}" var="objMedicine" >
                             <f:selectItem itemValue="#{objMedicine.medicineId}" itemLabel="#{objMedicine.medicineName}" />
                         </c:forEach>
                         <ace:ajax listener="#{prescriptionController.onMedicineChange}" />
                     </ace:comboBox>
 
                     <h:outputLabel value="Quantity"/>
-                    <p:spinner value="#{prescriptionController.prescription.quantity}" min="1" max="10" id="spin_Control" /> 
+                    <p:spinner value="#{prescriptionController.prescription.quantity}"
+                               min="1" max="10" id="spin_Control" /> 
 
                     <h:outputLabel  value="Packing"/>
-                    <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.medicine.packing}"  >
+                    <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.medicine.medicineDetailId}"  >
                         <c:forEach items="#{prescriptionController.listofPacking}" var="objPacking" >
                             <f:selectItem itemValue="#{objPacking.medicineDetailId}" itemLabel="#{objPacking.packing}" />
                         </c:forEach>
@@ -85,29 +87,37 @@
                 </h:panelGrid >
 
                 <center>
-                    <h:commandButton value="Add To List" class="submit" style="width: 150px;" /> &nbsp;&nbsp;
+                    <h:commandButton value="Add To List" class="submit" action="#{prescriptionController.setPrescriptionObject}"
+                                     style="width: 150px;" /> &nbsp;&nbsp;
                     <h:commandButton value="Clear" class="submit" style="width: 120px;" /> &nbsp;
                 </center>
+                
                 <h:panelGrid id="dtPanelGrid" width="100%">
-                    <ace:dataTable id="prescription" value="" paginator="true" paginatorPosition="bottom" rows="10">
+                    <ace:dataTable id="prescription" value="#{prescriptionController.listofPrescription}" var="listPerscription" 
+                                   paginator="true" paginatorPosition="bottom" rows="10">
 
-                        <ace:column id="b" headerText="Company Name" sortBy="">
+                        <ace:column id="b" headerText="Company Name">
+                            <h:outputText id="comp-text" value="" />
                         </ace:column>
 
-                        <ace:column id="d" headerText="Medicine" sortBy="">
-                                    
+                        <ace:column id="d" headerText="Medicine">
+                            <h:outputText id="med-text" value="" />
                         </ace:column>
 
-                        <ace:column id="e" headerText="Packing" sortBy="">
+                        <ace:column id="e" headerText="Packing">
+                            <h:outputText id="pack-text" value="#{listPerscription.medicine.packing}" />
                         </ace:column>
                         
-                        <ace:column id="q" headerText="Quantity" sortBy="">
+                        <ace:column id="q" headerText="Quantity">
+                            <h:outputText id="quan-text" value="#{listPerscription.quantity}" />
                         </ace:column>
 
-                        <ace:column id="f" headerText="Dosage" sortBy="">
+                        <ace:column id="f" headerText="Dosage">
+                            <h:outputText id="dos-text" value="#{listPerscription.dosage}" />
                         </ace:column>
 
-                        <ace:column id="c" headerText="Prescription date" sortBy="">
+                        <ace:column id="c" headerText="Prescription date">
+                            <h:outputText id="date-text" value="#{listPerscription.currentDate}" />
                         </ace:column>
 
                     </ace:dataTable>

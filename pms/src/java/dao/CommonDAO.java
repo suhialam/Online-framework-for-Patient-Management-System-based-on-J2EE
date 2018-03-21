@@ -34,7 +34,7 @@ public class CommonDAO {
             ResultSet rs = sql.executeQuery(query);
             while (rs.next()) {
                 company = new Company();
-                company.setCompanyId(rs.getInt("id"));
+                company.setCompanyId(rs.getString("id"));
                 company.setCompanyName(rs.getString("company_name"));
                 company.setAddress(rs.getString("address"));
                 company.setPhoneNumber(rs.getString("phone_number"));
@@ -126,7 +126,7 @@ public class CommonDAO {
             ResultSet resultSet = sql.executeQuery(query);
             resultSet.next();
 
-            selectedCompany.setCompanyId(resultSet.getInt("id"));
+            selectedCompany.setCompanyId(resultSet.getString("id"));
             selectedCompany.setCompanyName(resultSet.getString("company_name"));
             selectedCompany.setAddress(resultSet.getString("address"));
             selectedCompany.setPhoneNumber(resultSet.getString("phone_number"));
@@ -176,7 +176,7 @@ public class CommonDAO {
             ResultSet rs = sql.executeQuery(query);
             while (rs.next()) {
                 patient = new Patient();
-                patient.setPatientId(rs.getInt("id"));
+                patient.setPatientId(rs.getString("id"));
                 patient.setPatientName(rs.getString("patient_name"));
                 patient.setAddress(rs.getString("address"));
                 patient.setPhoneNumber(rs.getString("phone_number"));
@@ -205,7 +205,7 @@ public class CommonDAO {
             rs.next();
 
             selectedPatient = new Patient();
-            selectedPatient.setPatientId(rs.getInt("id"));
+            selectedPatient.setPatientId(rs.getString("id"));
             selectedPatient.setPatientName(rs.getString("patient_name"));
             selectedPatient.setAddress(rs.getString("address"));
             selectedPatient.setPhoneNumber(rs.getString("phone_number"));
@@ -245,7 +245,7 @@ public class CommonDAO {
 
                 medicine = new Medicine();
 
-                company.setCompanyId(rs.getInt("id"));
+                company.setCompanyId(rs.getString("id"));
                 company.setCompanyName(rs.getString("company_name"));
                 medicine.setCompany(company);
 
@@ -260,7 +260,7 @@ public class CommonDAO {
 
                 prescription.setQuantity(rs.getInt("quantity"));
                 prescription.setDosage(rs.getString("dosage"));
-                prescription.setCurrentDate(rs.getString("prescription_date"));
+                prescription.setCurrentDate(rs.getDate("prescription_date"));
 
                 listpPrescription.add(prescription);
 
@@ -300,5 +300,12 @@ public class CommonDAO {
         }
         return listofPakcing;
     }
+    
+    public Prescription setPrescriptionObject(Prescription prescription) {
+        SQLQueryUtil sql = new SQLQueryUtil();
+        sql.connect(false);
+        
+        return null;
+     }
 
 }
