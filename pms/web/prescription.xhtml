@@ -54,10 +54,11 @@
 
                     <h:outputLabel  value="Select Company" />
                     <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.company.companyId}">
+                        <ace:ajax listener="#{prescriptionController.onCompanyChange}" render="medicine" />
                         <c:forEach items="#{commonController.listCompanies}" var="objCompany" >
                             <f:selectItem itemValue="#{objCompany.companyId}" itemLabel="#{objCompany.companyName}" />
                         </c:forEach>
-                        <ace:ajax listener="#{prescriptionController.onCompanyChange}" />
+                        
                     </ace:comboBox>
 
                     <h:outputLabel value="Dosage" />
@@ -66,18 +67,18 @@
 
                     <h:outputLabel  value="Select Medicine" />
                     <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.medicine.medicineId}" id="medicine">
+                        <ace:ajax listener="#{prescriptionController.onMedicineChange}" render="packing" />
                         <c:forEach items="#{prescriptionController.listMedicines}" var="objMedicine" >
                             <f:selectItem itemValue="#{objMedicine.medicineId}" itemLabel="#{objMedicine.medicineName}" />
                         </c:forEach>
-                        <ace:ajax listener="#{prescriptionController.onMedicineChange}" />
+                        
                     </ace:comboBox>
 
-                    <h:outputLabel value="Quantity"/>
+                    <h:outputLabel value="Quantity" />
                     <p:spinner value="#{prescriptionController.prescription.quantity}"
                                min="1" max="10" id="spin_Control" /> 
-
                     <h:outputLabel  value="Packing" />
-                    <ace:comboBox  required="true" class="margin" width="208" value="#{prescriptionController.prescription.medicine.medicineDetailId}"  >
+                    <ace:comboBox id="packing"  required="true" class="margin" width="208" value="#{prescriptionController.prescription.medicine.medicineDetailId}"  >
                         <c:forEach items="#{prescriptionController.listofPacking}" var="objPacking" >
                             <f:selectItem itemValue="#{objPacking.medicineDetailId}" itemLabel="#{objPacking.packing}" />
                         </c:forEach>
