@@ -75,26 +75,25 @@ public class PrescriptionDAO {
 
         return listpPrescription;
     }
-    
-    
-    public Prescription addToList(String companyId,String MedicineId, String medicineDetailId, int quantity, String dosage) {
+
+    public Prescription addToList(String companyId, String MedicineId, String medicineDetailId, int quantity, String dosage) {
         //System.out.println("i am in prescription DAO");
         Prescription temp = new Prescription();
-        
+
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
-        
+
         String query = "SELECT c.company_name, m.medicine_name, md.packing from "
                 + "pms_schema.companies as c, pms_schema.medicines as m, "
                 + "pms_schema.medicine_details as md where c.id=" + companyId
                 + " and m.id=" + MedicineId + " and md.id=" + medicineDetailId + ";";
-         try {
+        try {
             ResultSet rs = sql.executeQuery(query);
             rs.next();
-            
+
             temp.getCompany().setCompanyId(companyId);
             temp.getCompany().setCompanyName(rs.getString("company_name"));
-            
+
             temp.getMedicine().setMedicineId(Integer.parseInt(MedicineId));
             temp.getMedicine().setMedicineName(rs.getString("medicine_name"));
             temp.getMedicine().setMedicineDetailId(Integer.parseInt(medicineDetailId));
@@ -102,14 +101,49 @@ public class PrescriptionDAO {
 
             temp.setDosage(dosage);
             temp.setQuantity(quantity);
-            
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
             sql.disconnect();
         }
-        
+
         return temp;
+    }
+
+    public void finishPrescription(String patientId, String formatedDate, List<Prescription> listofPrescription) {
+        System.out.println("i am in dao in finish prescription");
+        System.out.println("patient id = " + patientId);
+        System.out.println("prescription = " + formatedDate);
+
+        SQLQueryUtil sql = new SQLQueryUtil();
+        sql.connect(false);
+
+        String query = "";
+        String medicineDetailId = "";
+        int quantity = 0;
+        String dosage = "";
+
+        try {
+            for (int i = 0; i < listofPrescription.size(); i++) {
+                medicineDetailId = listofPrescription.get(i).getMedicine().getMedicineDetailId() + "";
+        quantity = listofPrescription.get(i).getQuantity();
+        dosage = listofPrescription.get(i).getDosage();
+                query = "INSERT INTO pms_schema.patient_history (patient_id, "
+                        + "medicine_detail_id, quantity, dosage, prescription_date) "
+                        + "values(" + patientId + "," + medicineDetailId + "," + quantity 
+                        + ",'" + dosage + "','" + formatedDate + "');";
+                sql.executeUpdate(query);
+                System.out.println("medicine detail id = " + listofPrescription.get(i).getMedicine().getMedicineDetailId()
+                        + "  quantity = " + listofPrescription.get(i).getQuantity() + "  dosage = " + listofPrescription.get(i).getDosage());
+            }
+            sql.commit();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            sql.disconnect();
+        }
+
     }
 
 }

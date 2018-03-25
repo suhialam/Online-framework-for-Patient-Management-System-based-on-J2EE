@@ -10,8 +10,6 @@ import entity.Medicine;
 import entity.Patient;
 import entity.Prescription;
 import java.io.Serializable;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,7 +20,6 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import services.CommonService;
 import services.PrescriptionService;
-import util.SQLQueryUtil;
 
 /**
  *
@@ -199,11 +196,12 @@ public class PrescriptionController implements Serializable {
         System.out.println("medicine detail id " + medicineDetailId);
         
         System.out.println("quantity " + quantity);
-        System.out.println("dosage " + dosage);
+        System.out.println("dosage " + dosage);*/
+        
         prescriptionService = new PrescriptionService();
-        System.out.println("above add to list method");*/
+                
         Prescription newPrescription = prescriptionService.addToList(companyId, MedicineId, medicineDetailId, quantity, dosage);
-        //System.out.println("below add to list method");
+        
         listofPrescription.add(newPrescription);
     }
 
@@ -250,8 +248,12 @@ public class PrescriptionController implements Serializable {
     
     public void finishPrescription() {
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");	
-	System.out.println(dateFormat.format(date)); 
-
+	System.out.println(dateFormat.format(date));
+        String formatedDate = dateFormat.format(date).toString();
+	System.out.println(patientId); 
+        
+        prescriptionService = new PrescriptionService();
+        prescriptionService.finishPrescription(patientId, formatedDate, listofPrescription);
         
     }
 

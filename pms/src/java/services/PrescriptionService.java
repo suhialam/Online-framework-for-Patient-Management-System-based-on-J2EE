@@ -33,5 +33,10 @@ public class PrescriptionService {
         System.out.println("i am in prescription service");
         return prescriptionDAO.addToList(companyId, MedicineId, medicineDetailId, quantity, dosage);
     }
+    
+    
+    public void finishPrescription(String patientId, String formatedDate, List<Prescription> listofPrescription) {
+        prescriptionDAO.finishPrescription(patientId, formatedDate, listofPrescription);
+    }
 
 }

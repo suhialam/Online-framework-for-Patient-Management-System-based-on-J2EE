@@ -92,27 +92,27 @@
                 </center>
                 
                 <h:panelGrid id="dtPanelGrid" width="100%">
-                    <ace:dataTable id="prescription" value="#{prescriptionController.listofPrescription}" var="listPerscription" 
+                    <ace:dataTable id="prescription" value="#{prescriptionController.listofPrescription}" var="currentObject" 
                                    paginator="true" paginatorPosition="bottom" rows="10">
 
                         <ace:column id="b" headerText="Company Name">
-                            <h:outputText id="comp-text" value="#{listPerscription.company.companyName}" />
+                            <h:outputText id="comp-text" value="#{currentObject.company.companyName}" />
                         </ace:column>
 
                         <ace:column id="d" headerText="Medicine">
-                            <h:outputText id="med-text" value="#{listPerscription.medicine.medicineName}" />
+                            <h:outputText id="med-text" value="#{currentObject.medicine.medicineName}" />
                         </ace:column>
 
                         <ace:column id="e" headerText="Packing">
-                            <h:outputText id="pack-text" value="#{listPerscription.medicine.packing}" />
+                            <h:outputText id="pack-text" value="#{currentObject.medicine.packing}" />
                         </ace:column>
                         
                         <ace:column id="q" headerText="Quantity">
-                            <h:outputText id="quan-text" value="#{listPerscription.quantity}" />
+                            <h:outputText id="quan-text" value="#{currentObject.quantity}" />
                         </ace:column>
 
                         <ace:column id="f" headerText="Dosage">
-                            <h:outputText id="dos-text" value="#{listPerscription.dosage}" />
+                            <h:outputText id="dos-text" value="#{currentObject.dosage}" />
                         </ace:column>
 
                     </ace:dataTable>
