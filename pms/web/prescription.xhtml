@@ -62,7 +62,7 @@
                     </ace:comboBox>
 
                     <h:outputLabel value="Dosage" />
-                    <ace:textEntry id="select_dosage" value="#{prescriptionController.prescription.dosage}" required="true" class="margin text-entry_size"  indicatorPosition="right">
+                    <ace:textEntry id="select_dosage" value="#{prescriptionController.dosage}" required="true" class="margin text-entry_size"  indicatorPosition="right">
                     </ace:textEntry>      
 
                     <h:outputLabel  value="Select Medicine" />
@@ -75,7 +75,7 @@
                     </ace:comboBox>
 
                     <h:outputLabel value="Quantity" />
-                    <p:spinner value="#{prescriptionController.prescription.quantity}"
+                    <p:spinner value="#{prescriptionController.quantity}"
                                min="1" max="10" id="spin_Control" /> 
                     <h:outputLabel  value="Packing" />
                     <ace:comboBox id="packing"  required="true" class="margin" width="208" value="#{prescriptionController.medicineDetailId}"  >
@@ -96,11 +96,11 @@
                                    paginator="true" paginatorPosition="bottom" rows="10">
 
                         <ace:column id="b" headerText="Company Name">
-                            <h:outputText id="comp-text" value="" />
+                            <h:outputText id="comp-text" value="#{listPerscription.company.companyName}" />
                         </ace:column>
 
                         <ace:column id="d" headerText="Medicine">
-                            <h:outputText id="med-text" value="" />
+                            <h:outputText id="med-text" value="#{listPerscription.medicine.medicineName}" />
                         </ace:column>
 
                         <ace:column id="e" headerText="Packing">
@@ -113,10 +113,6 @@
 
                         <ace:column id="f" headerText="Dosage">
                             <h:outputText id="dos-text" value="#{listPerscription.dosage}" />
-                        </ace:column>
-
-                        <ace:column id="c" headerText="Prescription date">
-                            <h:outputText id="date_text" value="#{listPerscription.currentDate}" />
                         </ace:column>
 
                     </ace:dataTable>

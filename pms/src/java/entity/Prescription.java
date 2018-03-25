@@ -37,6 +37,8 @@ public class Prescription implements Serializable {
     private String dosage;
 
     public Prescription() {
+        company = new Company();
+        medicine = new Medicine();
     }
 
     public int getPrescriptionId() {

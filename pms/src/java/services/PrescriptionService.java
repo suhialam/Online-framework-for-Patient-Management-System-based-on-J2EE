@@ -19,12 +19,19 @@ public class PrescriptionService {
 
     
     private PrescriptionDAO prescriptionDAO;
+    
     public PrescriptionService() {
+        prescriptionDAO = new PrescriptionDAO();
     }
     
 
     public List<Prescription> getListPrescription(Patient patient) {
         return prescriptionDAO.getListPrescription(patient);
+    }
+    
+    public Prescription addToList(String companyId, String MedicineId, String medicineDetailId, int quantity, String dosage) {
+        System.out.println("i am in prescription service");
+        return prescriptionDAO.addToList(companyId, MedicineId, medicineDetailId, quantity, dosage);
     }
 
 }

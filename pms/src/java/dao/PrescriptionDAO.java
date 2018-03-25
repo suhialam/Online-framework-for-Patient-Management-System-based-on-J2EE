@@ -75,5 +75,41 @@ public class PrescriptionDAO {
 
         return listpPrescription;
     }
+    
+    
+    public Prescription addToList(String companyId,String MedicineId, String medicineDetailId, int quantity, String dosage) {
+        //System.out.println("i am in prescription DAO");
+        Prescription temp = new Prescription();
+        
+        SQLQueryUtil sql = new SQLQueryUtil();
+        sql.connect(false);
+        
+        String query = "SELECT c.company_name, m.medicine_name, md.packing from "
+                + "pms_schema.companies as c, pms_schema.medicines as m, "
+                + "pms_schema.medicine_details as md where c.id=" + companyId
+                + " and m.id=" + MedicineId + " and md.id=" + medicineDetailId + ";";
+         try {
+            ResultSet rs = sql.executeQuery(query);
+            rs.next();
+            
+            temp.getCompany().setCompanyId(companyId);
+            temp.getCompany().setCompanyName(rs.getString("company_name"));
+            
+            temp.getMedicine().setMedicineId(Integer.parseInt(MedicineId));
+            temp.getMedicine().setMedicineName(rs.getString("medicine_name"));
+            temp.getMedicine().setMedicineDetailId(Integer.parseInt(medicineDetailId));
+            temp.getMedicine().setPacking(rs.getString("packing"));
+
+            temp.setDosage(dosage);
+            temp.setQuantity(quantity);
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            sql.disconnect();
+        }
+        
+        return temp;
+    }
 
 }

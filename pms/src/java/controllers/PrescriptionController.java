@@ -55,13 +55,37 @@ public class PrescriptionController implements Serializable {
     private String MedicineId;
     private String medicineDetailId;
     private String patientId;
+    
+    private int quantity;
+    private String dosage;
 
+    
     public PrescriptionController() {
         commonService = new CommonService();
         date = new Date(System.currentTimeMillis());
-        //System.out.println("babu " + date.toString());
+        
+        listofPrescription = new ArrayList<Prescription>();
+        
+        
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getDosage() {
+        return dosage;
+    }
+
+    public void setDosage(String dosage) {
+        this.dosage = dosage;
+    }
+
+    
     public CommonService getCommonService() {
         return commonService;
     }
@@ -170,10 +194,17 @@ public class PrescriptionController implements Serializable {
 
     public void addToList() {
        //new code
-        System.out.println("company id " + companyId);
+        /*System.out.println("company id " + companyId);
         System.out.println("medicine id " + MedicineId);
         System.out.println("medicine detail id " + medicineDetailId);
         
+        System.out.println("quantity " + quantity);
+        System.out.println("dosage " + dosage);
+        prescriptionService = new PrescriptionService();
+        System.out.println("above add to list method");*/
+        Prescription newPrescription = prescriptionService.addToList(companyId, MedicineId, medicineDetailId, quantity, dosage);
+        //System.out.println("below add to list method");
+        listofPrescription.add(newPrescription);
     }
 
     public void onCompanyChange() {
@@ -181,12 +212,11 @@ public class PrescriptionController implements Serializable {
 
         listMedicines = commonService.getListMedicines(companyId);
         
-        System.out.println("company change event");
     }
 
     public void onMedicineChange() {
         listofPacking = commonService.findPacking(MedicineId);
-        System.out.println("medicine change event");
+        
     }
 
     public String getPatientId() {
@@ -205,60 +235,6 @@ public class PrescriptionController implements Serializable {
 
     }
 
-    public void prescriptionTable() {
-        SQLQueryUtil sql = new SQLQueryUtil();
-
-        sql.connect(false);
-
-        listPrescription = new ArrayList<Prescription>();
-
-        String query = "SELECT * FROM pms_schema.companies AS c, pms_schema.medicines AS m,"
-                + " pms_schema.medicine_details AS md, pms_schema.patient_history AS ph"
-                + " WHERE c.id=m.company_id AND m.id=md.medicine_id AND md.id=ph.medicine_detail_id"
-                + " AND ph.patient_id=" + patientId + " ORDER by patient_id ASC;";
-        try {
-
-            ResultSet rs = sql.executeQuery(query);
-
-            prescription = new Prescription();
-            company = new Company();
-            medicine = new Medicine();
-            patient = new Patient();
-
-            while (rs.next()) {
-                prescription = new Prescription();
-
-                company = new Company();
-
-                medicine = new Medicine();
-
-                company.setCompanyId(rs.getString("id"));
-                company.setCompanyName(rs.getString("company_name"));
-                medicine.setCompany(company);
-
-                medicine.setMedicineId(rs.getInt("id"));
-                medicine.setMedicineDetailId(rs.getInt("id"));
-                medicine.setPacking(rs.getString("packing"));
-                medicine.setMedicineName(rs.getString("medicine_name"));
-
-                prescription.setPatient(patient);
-                prescription.setCompany(company);
-                prescription.setMedicine(medicine);
-
-                prescription.setQuantity(rs.getInt("quantity"));
-                prescription.setDosage(rs.getString("dosage"));
-                prescription.setCurrentDate(rs.getDate("prescription_date"));
-
-                listPrescription.add(prescription);
-
-                System.out.println(query);
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            sql.disconnect();
-        }
-    }
 
     public List<Prescription> getListPrescription(Patient patient) {
         return prescriptionService.getListPrescription(patient);
