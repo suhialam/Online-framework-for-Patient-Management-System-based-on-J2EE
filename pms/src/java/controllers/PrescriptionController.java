@@ -12,7 +12,10 @@ import entity.Prescription;
 import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -37,6 +40,8 @@ public class PrescriptionController implements Serializable {
     private CommonService commonService;
     private List<Medicine> listMedicines;
 
+    private Date date;
+    
     @ManagedProperty(value = "#{anyPrescription}")
     Prescription prescription;
     
@@ -45,21 +50,88 @@ public class PrescriptionController implements Serializable {
     private Company company;
     private Patient patient;
     private Medicine medicine;
-    private String patientId;
     
+    private String companyId;
+    private String MedicineId;
+    private String medicineDetailId;
+    private String patientId;
 
     public PrescriptionController() {
         commonService = new CommonService();
+        date = new Date(System.currentTimeMillis());
+        //System.out.println("babu " + date.toString());
     }
 
-    /*some extra work here*/
-    private String date;
+    public CommonService getCommonService() {
+        return commonService;
+    }
 
-    public String getDate() {
+    public void setCommonService(CommonService commonService) {
+        this.commonService = commonService;
+    }
+
+    public PrescriptionService getPrescriptionService() {
+        return prescriptionService;
+    }
+
+    public void setPrescriptionService(PrescriptionService prescriptionService) {
+        this.prescriptionService = prescriptionService;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public Medicine getMedicine() {
+        return medicine;
+    }
+
+    public void setMedicine(Medicine medicine) {
+        this.medicine = medicine;
+    }
+
+    public String getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
+    }
+
+    public String getMedicineId() {
+        return MedicineId;
+    }
+
+    public void setMedicineId(String MedicineId) {
+        this.MedicineId = MedicineId;
+    }
+
+    public String getMedicineDetailId() {
+        return medicineDetailId;
+    }
+
+    public void setMedicineDetailId(String medicineDetailId) {
+        this.medicineDetailId = medicineDetailId;
+    }
+    
+
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -96,26 +168,25 @@ public class PrescriptionController implements Serializable {
         this.listofPrescription = listofPrescription;
     }
 
-    public void setPrescriptionObject() {
+    public void addToList() {
+       //new code
+        System.out.println("company id " + companyId);
+        System.out.println("medicine id " + MedicineId);
+        System.out.println("medicine detail id " + medicineDetailId);
         
-        System.out.println("hello world");
-        //System.out.println(date);
-        //CommonService commonService = new CommonService();
-        //prescription = commonService.setPrescriptionObject(prescription);
-        //listofPrescription.add(prescription);
     }
 
     public void onCompanyChange() {
         commonService = new CommonService();
 
-        listMedicines = commonService.getListMedicines(prescription.getCompany().getCompanyId());
+        listMedicines = commonService.getListMedicines(companyId);
+        
+        System.out.println("company change event");
     }
 
     public void onMedicineChange() {
-        System.out.println(prescription.getPatient().getPatientId());
-        System.out.println(prescription.getPatient().getPatientName());
-        CommonService commonService = new CommonService();
-        listofPacking = commonService.findPacking(prescription);
+        listofPacking = commonService.findPacking(MedicineId);
+        System.out.println("medicine change event");
     }
 
     public String getPatientId() {
@@ -199,6 +270,13 @@ public class PrescriptionController implements Serializable {
 
     public void setListPrescription(List<Prescription> listPrescription) {
         this.listPrescription = listPrescription;
+    }
+    
+    public void finishPrescription() {
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");	
+	System.out.println(dateFormat.format(date)); 
+
+        
     }
 
 }

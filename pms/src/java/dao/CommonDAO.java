@@ -274,8 +274,8 @@ public class CommonDAO {
         return listpPrescription;
     }
 
- 
-    public List<Medicine> findPacking(Prescription prescription) {
+
+    public List<Medicine> findPacking(String medicineId) {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
 
@@ -283,7 +283,7 @@ public class CommonDAO {
         Medicine medicine;
 
         String query = "select * from pms_schema.medicine_details where "
-                + "medicine_id=" + prescription.getMedicine().getMedicineId() + ";";
+                + "medicine_id=" + medicineId + ";";
 
         try {
             ResultSet rs = sql.executeQuery(query);
