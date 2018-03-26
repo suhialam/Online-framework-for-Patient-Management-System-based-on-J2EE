@@ -247,7 +247,7 @@ public class PrescriptionController implements Serializable {
     }
     
     public void finishPrescription() {
-        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");	
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");	
 	System.out.println(dateFormat.format(date));
         String formatedDate = dateFormat.format(date).toString();
 	System.out.println(patientId); 
