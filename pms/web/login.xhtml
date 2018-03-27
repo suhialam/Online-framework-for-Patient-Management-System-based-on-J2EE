@@ -29,19 +29,22 @@
 
                         <h:panelGrid id="inputGrid" columns="2" width="100%">
                             <h:outputLabel>Username</h:outputLabel>
-                            <ace:textEntry id="user_name" value="" required="true" requiredMessage="Please fill out this field." requiredIndicator="(*)" 
+                            <ace:textEntry id="user_name" value="#{loginController.user.userName}" required="true" requiredMessage="Please fill out this field." requiredIndicator="(*)" 
                                            indicatorPosition="right"  placeholder="User Name" class="text-entry_size" />
 
                             <h:outputLabel>Password</h:outputLabel>
-                            <ace:textEntry secret="true" id="password" value="" required="true" requiredIndicator="(*)" indicatorPosition="right" class="text-entry_size" />
+                            <ace:textEntry secret="true" id="password" value="#{loginController.user.password}" required="true" 
+                                           requiredIndicator="(*)" indicatorPosition="right" 
+                                           class="text-entry_size" />
 
                             <h:outputLabel>&nbsp;</h:outputLabel>
-                            <h:commandButton value="Login" class="submit" style="float:right;margin-right: 130px; width: 90px;" />
+                            <h:commandButton value="Login" class="submit" action="#{loginController.tryLogin}"
+                                             style="float:right;margin-right: 130px; width: 90px;" />
 
                         </h:panelGrid>
 
                         <div style="width: 100%; min-height: 30px; text-align: center;">
-                            <h:outputText value=""  />
+                            <h:outputText value="#{loginController.message}" class="#{loginController.cssClass}" />
                         </div>
 
 

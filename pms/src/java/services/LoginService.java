@@ -5,10 +5,22 @@
  */
 package services;
 
+import dao.LoginDAO;
+import entity.User;
+
 /**
  *
  * @author babu
  */
 public class LoginService {
+    private LoginDAO loginDAO;
+
+    public LoginService() {
+        loginDAO = new LoginDAO();
+    }
     
+    
+    public boolean tryLogin(User user){
+        return loginDAO.tryLogin(user);
+    }
 }

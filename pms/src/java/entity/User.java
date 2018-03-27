@@ -5,11 +5,17 @@
  */
 package entity;
 
+import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 /**
  *
  * @author babu
  */
-public class User {
+@ManagedBean(name = "anyUser")
+@ViewScoped
+public class User implements  Serializable{
      private int userId;
     private String displayName;
     private String userName;

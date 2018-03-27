@@ -10,6 +10,7 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import services.LoginService;
 
 /**
  *
@@ -52,28 +53,30 @@ public class LoginController implements Serializable {
         this.cssClass = cssClass;
     }
 
-    public String tryLogin() {
+    public void tryLogin() {
+        System.out.println(user.getUserName());
+        System.out.println(user.getPassword());
         boolean status = false;
-/*
+
         LoginService loginService = new LoginService();
         status = loginService.tryLogin(user);
 
-        if (status) {
+        if (status == true) {
             message = "this user can be logged in.";
-            myClass = "success-message";
+            cssClass = "success-message";
 
-            return "home?faces-redirect=true";
+            //return "home?faces-redirect=true";
 
         } else {
             message = "Incorrect user name or password.";
             // to show the message in login page. in red color.
-            myClass = "failure-message";
+            cssClass = "failure-message";
 
-            return null;
+            //return null;
 
         }
-  */
-return null;
+ 
+//return null;
     }
 
 }
