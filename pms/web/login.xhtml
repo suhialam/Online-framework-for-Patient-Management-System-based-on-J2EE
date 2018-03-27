@@ -18,32 +18,36 @@
     <h:body>
         <!-- header inclusion-->
         <ui:include src="config/header.xhtml" />
+        
+
 
         <!-- your code starts here-->
+        <h:form id="login_form">
+            <ace:panel id="personalInfoInputPanel" header="Login Form"  styleClass="required-styling-demo" style="width: 500px;height: 200px; margin: 0 auto;margin-top: 50px;">
 
-        <div class="login-box">
-            <div class="login">
-                <h:form id="login_form">
-                    <h:panelGrid id="inputGrid" columns="2" width="100%">
-                        <h:outputLabel>Username</h:outputLabel>
-                        <ace:textEntry id="user_name" value="" required="true" requiredMessage="Please fill out this field." requiredIndicator="(*)" 
-                                       indicatorPosition="right"  placeholder="User Name" class="text-entry_size" />
+              
 
-                        <h:outputLabel>Password</h:outputLabel>
-                        <ace:textEntry secret="true" id="password" value="" required="true" requiredIndicator="(*)" indicatorPosition="right" class="text-entry_size" />
+                        <h:panelGrid id="inputGrid" columns="2" width="100%">
+                            <h:outputLabel>Username</h:outputLabel>
+                            <ace:textEntry id="user_name" value="" required="true" requiredMessage="Please fill out this field." requiredIndicator="(*)" 
+                                           indicatorPosition="right"  placeholder="User Name" class="text-entry_size" />
 
-                        <h:outputLabel>&nbsp;</h:outputLabel>
-                        <h:commandButton value="Login" class="submit" style="float:right;margin-right: 80px;" />
+                            <h:outputLabel>Password</h:outputLabel>
+                            <ace:textEntry secret="true" id="password" value="" required="true" requiredIndicator="(*)" indicatorPosition="right" class="text-entry_size" />
 
-                    </h:panelGrid>
-                    <div style="width: 100%; min-height: 30px; text-align: center;">
-                        <h:outputText value=""  />
-                    </div>
+                            <h:outputLabel>&nbsp;</h:outputLabel>
+                            <h:commandButton value="Login" class="submit" style="float:right;margin-right: 130px; width: 90px;" />
 
-                </h:form>    
-            </div>
-        </div>
+                        </h:panelGrid>
 
+                        <div style="width: 100%; min-height: 30px; text-align: center;">
+                            <h:outputText value=""  />
+                        </div>
+
+
+                   
+            </ace:panel>
+        </h:form> 
         <!-- your code ends here-->
 
         <!-- footer inclusion-->
