@@ -33,7 +33,7 @@ public class Prescription implements Serializable {
     private Patient patient;
 
     private int quantity;
-    private Date currentDate = new Date();
+    private String date;
     private String dosage;
 
     public Prescription() {
@@ -81,13 +81,13 @@ public class Prescription implements Serializable {
         this.quantity = quantity;
     }
 
-    public Date getCurrentDate() {
-        return currentDate;
+    public String getCurrentDate() {
+        return date;
     }
 
-    public void setCurrentDate(Date currentDate) {
+    public void setCurrentDate(String currentDate) {
         
-        this.currentDate = currentDate;
+        this.date = currentDate;
     }
 
     public String getDosage() {

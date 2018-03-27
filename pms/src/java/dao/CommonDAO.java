@@ -260,7 +260,7 @@ public class CommonDAO {
 
                 prescription.setQuantity(rs.getInt("quantity"));
                 prescription.setDosage(rs.getString("dosage"));
-                prescription.setCurrentDate(rs.getDate("prescription_date"));
+                prescription.setCurrentDate(rs.getString("prescription_date"));
 
                 listpPrescription.add(prescription);
 
@@ -273,7 +273,6 @@ public class CommonDAO {
 
         return listpPrescription;
     }
-
 
     public List<Medicine> findPacking(String medicineId) {
         SQLQueryUtil sql = new SQLQueryUtil();
@@ -291,7 +290,7 @@ public class CommonDAO {
                 medicine = new Medicine();
                 medicine.setMedicineDetailId(rs.getInt("id"));
                 medicine.setPacking(rs.getString("packing"));
-                
+
                 listofPakcing.add(medicine);
             }
         } catch (SQLException ex) {
@@ -301,12 +300,66 @@ public class CommonDAO {
         }
         return listofPakcing;
     }
-    
+
     public Prescription setPrescriptionObject(Prescription prescription) {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
-        
+
         return null;
-     }
+    }
+
+    public List<Prescription> findPatientHistory(String patientId) {
+        SQLQueryUtil sql = new SQLQueryUtil();
+        sql.connect(false);
+
+        List<Prescription> listPrescription = new ArrayList<Prescription>();
+
+        Prescription prescription = null;
+        Company company = null;
+
+        Medicine medicine = null;
+
+        String query = "select * from pms_schema.companies as c, pms_schema.medicines as m, "
+                + " pms_schema.medicine_details as md, " 
+                +  "pms_schema.patient_history as ph " 
+                + "where c.id=m.company_id and m.id=md.medicine_id " 
+                + "and md.id=ph.medicine_detail_id and ph.patient_id='" + patientId
+                + "' order by prescription_date desc;";
+
+        try {
+            ResultSet resultSet = sql.executeQuery(query);
+
+            while (resultSet.next()) {
+                prescription = new Prescription();
+                company = new Company();
+                medicine = new Medicine();
+
+                
+                company.setCompanyName(resultSet.getString("company_name"));
+
+                medicine.setCompany(company);
+                
+                
+                medicine.setPacking(resultSet.getString("packing"));
+                medicine.setMedicineName(resultSet.getString("medicine_name"));
+
+                
+                prescription.setCompany(company);
+                prescription.setMedicine(medicine);
+
+                prescription.setQuantity(resultSet.getInt("quantity"));
+                prescription.setDosage(resultSet.getString("dosage"));
+                prescription.setCurrentDate(resultSet.getString("prescription_date"));
+
+                listPrescription.add(prescription);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            sql.disconnect();
+        }
+
+        return listPrescription;
+    }
 
 }

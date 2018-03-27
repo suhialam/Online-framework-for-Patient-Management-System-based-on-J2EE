@@ -62,7 +62,7 @@ public class PrescriptionDAO {
 
                 prescription.setQuantity(rs.getInt("quantity"));
                 prescription.setDosage(rs.getString("dosage"));
-                prescription.setCurrentDate(rs.getDate("prescription_date"));
+                prescription.setCurrentDate(rs.getString("prescription_date"));
 
                 listpPrescription.add(prescription);
 
