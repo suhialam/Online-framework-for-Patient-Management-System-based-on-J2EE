@@ -33,31 +33,31 @@
                     </ace:comboBox>
    
                     <h:outputLabel id="search" for="search_patient" value=""/>
-                    <h:commandButton value="Search" action="#{prescriptionController.prescriptionTable}" />
+                    <h:commandButton value="Search" action="#{prescriptionController.findPatientHistory}" />
                 </h:panelGrid>
                 <h:panelGrid id="dtPanelGrid" width="100%">
-                    <ace:dataTable id="patientHistory" value="#{prescriptionController.listPrescription}" paginator="true" paginatorPosition="bottom" rows="10">
-                        <ace:column  headerText="Comapany Name" sortBy="#{prescriptionController.prescription.company.companyName}"
-                                     filterBy="#{prescriptionController.prescription.company.companyName}" >
-                            <h:outputText id="company_name" value="#{prescriptionController.prescription.company.companyName}" />
+                    <ace:dataTable id="patientHistory" value="#{prescriptionController.listPrescription}" var="listPrescription" paginator="true" paginatorPosition="bottom" rows="10">
+                        <ace:column  headerText="Comapany Name" sortBy="#{listPrescription.company.companyName}"
+                                     filterBy="#{listPrescription.company.companyName}" >
+                            <h:outputText id="company_name" value="#{listPrescription.company.companyName}" />
                         </ace:column>          
-                        <ace:column headerText="Medicine Name" sortBy="#{prescriptionController.prescription.medicine.medicineName}" filterMatchMode="contains"
-                                    filterBy="#{prescriptionController.prescription.medicine.medicineName}">
-                            <h:outputText id="medicine_name" value="#{prescriptionController.prescription.medicine.medicineName}" />
+                        <ace:column headerText="Medicine Name" sortBy="#{listPrescription.medicine.medicineName}" filterMatchMode="contains"
+                                    filterBy="#{listPrescription.medicine.medicineName}">
+                            <h:outputText id="medicine_name" value="#{listPrescription.medicine.medicineName}" />
                         </ace:column>
 
-                        <ace:column id="quantity" sortBy="#{prescriptionController.prescription.quantity}" 
-                                    filterBy="#{prescriptionController.prescription.quantity}" headerText="Quantity" >
-                            <h:outputText id="quantity_pre" value="#{prescriptionController.prescription.quantity}"  />
+                        <ace:column id="quantity" sortBy="#{listPrescription.quantity}" 
+                                    filterBy="#{listPrescription.quantity}" headerText="Quantity" >
+                            <h:outputText id="quantity_pre" value="#{listPrescription.quantity}"  />
                         </ace:column>
 
-                        <ace:column id="dosage" sortBy="#{prescriptionController.prescription.dosage}"
-                                    filterBy="#{prescriptionController.prescription.dosage}" headerText="Dosage" >
-                            <h:outputText id="dosage_pre" value="#{prescriptionController.prescription.dosage}" />
+                        <ace:column id="dosage" sortBy="#{listPrescription.dosage}"
+                                    filterBy="#{listPrescription.dosage}" headerText="Dosage" >
+                            <h:outputText id="dosage_pre" value="#{listPrescription.dosage}" />
                         </ace:column>
-                        <ace:column id="prescriptionDate" sortBy="#{prescriptionController.prescription.currentDate}"
-                                    filterBy="#{prescriptionController.prescription.currentDate}" headerText="Prescription Date" >
-                            <h:outputText id="current_date" value="#{prescriptionController.prescription.currentDate}" />
+                        <ace:column id="prescriptionDate" sortBy="#{listPrescription.currentDate}"
+                                    filterBy="#{listPrescription.currentDate}" headerText="Prescription Date" >
+                            <h:outputText id="current_date" value="#{listPrescription.currentDate}" />
                         </ace:column>
                     </ace:dataTable>
                 </h:panelGrid>

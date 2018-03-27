@@ -56,7 +56,12 @@ private static final long serialVersionUID = 1L;
      public List<Medicine> findPacking(String medicineId) {
          return commonDAO.findPacking(medicineId);
      }   
+     
      public Prescription setPrescriptionObject(Prescription prescription) {
          return commonDAO.setPrescriptionObject(prescription);
+     }
+     
+     public List<Prescription> findPatientHistory(String patientId) {
+         return commonDAO.findPatientHistory(patientId);
      }
 }

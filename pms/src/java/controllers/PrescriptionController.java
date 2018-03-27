@@ -256,5 +256,9 @@ public class PrescriptionController implements Serializable {
         prescriptionService.finishPrescription(patientId, formatedDate, listofPrescription);
         
     }
-
+    
+    public void findPatientHistory() {
+        System.out.println(patientId);
+        listPrescription = commonService.findPatientHistory(patientId);
+    }
 }
