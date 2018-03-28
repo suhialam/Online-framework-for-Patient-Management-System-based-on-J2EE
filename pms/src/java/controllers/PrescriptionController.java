@@ -36,6 +36,7 @@ public class PrescriptionController implements Serializable {
 
     private CommonService commonService;
     private List<Medicine> listMedicines;
+    private String message;
 
     private Date date;
     
@@ -66,6 +67,16 @@ public class PrescriptionController implements Serializable {
         
     }
 
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    
+    
     public int getQuantity() {
         return quantity;
     }
@@ -254,7 +265,8 @@ public class PrescriptionController implements Serializable {
         
         prescriptionService = new PrescriptionService();
         prescriptionService.finishPrescription(patientId, formatedDate, listofPrescription);
-        
+        listofPrescription = null;
+        message = "Prescription Saved Successfully";
     }
     
     public void findPatientHistory() {

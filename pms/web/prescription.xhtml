@@ -35,7 +35,7 @@
 
         <!-- your code starts here-->
         <h:form id="prescription_form">
-            <ace:panel id="personalInfoInputPanel" header="New perscription"  styleClass="required-styling-demo" style="width: 1000px;height: 500px; margin: 0 auto;margin-top: 50px;">
+            <ace:panel id="personalInfoInputPanel" header="New perscription"  styleClass="required-styling-demo" style="width: 1000px;height: 600px; margin: 0 auto;margin-top: 50px;">
                 <h:panelGrid id="inputGrid" columns="4" width="100%" >
 
                     <h:outputLabel value="Select Patient" />
@@ -93,7 +93,7 @@
                 
                 <h:panelGrid id="dtPanelGrid" width="100%">
                     <ace:dataTable id="prescription" value="#{prescriptionController.listofPrescription}" var="currentObject" 
-                                   paginator="true" paginatorPosition="bottom" rows="10">
+                                   paginator="true" paginatorPosition="bottom" rows="2">
 
                         <ace:column id="b" headerText="Company Name">
                             <h:outputText id="comp-text" value="#{currentObject.company.companyName}" />
@@ -120,7 +120,10 @@
 
 
                 <h:commandButton value="Save" class="submit" style="width: 150px; float: right;" id="finish_prescription" action="#{prescriptionController.finishPrescription}" />
-
+                    
+                <div style="width: 100%; min-height: 30px; text-align: center;">
+                    <h:outputText value="#{prescriptionController.message}" class="success-class" />
+                </div>
             </ace:panel>
             <!-- your code ends here-->
         </h:form>
