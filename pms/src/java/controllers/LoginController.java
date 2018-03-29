@@ -10,6 +10,7 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import services.LoginService;
 
 /**
@@ -62,9 +63,12 @@ public class LoginController implements Serializable {
         status = loginService.tryLogin(user);
 
         if (status == true) {
+            
             message = "this user can be logged in.";
             cssClass = "success-message";
-
+            
+            //FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+            FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "index.xtml");
             //return "home?faces-redirect=true";
 
         } else {
