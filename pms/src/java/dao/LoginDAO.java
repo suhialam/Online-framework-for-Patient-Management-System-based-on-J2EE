@@ -32,9 +32,9 @@ public class LoginDAO {
              int count = rs.getInt("count");
              if(count == 0) {
                  value = false;
-                 
              } else {
                  value = true;
+                 //again use select * query
              }
          } catch(SQLException ex) {
              ex.printStackTrace();

@@ -2,18 +2,15 @@
 ######################
 # NetBeans
 ######################
-pms/nbproject/
-pms/build/
-pms/nbbuild/
+pms/nbproject/*
+pms/build/*
+pms/nbbuild/*
 pms/dist/
 pms/nbdist/
 pms/nbactions.xml
 pms/nb-configuration.xml
 
-nbproject/
-build/
-nbbuild/
-dist/
-nbdist/
-nbactions.xml
-nb-configuration.xml
+
+######################
+# Eclipse
+######################
