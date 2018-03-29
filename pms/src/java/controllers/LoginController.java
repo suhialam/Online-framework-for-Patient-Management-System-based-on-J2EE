@@ -73,9 +73,9 @@ public class LoginController implements Serializable {
             //FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "index.xtml");
             
             HttpSession session = SessionUtils.getSession();
-			session.setAttribute("user", user);
+			session.setAttribute("username", user);
                         
-            redirectionPath = "index?faces-redirect=true";
+            redirectionPath = "home?faces-redirect=true";
 
         } else {
             message = "Incorrect user name or password.";
