@@ -30,11 +30,9 @@ public class LoginDAO {
              ResultSet rs = sql.executeQuery(query);
              rs.next();
              int count = rs.getInt("count");
-             if(count == 0) {
-                 value = false;
-             } else {
+             if(count > 0) {
                  value = true;
-                 //again use select * query
+                 //bring display name and id also
              }
          } catch(SQLException ex) {
              ex.printStackTrace();

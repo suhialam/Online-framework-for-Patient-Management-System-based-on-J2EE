@@ -3,8 +3,11 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      >
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html;
               charset=UTF-8" />
@@ -15,14 +18,39 @@
     <h:body>
         <!-- header inclusion-->
         <ui:include src="config/header.xhtml" />
+        
 
-        <!-- menus inclusion-->
-        <ui:include src="config/menus.xhtml" />
 
         <!-- your code starts here-->
+        <h:form id="login_form">
+            <ace:panel id="personalInfoInputPanel" header="Login Form"  styleClass="required-styling-demo" style="width: 500px;height: 200px; margin: 0 auto;margin-top: 50px;">
+
+              
+
+                        <h:panelGrid id="inputGrid" columns="2" width="100%">
+                            <h:outputLabel>Username</h:outputLabel>
+                            <ace:textEntry id="user_name" value="#{loginController.user.userName}" required="true" requiredMessage="Please fill out this field." requiredIndicator="(*)" 
+                                           indicatorPosition="right"  placeholder="User Name" class="text-entry_size" />
+
+                            <h:outputLabel>Password</h:outputLabel>
+                            <ace:textEntry secret="true" id="password" value="#{loginController.user.password}" required="true" 
+                                           requiredIndicator="(*)" indicatorPosition="right" 
+                                           class="text-entry_size" />
+
+                            <h:outputLabel>&nbsp;</h:outputLabel>
+                            <h:commandButton value="Login" class="submit" action="#{loginController.tryLogin}"
+                                             style="float:right;margin-right: 130px; width: 90px;" />
+
+                        </h:panelGrid>
+
+                        <div style="width: 100%; min-height: 30px; text-align: center;">
+                            <h:outputText value="#{loginController.message}" class="#{loginController.cssClass}" />
+                        </div>
 
 
-
+                   
+            </ace:panel>
+        </h:form> 
         <!-- your code ends here-->
 
         <!-- footer inclusion-->

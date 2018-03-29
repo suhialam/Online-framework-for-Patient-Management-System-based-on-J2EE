@@ -11,7 +11,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 import services.LoginService;
+import util.SessionUtils;
 
 /**
  *
@@ -54,33 +56,35 @@ public class LoginController implements Serializable {
         this.cssClass = cssClass;
     }
 
-    public void tryLogin() {
+    public String tryLogin() {
         System.out.println(user.getUserName());
         System.out.println(user.getPassword());
         boolean status = false;
 
+        String redirectionPath = "";
         LoginService loginService = new LoginService();
         status = loginService.tryLogin(user);
 
         if (status == true) {
-            
             message = "this user can be logged in.";
             cssClass = "success-message";
             
             //FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
-            FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "index.xtml");
-            //return "home?faces-redirect=true";
+            //FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "index.xtml");
+            
+            HttpSession session = SessionUtils.getSession();
+			session.setAttribute("user", user);
+                        
+            redirectionPath = "index?faces-redirect=true";
 
         } else {
             message = "Incorrect user name or password.";
-            // to show the message in login page. in red color.
             cssClass = "failure-message";
 
-            //return null;
-
+            redirectionPath = null;
         }
  
-//return null;
+return redirectionPath;
     }
 
 }
