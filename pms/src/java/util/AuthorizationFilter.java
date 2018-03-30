@@ -34,12 +34,14 @@ public class AuthorizationFilter implements Filter {
 
 			String reqURI = reqt.getRequestURI();
 			if (reqURI.indexOf("/index.xhtml") >= 0 
-					|| (ses != null && ses.getAttribute("username") != null)
+					|| (ses != null && ses.getAttribute("user") != null)
 					|| reqURI.indexOf("/public/") >= 0 
 					|| reqURI.contains("javax.faces.resource"))
 				chain.doFilter(request, response);
-			else
-				resp.sendRedirect(reqt.getContextPath() + "/index.xhtml");
+                        else {
+                            resp.sendRedirect(reqt.getContextPath() + "/index.xhtml");
+                        }
+				
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -47,6 +49,6 @@ public class AuthorizationFilter implements Filter {
 
 	@Override
 	public void destroy() {
-
+            
 	}
 }

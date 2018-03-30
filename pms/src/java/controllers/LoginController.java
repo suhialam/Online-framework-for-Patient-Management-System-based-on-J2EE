@@ -68,13 +68,13 @@ public class LoginController implements Serializable {
         if (status == true) {
             message = "this user can be logged in.";
             cssClass = "success-message";
-            
+
             //FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
             //FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "index.xtml");
-            
+            //Object obj = (Object) user;
             HttpSession session = SessionUtils.getSession();
-			session.setAttribute("username", user);
-                        
+            session.setAttribute("user", user);
+
             redirectionPath = "home?faces-redirect=true";
 
         } else {
@@ -83,8 +83,13 @@ public class LoginController implements Serializable {
 
             redirectionPath = null;
         }
- 
-return redirectionPath;
+
+        return redirectionPath;
     }
 
+    public String logout() {
+        HttpSession session = SessionUtils.getSession();
+        session.invalidate();
+        return "login";
+    }
 }
