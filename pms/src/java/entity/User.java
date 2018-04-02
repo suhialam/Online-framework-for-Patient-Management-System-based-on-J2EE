@@ -7,14 +7,14 @@ package entity;
 
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
  * @author babu
  */
 @ManagedBean(name = "anyUser")
-@ViewScoped
+@SessionScoped
 public class User implements  Serializable{
      private int userId;
     private String displayName;
