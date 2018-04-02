@@ -17,7 +17,10 @@
             <h:outputText value="Patient Management System" />
         </div>
         
-        <span style="float:right;">Wellcome</span>
+        <span style="float:right;color:#ffffff;font-size: 25px;margin-right: 250px;margin-top: 10px;">
+            welcome <h:outputText value="#{loginController.user.displayName}" /><h:outputLink value="Logout" />
+            </span>
+        
     </div>
     
 </ui:composition>

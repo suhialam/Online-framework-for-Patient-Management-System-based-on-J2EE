@@ -10,6 +10,7 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 import services.LoginService;
@@ -20,7 +21,7 @@ import util.SessionUtils;
  * @author babu
  */
 @ManagedBean(name = "loginController")
-@RequestScoped
+@SessionScoped
 public class LoginController implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -57,14 +58,13 @@ public class LoginController implements Serializable {
     }
 
     public String tryLogin() {
-        System.out.println(user.getUserName());
-        System.out.println(user.getPassword());
+        
         boolean status = false;
 
         String redirectionPath = "";
         LoginService loginService = new LoginService();
         status = loginService.tryLogin(user);
-
+        System.out.println(user.getDisplayName());
         if (status == true) {
             message = "this user can be logged in.";
             cssClass = "success-message";
@@ -90,6 +90,6 @@ public class LoginController implements Serializable {
     public String logout() {
         HttpSession session = SessionUtils.getSession();
         session.invalidate();
-        return "login";
+        return "index?faces-redirect=true";
     }
 }

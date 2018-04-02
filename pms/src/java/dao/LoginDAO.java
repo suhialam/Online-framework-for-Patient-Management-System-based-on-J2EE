@@ -23,17 +23,20 @@ public class LoginDAO {
          
          Boolean value = false;
          
-         String query = "Select count(*) as count from pms_schema.users where "
+         String query = "Select *  from pms_schema.users where "
                  + "user_name like('" + user.getUserName() + "') and "
                  + "password like('" + user.getPassword() + "');";
          try {
              ResultSet rs = sql.executeQuery(query);
-             rs.next();
-             int count = rs.getInt("count");
-             if(count > 0) {
+             if(rs.isBeforeFirst()) {
                  value = true;
-                 //bring display name and id also
+                 while(rs.next()) {
+                 user.setDisplayName(rs.getString("display_name"));
+                 user.setUserId(rs.getInt("id"));
+                     System.out.println(user.getDisplayName());
+                 }
              }
+            
          } catch(SQLException ex) {
              ex.printStackTrace();
          } finally{
