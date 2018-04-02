@@ -118,6 +118,10 @@
                     </ace:dataTable>
                 </h:panelGrid>
 
+                <ace:dataExporter id="dataExporter" label="ace: Export File as XLS"
+					type="xls" target="prescription" fileName="new_prescription"
+					styleClass="export" />
+
 
                 <h:commandButton value="Save" class="submit" style="width: 150px; float: right;" id="finish_prescription" action="#{prescriptionController.finishPrescription}" />
                     
