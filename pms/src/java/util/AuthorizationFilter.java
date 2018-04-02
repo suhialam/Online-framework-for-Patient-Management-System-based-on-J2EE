@@ -1,6 +1,7 @@
 package util;
 
 import java.io.IOException;
+import javax.faces.application.ResourceHandler;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -12,43 +13,42 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(filterName = "AuthFilter", urlPatterns = { "*.xhtml" })
+@WebFilter(filterName = "AuthFilter", urlPatterns = {"*.xhtml"})
 public class AuthorizationFilter implements Filter {
 
-	public AuthorizationFilter() {
-	}
+    public AuthorizationFilter() {
+    }
 
-	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
 
-	}
+    }
 
-	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-			throws IOException, ServletException {
-		try {
+    @Override
 
-			HttpServletRequest reqt = (HttpServletRequest) request;
-			HttpServletResponse resp = (HttpServletResponse) response;
-			HttpSession ses = reqt.getSession(false);
+    public void doFilter(ServletRequest req, ServletResponse resp,
+            FilterChain chain) throws IOException, ServletException {
 
-			String reqURI = reqt.getRequestURI();
-			if (reqURI.indexOf("/index.xhtml") >= 0 
-					|| (ses != null && ses.getAttribute("user") != null)
-					|| reqURI.indexOf("/public/") >= 0 
-					|| reqURI.contains("javax.faces.resource"))
-				chain.doFilter(request, response);
-                        else {
-                            resp.sendRedirect(reqt.getContextPath() + "/index.xhtml");
-                        }
-				
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
+        HttpServletRequest request = (HttpServletRequest) req;
+        HttpServletResponse response = (HttpServletResponse) resp;
+        HttpSession session = request.getSession(false);
 
-	@Override
-	public void destroy() {
-             
-	}
+        String loginURI = request.getContextPath() + "/faces/index.xhtml";
+
+        boolean loggedIn = session != null && session.getAttribute("user") != null;
+        boolean loginRequest = request.getRequestURI().equals(loginURI);
+        boolean resourceRequest = request.getRequestURI().startsWith(request.getContextPath() + ResourceHandler.RESOURCE_IDENTIFIER);
+
+        if (loggedIn || loginRequest || resourceRequest) {
+            chain.doFilter(request, response);
+        } else {
+            response.sendRedirect(loginURI);
+        }
+
+    }
+
+    @Override
+    public void destroy() {
+
+    }
 }

@@ -6,10 +6,12 @@
 package controllers;
 
 import entity.User;
+import java.io.IOException;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 import services.LoginService;
 import util.SessionUtils;
@@ -56,7 +58,7 @@ public class LoginController implements Serializable {
     }
 
     public String tryLogin() {
-        
+
         boolean status = false;
 
         String redirectionPath = "";
@@ -85,13 +87,14 @@ public class LoginController implements Serializable {
         return redirectionPath;
     }
 
-    public String logout() {
+    public void logout() {
         System.out.println("this is logout method");
-        HttpSession session = SessionUtils.getSession();
-        //session.removeAttribute("user");
-        session.setAttribute("user", null);
-        
-        session.invalidate();
-        return "index?faces-redirect=true";
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.getExternalContext().invalidateSession();
+        try {
+            context.getExternalContext().redirect("index.xhtml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
