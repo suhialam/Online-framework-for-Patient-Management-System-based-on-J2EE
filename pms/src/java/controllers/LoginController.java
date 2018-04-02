@@ -9,9 +9,7 @@ import entity.User;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 import services.LoginService;
 import util.SessionUtils;
@@ -64,7 +62,7 @@ public class LoginController implements Serializable {
         String redirectionPath = "";
         LoginService loginService = new LoginService();
         status = loginService.tryLogin(user);
-        System.out.println(user.getDisplayName());
+        //System.out.println(user.getDisplayName());
         if (status == true) {
             message = "this user can be logged in.";
             cssClass = "success-message";
@@ -88,7 +86,11 @@ public class LoginController implements Serializable {
     }
 
     public String logout() {
+        System.out.println("this is logout method");
         HttpSession session = SessionUtils.getSession();
+        //session.removeAttribute("user");
+        session.setAttribute("user", null);
+        
         session.invalidate();
         return "index?faces-redirect=true";
     }

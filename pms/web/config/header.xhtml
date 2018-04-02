@@ -6,6 +6,8 @@
                 xmlns:ace="http://www.icefaces.org/icefaces/components"
                 xmlns:icecore="http://www.icefaces.org/icefaces/core"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <form id="header_form">
+        
 
     <div class="header">
         <div class="logo">
@@ -21,6 +23,9 @@
             welcome <h:outputText value="#{loginController.user.displayName}" /><h:outputLink value="Logout" />
             </span>
         
+        <h:commandButton value="Logout"
+            action="#{loginController.logout}" />
+        
     </div>
-    
+    </form>    
 </ui:composition>
