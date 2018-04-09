@@ -1,0 +1,1033 @@
+<!--
+
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<!--
+ $Id: fonts.fo 426576 2006-07-28 15:44:37Z jeremias $ 
+-->
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<!--  defines the layout master  -->
+<fo:layout-master-set>
+<fo:simple-page-master master-name="first" page-height="29.7cm" page-width="21cm" margin-top="1cm" margin-bottom="2cm" margin-left="2.5cm" margin-right="2.5cm">
+<fo:region-body margin-top="1cm"/>
+<fo:region-before extent="1cm"/>
+<fo:region-after extent="1.5cm"/>
+</fo:simple-page-master>
+</fo:layout-master-set>
+<!--  starts actual layout  -->
+<fo:page-sequence master-reference="first">
+<fo:flow flow-name="xsl-region-body">
+<fo:block font-family="Helvetica" font-size="14pt">Helvetica</fo:block>
+<fo:block space-after.optimum="10pt" font-family="Helvetica" font-size="10pt">
+<fo:table>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="65pt"/>
+<fo:table-body>
+<fo:table-row>
+<fo:table-cell>
+<fo:block>
+&#x21; : ! &#x22; : " &#x23; : # &#x24; : $ &#x25; : % &#x26; : & &#x27; : ' &#x28; : ( &#x29; : ) &#x2A; : * &#x2B; : + &#x2C; : , &#x2D; : - &#x2E; : . &#x2F; : / &#x30; : 0 &#x31; : 1 &#x32; : 2 &#x33; : 3 &#x34; : 4 &#x35; : 5 &#x36; : 6 &#x37; : 7 &#x38; : 8 &#x39; : 9 &#x3A; : : &#x3B; : ; &#x3C; : < &#x3D; : = &#x3E; : > &#x3F; : ? &#x40; : @ &#x41; : A &#x42; : B &#x43; : C &#x44; : D &#x45; : E &#x46; : F &#x47; : G &#x48; : H &#x49; : I &#x4A; : J &#x4B; : K &#x4C; : L &#x4D; : M &#x4E; : N &#x4F; : O &#x50; : P &#x51; : Q &#x52; : R &#x53; : S &#x54; : T &#x55; : U
+</fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block></fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block>
+&#x56; : V &#x57; : W &#x58; : X &#x59; : Y &#x5A; : Z &#x5B; : [ &#x5C; : \ &#x5D; : ] &#x5E; : ^ &#x5F; : _ &#x60; : ` &#x61; : a &#x62; : b &#x63; : c &#x64; : d &#x65; : e &#x66; : f &#x67; : g &#x68; : h &#x69; : i &#x6A; : j &#x6B; : k &#x6C; : l &#x6D; : m &#x6E; : n &#x6F; : o &#x70; : p &#x71; : q &#x72; : r &#x73; : s &#x74; : t &#x75; : u &#x76; : v &#x77; : w &#x78; : x &#x79; : y &#x7A; : z &#x7B; : { &#x7C; : | &#x7D; : } &#x7E; : ~ &#xA1; : ¡ &#xA2; : ¢ &#xA3; : £ &#xA4; : ¤ &#xA5; : ¥ &#xA6; : ¦ &#xA7; : § &#xA8; : ¨ &#xA9; : © &#xAA; : ª &#xAB; : « &#xAC; : ¬
+</fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block></fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block>
+&#xAE; : ® &#xAF; : ¯ &#xB0; : ° &#xB1; : ± &#xB2; : ² &#xB3; : ³ &#xB4; : ´ &#xB5; : µ &#xB6; : ¶ &#xB7; : · &#xB8; : ¸ &#xB9; : ¹ &#xBA; : º &#xBB; : » &#xBC; : ¼ &#xBD; : ½ &#xBE; : ¾ &#xBF; : ¿ &#xC0; : À &#xC1; : Á &#xC2; : Â &#xC3; : Ã &#xC4; : Ä &#xC5; : Å &#xC6; : Æ &#xC7; : Ç &#xC8; : È &#xC9; : É &#xCA; : Ê &#xCB; : Ë &#xCC; : Ì &#xCD; : Í &#xCE; : Î &#xCF; : Ï &#xD0; : Ð &#xD1; : Ñ &#xD2; : Ò &#xD3; : Ó &#xD4; : Ô &#xD5; : Õ &#xD6; : Ö &#xD7; : × &#xD8; : Ø &#xD9; : Ù &#xDA; : Ú &#xDB; : Û &#xDC; : Ü &#xDD; : Ý &#xDE; : Þ &#xDF; : ß &#xE0; : à &#xE1; : á &#xE2; : â
+</fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block></fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block>
+&#xE3; : ã &#xE4; : ä &#xE5; : å &#xE6; : æ &#xE7; : ç &#xE8; : è &#xE9; : é &#xEA; : ê &#xEB; : ë &#xEC; : ì &#xED; : í &#xEE; : î &#xEF; : ï &#xF0; : ð &#xF1; : ñ &#xF2; : ò &#xF3; : ó &#xF4; : ô &#xF5; : õ &#xF6; : ö &#xF7; : ÷ &#xF8; : ø &#xF9; : ù &#xFA; : ú &#xFB; : û &#xFC; : ü &#xFD; : ý &#xFE; : þ &#xFF; : ÿ &#x0152; : Œ &#x0153; : œ &#x0160; : Š &#x0161; : š &#x0178; : Ÿ &#x017D; : Ž &#x017E; : ž &#x0192; : ƒ &#x02DC; : ˜ &#x2013; : – &#x2014; : — &#x2018; : ‘ &#x2019; : ’ &#x201A; : ‚ &#x201C; : “ &#x201D; : ” &#x201E; : „ &#x2020; : † &#x2021; : ‡ &#x2022; : • &#x2026; : … &#x2030; : ‰ &#x2039; : ‹ &#x203A; : › &#x2122; : ™
+</fo:block>
+</fo:table-cell>
+</fo:table-row>
+</fo:table-body>
+</fo:table>
+</fo:block>
+<fo:block font-family="Helvetica" font-size="14pt">Times Roman</fo:block>
+<fo:block space-after.optimum="10pt" font-family="Times Roman" font-size="10pt">
+<fo:table>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="65pt"/>
+<fo:table-body>
+<fo:table-row>
+<fo:table-cell>
+<fo:block>
+&#x21; : ! &#x22; : " &#x23; : # &#x24; : $ &#x25; : % &#x26; : & &#x27; : ' &#x28; : ( &#x29; : ) &#x2A; : * &#x2B; : + &#x2C; : , &#x2D; : - &#x2E; : . &#x2F; : / &#x30; : 0 &#x31; : 1 &#x32; : 2 &#x33; : 3 &#x34; : 4 &#x35; : 5 &#x36; : 6 &#x37; : 7 &#x38; : 8 &#x39; : 9 &#x3A; : : &#x3B; : ; &#x3C; : < &#x3D; : = &#x3E; : > &#x3F; : ? &#x40; : @ &#x41; : A &#x42; : B &#x43; : C &#x44; : D &#x45; : E &#x46; : F &#x47; : G &#x48; : H &#x49; : I &#x4A; : J &#x4B; : K &#x4C; : L &#x4D; : M &#x4E; : N &#x4F; : O &#x50; : P &#x51; : Q &#x52; : R &#x53; : S &#x54; : T &#x55; : U
+</fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block></fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block>
+&#x56; : V &#x57; : W &#x58; : X &#x59; : Y &#x5A; : Z &#x5B; : [ &#x5C; : \ &#x5D; : ] &#x5E; : ^ &#x5F; : _ &#x60; : ` &#x61; : a &#x62; : b &#x63; : c &#x64; : d &#x65; : e &#x66; : f &#x67; : g &#x68; : h &#x69; : i &#x6A; : j &#x6B; : k &#x6C; : l &#x6D; : m &#x6E; : n &#x6F; : o &#x70; : p &#x71; : q &#x72; : r &#x73; : s &#x74; : t &#x75; : u &#x76; : v &#x77; : w &#x78; : x &#x79; : y &#x7A; : z &#x7B; : { &#x7C; : | &#x7D; : } &#x7E; : ~ &#xA1; : ¡ &#xA2; : ¢ &#xA3; : £ &#xA4; : ¤ &#xA5; : ¥ &#xA6; : ¦ &#xA7; : § &#xA8; : ¨ &#xA9; : © &#xAA; : ª &#xAB; : « &#xAC; : ¬
+</fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block></fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block>
+&#xAE; : ® &#xAF; : ¯ &#xB0; : ° &#xB1; : ± &#xB2; : ² &#xB3; : ³ &#xB4; : ´ &#xB5; : µ &#xB6; : ¶ &#xB7; : · &#xB8; : ¸ &#xB9; : ¹ &#xBA; : º &#xBB; : » &#xBC; : ¼ &#xBD; : ½ &#xBE; : ¾ &#xBF; : ¿ &#xC0; : À &#xC1; : Á &#xC2; : Â &#xC3; : Ã &#xC4; : Ä &#xC5; : Å &#xC6; : Æ &#xC7; : Ç &#xC8; : È &#xC9; : É &#xCA; : Ê &#xCB; : Ë &#xCC; : Ì &#xCD; : Í &#xCE; : Î &#xCF; : Ï &#xD0; : Ð &#xD1; : Ñ &#xD2; : Ò &#xD3; : Ó &#xD4; : Ô &#xD5; : Õ &#xD6; : Ö &#xD7; : × &#xD8; : Ø &#xD9; : Ù &#xDA; : Ú &#xDB; : Û &#xDC; : Ü &#xDD; : Ý &#xDE; : Þ &#xDF; : ß &#xE0; : à &#xE1; : á &#xE2; : â
+</fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block></fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block>
+&#xE3; : ã &#xE4; : ä &#xE5; : å &#xE6; : æ &#xE7; : ç &#xE8; : è &#xE9; : é &#xEA; : ê &#xEB; : ë &#xEC; : ì &#xED; : í &#xEE; : î &#xEF; : ï &#xF0; : ð &#xF1; : ñ &#xF2; : ò &#xF3; : ó &#xF4; : ô &#xF5; : õ &#xF6; : ö &#xF7; : ÷ &#xF8; : ø &#xF9; : ù &#xFA; : ú &#xFB; : û &#xFC; : ü &#xFD; : ý &#xFE; : þ &#xFF; : ÿ &#x0152; : Œ &#x0153; : œ &#x0160; : Š &#x0161; : š &#x0178; : Ÿ &#x017D; : Ž &#x017E; : ž &#x0192; : ƒ &#x02DC; : ˜ &#x2013; : – &#x2014; : — &#x2018; : ‘ &#x2019; : ’ &#x201A; : ‚ &#x201C; : “ &#x201D; : ” &#x201E; : „ &#x2020; : † &#x2021; : ‡ &#x2022; : • &#x2026; : … &#x2030; : ‰ &#x2039; : ‹ &#x203A; : › &#x2122; : ™
+</fo:block>
+</fo:table-cell>
+</fo:table-row>
+</fo:table-body>
+</fo:table>
+</fo:block>
+<fo:block font-family="Helvetica" font-size="14pt">Courier</fo:block>
+<fo:block space-after.optimum="10pt" font-family="Courier" font-size="10pt">
+<fo:table>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="75pt"/>
+<fo:table-body>
+<fo:table-row>
+<fo:table-cell>
+<fo:block>
+&#x21; : ! &#x22; : " &#x23; : # &#x24; : $ &#x25; : % &#x26; : & &#x27; : ' &#x28; : ( &#x29; : ) &#x2A; : * &#x2B; : + &#x2C; : , &#x2D; : - &#x2E; : . &#x2F; : / &#x30; : 0 &#x31; : 1 &#x32; : 2 &#x33; : 3 &#x34; : 4 &#x35; : 5 &#x36; : 6 &#x37; : 7 &#x38; : 8 &#x39; : 9 &#x3A; : : &#x3B; : ; &#x3C; : < &#x3D; : = &#x3E; : > &#x3F; : ? &#x40; : @ &#x41; : A &#x42; : B &#x43; : C &#x44; : D &#x45; : E &#x46; : F &#x47; : G &#x48; : H &#x49; : I &#x4A; : J &#x4B; : K &#x4C; : L &#x4D; : M &#x4E; : N &#x4F; : O &#x50; : P &#x51; : Q &#x52; : R &#x53; : S &#x54; : T &#x55; : U
+</fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block></fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block>
+&#x56; : V &#x57; : W &#x58; : X &#x59; : Y &#x5A; : Z &#x5B; : [ &#x5C; : \ &#x5D; : ] &#x5E; : ^ &#x5F; : _ &#x60; : ` &#x61; : a &#x62; : b &#x63; : c &#x64; : d &#x65; : e &#x66; : f &#x67; : g &#x68; : h &#x69; : i &#x6A; : j &#x6B; : k &#x6C; : l &#x6D; : m &#x6E; : n &#x6F; : o &#x70; : p &#x71; : q &#x72; : r &#x73; : s &#x74; : t &#x75; : u &#x76; : v &#x77; : w &#x78; : x &#x79; : y &#x7A; : z &#x7B; : { &#x7C; : | &#x7D; : } &#x7E; : ~ &#xA1; : ¡ &#xA2; : ¢ &#xA3; : £ &#xA4; : ¤ &#xA5; : ¥ &#xA6; : ¦ &#xA7; : § &#xA8; : ¨ &#xA9; : © &#xAA; : ª &#xAB; : « &#xAC; : ¬
+</fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block></fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block>
+&#xAE; : ® &#xAF; : ¯ &#xB0; : ° &#xB1; : ± &#xB2; : ² &#xB3; : ³ &#xB4; : ´ &#xB5; : µ &#xB6; : ¶ &#xB7; : · &#xB8; : ¸ &#xB9; : ¹ &#xBA; : º &#xBB; : » &#xBC; : ¼ &#xBD; : ½ &#xBE; : ¾ &#xBF; : ¿ &#xC0; : À &#xC1; : Á &#xC2; : Â &#xC3; : Ã &#xC4; : Ä &#xC5; : Å &#xC6; : Æ &#xC7; : Ç &#xC8; : È &#xC9; : É &#xCA; : Ê &#xCB; : Ë &#xCC; : Ì &#xCD; : Í &#xCE; : Î &#xCF; : Ï &#xD0; : Ð &#xD1; : Ñ &#xD2; : Ò &#xD3; : Ó &#xD4; : Ô &#xD5; : Õ &#xD6; : Ö &#xD7; : × &#xD8; : Ø &#xD9; : Ù &#xDA; : Ú &#xDB; : Û &#xDC; : Ü &#xDD; : Ý &#xDE; : Þ &#xDF; : ß &#xE0; : à &#xE1; : á &#xE2; : â
+</fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block></fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block>
+&#xE3; : ã &#xE4; : ä &#xE5; : å &#xE6; : æ &#xE7; : ç &#xE8; : è &#xE9; : é &#xEA; : ê &#xEB; : ë &#xEC; : ì &#xED; : í &#xEE; : î &#xEF; : ï &#xF0; : ð &#xF1; : ñ &#xF2; : ò &#xF3; : ó &#xF4; : ô &#xF5; : õ &#xF6; : ö &#xF7; : ÷ &#xF8; : ø &#xF9; : ù &#xFA; : ú &#xFB; : û &#xFC; : ü &#xFD; : ý &#xFE; : þ &#xFF; : ÿ &#x0152; : Œ &#x0153; : œ &#x0160; : Š &#x0161; : š &#x0178; : Ÿ &#x017D; : Ž &#x017E; : ž &#x0192; : ƒ &#x02DC; : ˜ &#x2013; : – &#x2014; : — &#x2018; : ‘ &#x2019; : ’ &#x201A; : ‚ &#x201C; : “ &#x201D; : ” &#x201E; : „ &#x2020; : † &#x2021; : ‡ &#x2022; : • &#x2026; : … &#x2030; : ‰ &#x2039; : ‹ &#x203A; : › &#x2122; : ™
+</fo:block>
+</fo:table-cell>
+</fo:table-row>
+</fo:table-body>
+</fo:table>
+</fo:block>
+<fo:block font-family="Helvetica" font-size="14pt">ZapfDingbats:</fo:block>
+<fo:block space-after.optimum="10pt" font-family="ZapfDingbats" font-size="10pt">
+<fo:table>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="75pt"/>
+<fo:table-body>
+<fo:table-row>
+<fo:table-cell>
+<fo:block>
+<fo:inline font-family="Helvetica">&#x2701; :</fo:inline>
+✁
+<fo:inline font-family="Helvetica">&#x2702; :</fo:inline>
+✂
+<fo:inline font-family="Helvetica">&#x2703; :</fo:inline>
+✃
+<fo:inline font-family="Helvetica">&#x2704; :</fo:inline>
+✄
+<fo:inline font-family="Helvetica">&#x260E; :</fo:inline>
+☎
+<fo:inline font-family="Helvetica">&#x2706; :</fo:inline>
+✆
+<fo:inline font-family="Helvetica">&#x2707; :</fo:inline>
+✇
+<fo:inline font-family="Helvetica">&#x2708; :</fo:inline>
+✈
+<fo:inline font-family="Helvetica">&#x2709; :</fo:inline>
+✉
+<fo:inline font-family="Helvetica">&#x261B; :</fo:inline>
+☛
+<fo:inline font-family="Helvetica">&#x261E; :</fo:inline>
+☞
+<fo:inline font-family="Helvetica">&#x270C; :</fo:inline>
+✌
+<fo:inline font-family="Helvetica">&#x270D; :</fo:inline>
+✍
+<fo:inline font-family="Helvetica">&#x270E; :</fo:inline>
+✎
+<fo:inline font-family="Helvetica">&#x270F; :</fo:inline>
+✏
+<fo:inline font-family="Helvetica">&#x2710; :</fo:inline>
+✐
+<fo:inline font-family="Helvetica">&#x2711; :</fo:inline>
+✑
+<fo:inline font-family="Helvetica">&#x2712; :</fo:inline>
+✒
+<fo:inline font-family="Helvetica">&#x2713; :</fo:inline>
+✓
+<fo:inline font-family="Helvetica">&#x2714; :</fo:inline>
+✔
+<fo:inline font-family="Helvetica">&#x2715; :</fo:inline>
+✕
+<fo:inline font-family="Helvetica">&#x2716; :</fo:inline>
+✖
+<fo:inline font-family="Helvetica">&#x2717; :</fo:inline>
+✗
+<fo:inline font-family="Helvetica">&#x2718; :</fo:inline>
+✘
+<fo:inline font-family="Helvetica">&#x2719; :</fo:inline>
+✙
+<fo:inline font-family="Helvetica">&#x271A; :</fo:inline>
+✚
+<fo:inline font-family="Helvetica">&#x271B; :</fo:inline>
+✛
+<fo:inline font-family="Helvetica">&#x271C; :</fo:inline>
+✜
+<fo:inline font-family="Helvetica">&#x271D; :</fo:inline>
+✝
+<fo:inline font-family="Helvetica">&#x271E; :</fo:inline>
+✞
+<fo:inline font-family="Helvetica">&#x271F; :</fo:inline>
+✟
+<fo:inline font-family="Helvetica">&#x2720; :</fo:inline>
+✠
+<fo:inline font-family="Helvetica">&#x2721; :</fo:inline>
+✡
+<fo:inline font-family="Helvetica">&#x2722; :</fo:inline>
+✢
+<fo:inline font-family="Helvetica">&#x2723; :</fo:inline>
+✣
+<fo:inline font-family="Helvetica">&#x2724; :</fo:inline>
+✤
+<fo:inline font-family="Helvetica">&#x2725; :</fo:inline>
+✥
+<fo:inline font-family="Helvetica">&#x2726; :</fo:inline>
+✦
+<fo:inline font-family="Helvetica">&#x2727; :</fo:inline>
+✧
+<fo:inline font-family="Helvetica">&#x2605; :</fo:inline>
+★
+<fo:inline font-family="Helvetica">&#x2729; :</fo:inline>
+✩
+<fo:inline font-family="Helvetica">&#x272A; :</fo:inline>
+✪
+<fo:inline font-family="Helvetica">&#x272B; :</fo:inline>
+✫
+<fo:inline font-family="Helvetica">&#x272C; :</fo:inline>
+✬
+<fo:inline font-family="Helvetica">&#x272D; :</fo:inline>
+✭
+<fo:inline font-family="Helvetica">&#x272E; :</fo:inline>
+✮
+<fo:inline font-family="Helvetica">&#x272F; :</fo:inline>
+✯
+<fo:inline font-family="Helvetica">&#x2730; :</fo:inline>
+✰
+<fo:inline font-family="Helvetica">&#x2731; :</fo:inline>
+✱
+<fo:inline font-family="Helvetica">&#x2732; :</fo:inline>
+✲
+</fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block></fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block>
+<fo:inline font-family="Helvetica">&#x2733; :</fo:inline>
+✳
+<fo:inline font-family="Helvetica">&#x2734; :</fo:inline>
+✴
+<fo:inline font-family="Helvetica">&#x2735; :</fo:inline>
+✵
+<fo:inline font-family="Helvetica">&#x2736; :</fo:inline>
+✶
+<fo:inline font-family="Helvetica">&#x2737; :</fo:inline>
+✷
+<fo:inline font-family="Helvetica">&#x2738; :</fo:inline>
+✸
+<fo:inline font-family="Helvetica">&#x2739; :</fo:inline>
+✹
+<fo:inline font-family="Helvetica">&#x273A; :</fo:inline>
+✺
+<fo:inline font-family="Helvetica">&#x273B; :</fo:inline>
+✻
+<fo:inline font-family="Helvetica">&#x273C; :</fo:inline>
+✼
+<fo:inline font-family="Helvetica">&#x273D; :</fo:inline>
+✽
+<fo:inline font-family="Helvetica">&#x273E; :</fo:inline>
+✾
+<fo:inline font-family="Helvetica">&#x273F; :</fo:inline>
+✿
+<fo:inline font-family="Helvetica">&#x2740; :</fo:inline>
+❀
+<fo:inline font-family="Helvetica">&#x2741; :</fo:inline>
+❁
+<fo:inline font-family="Helvetica">&#x2742; :</fo:inline>
+❂
+<fo:inline font-family="Helvetica">&#x2743; :</fo:inline>
+❃
+<fo:inline font-family="Helvetica">&#x2744; :</fo:inline>
+❄
+<fo:inline font-family="Helvetica">&#x2745; :</fo:inline>
+❅
+<fo:inline font-family="Helvetica">&#x2746; :</fo:inline>
+❆
+<fo:inline font-family="Helvetica">&#x2747; :</fo:inline>
+❇
+<fo:inline font-family="Helvetica">&#x2748; :</fo:inline>
+❈
+<fo:inline font-family="Helvetica">&#x2749; :</fo:inline>
+❉
+<fo:inline font-family="Helvetica">&#x274A; :</fo:inline>
+❊
+<fo:inline font-family="Helvetica">&#x274B; :</fo:inline>
+❋
+<fo:inline font-family="Helvetica">&#x25CF; :</fo:inline>
+●
+<fo:inline font-family="Helvetica">&#x274D; :</fo:inline>
+❍
+<fo:inline font-family="Helvetica">&#x25A0; :</fo:inline>
+■
+<fo:inline font-family="Helvetica">&#x274F; :</fo:inline>
+❏
+<fo:inline font-family="Helvetica">&#x2750; :</fo:inline>
+❐
+<fo:inline font-family="Helvetica">&#x2751; :</fo:inline>
+❑
+<fo:inline font-family="Helvetica">&#x2752; :</fo:inline>
+❒
+<fo:inline font-family="Helvetica">&#x25B2; :</fo:inline>
+▲
+<fo:inline font-family="Helvetica">&#x25BC; :</fo:inline>
+▼
+<fo:inline font-family="Helvetica">&#x25C6; :</fo:inline>
+◆
+<fo:inline font-family="Helvetica">&#x2756; :</fo:inline>
+❖
+<fo:inline font-family="Helvetica">&#x25D7; :</fo:inline>
+◗
+<fo:inline font-family="Helvetica">&#x2758; :</fo:inline>
+❘
+<fo:inline font-family="Helvetica">&#x2759; :</fo:inline>
+❙
+<fo:inline font-family="Helvetica">&#x275A; :</fo:inline>
+❚
+<fo:inline font-family="Helvetica">&#x275B; :</fo:inline>
+❛
+<fo:inline font-family="Helvetica">&#x275C; :</fo:inline>
+❜
+<fo:inline font-family="Helvetica">&#x275D; :</fo:inline>
+❝
+<fo:inline font-family="Helvetica">&#x275E; :</fo:inline>
+❞
+<fo:inline font-family="Helvetica">&#x2761; :</fo:inline>
+❡
+<fo:inline font-family="Helvetica">&#x2762; :</fo:inline>
+❢
+<fo:inline font-family="Helvetica">&#x2763; :</fo:inline>
+❣
+<fo:inline font-family="Helvetica">&#x2764; :</fo:inline>
+❤
+<fo:inline font-family="Helvetica">&#x2765; :</fo:inline>
+❥
+<fo:inline font-family="Helvetica">&#x2766; :</fo:inline>
+❦
+</fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block></fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block>
+<fo:inline font-family="Helvetica">&#x2767; :</fo:inline>
+❧
+<fo:inline font-family="Helvetica">&#x2663; :</fo:inline>
+♣
+<fo:inline font-family="Helvetica">&#x2666; :</fo:inline>
+♦
+<fo:inline font-family="Helvetica">&#x2665; :</fo:inline>
+♥
+<fo:inline font-family="Helvetica">&#x2660; :</fo:inline>
+♠
+<fo:inline font-family="Helvetica">&#x2460; :</fo:inline>
+①
+<fo:inline font-family="Helvetica">&#x2461; :</fo:inline>
+②
+<fo:inline font-family="Helvetica">&#x2462; :</fo:inline>
+③
+<fo:inline font-family="Helvetica">&#x2463; :</fo:inline>
+④
+<fo:inline font-family="Helvetica">&#x2464; :</fo:inline>
+⑤
+<fo:inline font-family="Helvetica">&#x2465; :</fo:inline>
+⑥
+<fo:inline font-family="Helvetica">&#x2466; :</fo:inline>
+⑦
+<fo:inline font-family="Helvetica">&#x2467; :</fo:inline>
+⑧
+<fo:inline font-family="Helvetica">&#x2468; :</fo:inline>
+⑨
+<fo:inline font-family="Helvetica">&#x2469; :</fo:inline>
+⑩
+<fo:inline font-family="Helvetica">&#x2776; :</fo:inline>
+❶
+<fo:inline font-family="Helvetica">&#x2777; :</fo:inline>
+❷
+<fo:inline font-family="Helvetica">&#x2778; :</fo:inline>
+❸
+<fo:inline font-family="Helvetica">&#x2779; :</fo:inline>
+❹
+<fo:inline font-family="Helvetica">&#x277A; :</fo:inline>
+❺
+<fo:inline font-family="Helvetica">&#x277B; :</fo:inline>
+❻
+<fo:inline font-family="Helvetica">&#x277C; :</fo:inline>
+❼
+<fo:inline font-family="Helvetica">&#x277D; :</fo:inline>
+❽
+<fo:inline font-family="Helvetica">&#x277E; :</fo:inline>
+❾
+<fo:inline font-family="Helvetica">&#x277F; :</fo:inline>
+❿
+<fo:inline font-family="Helvetica">&#x2780; :</fo:inline>
+➀
+<fo:inline font-family="Helvetica">&#x2781; :</fo:inline>
+➁
+<fo:inline font-family="Helvetica">&#x2782; :</fo:inline>
+➂
+<fo:inline font-family="Helvetica">&#x2783; :</fo:inline>
+➃
+<fo:inline font-family="Helvetica">&#x2784; :</fo:inline>
+➄
+<fo:inline font-family="Helvetica">&#x2785; :</fo:inline>
+➅
+<fo:inline font-family="Helvetica">&#x2786; :</fo:inline>
+➆
+<fo:inline font-family="Helvetica">&#x2787; :</fo:inline>
+➇
+<fo:inline font-family="Helvetica">&#x2788; :</fo:inline>
+➈
+<fo:inline font-family="Helvetica">&#x2789; :</fo:inline>
+➉
+<fo:inline font-family="Helvetica">&#x278A; :</fo:inline>
+➊
+<fo:inline font-family="Helvetica">&#x278B; :</fo:inline>
+➋
+<fo:inline font-family="Helvetica">&#x278C; :</fo:inline>
+➌
+<fo:inline font-family="Helvetica">&#x278D; :</fo:inline>
+➍
+<fo:inline font-family="Helvetica">&#x278E; :</fo:inline>
+➎
+<fo:inline font-family="Helvetica">&#x278F; :</fo:inline>
+➏
+<fo:inline font-family="Helvetica">&#x2790; :</fo:inline>
+➐
+<fo:inline font-family="Helvetica">&#x2791; :</fo:inline>
+➑
+<fo:inline font-family="Helvetica">&#x2792; :</fo:inline>
+➒
+<fo:inline font-family="Helvetica">&#x2793; :</fo:inline>
+➓
+<fo:inline font-family="Helvetica">&#x2794; :</fo:inline>
+➔
+<fo:inline font-family="Helvetica">&#x2192; :</fo:inline>
+→
+<fo:inline font-family="Helvetica">&#x2194; :</fo:inline>
+↔
+<fo:inline font-family="Helvetica">&#x2195; :</fo:inline>
+↕
+<fo:inline font-family="Helvetica">&#x2798; :</fo:inline>
+➘
+</fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block></fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block>
+<fo:inline font-family="Helvetica">&#x2799; :</fo:inline>
+➙
+<fo:inline font-family="Helvetica">&#x279A; :</fo:inline>
+➚
+<fo:inline font-family="Helvetica">&#x279B; :</fo:inline>
+➛
+<fo:inline font-family="Helvetica">&#x279C; :</fo:inline>
+➜
+<fo:inline font-family="Helvetica">&#x279D; :</fo:inline>
+➝
+<fo:inline font-family="Helvetica">&#x279E; :</fo:inline>
+➞
+<fo:inline font-family="Helvetica">&#x279F; :</fo:inline>
+➟
+<fo:inline font-family="Helvetica">&#x27A0; :</fo:inline>
+➠
+<fo:inline font-family="Helvetica">&#x27A1; :</fo:inline>
+➡
+<fo:inline font-family="Helvetica">&#x27A2; :</fo:inline>
+➢
+<fo:inline font-family="Helvetica">&#x27A3; :</fo:inline>
+➣
+<fo:inline font-family="Helvetica">&#x27A4; :</fo:inline>
+➤
+<fo:inline font-family="Helvetica">&#x27A5; :</fo:inline>
+➥
+<fo:inline font-family="Helvetica">&#x27A6; :</fo:inline>
+➦
+<fo:inline font-family="Helvetica">&#x27A7; :</fo:inline>
+➧
+<fo:inline font-family="Helvetica">&#x27A8; :</fo:inline>
+➨
+<fo:inline font-family="Helvetica">&#x27A9; :</fo:inline>
+➩
+<fo:inline font-family="Helvetica">&#x27AA; :</fo:inline>
+➪
+<fo:inline font-family="Helvetica">&#x27AB; :</fo:inline>
+➫
+<fo:inline font-family="Helvetica">&#x27AC; :</fo:inline>
+➬
+<fo:inline font-family="Helvetica">&#x27AD; :</fo:inline>
+➭
+<fo:inline font-family="Helvetica">&#x27AE; :</fo:inline>
+➮
+<fo:inline font-family="Helvetica">&#x27AF; :</fo:inline>
+➯
+<fo:inline font-family="Helvetica">&#x27B1; :</fo:inline>
+➱
+<fo:inline font-family="Helvetica">&#x27B2; :</fo:inline>
+➲
+<fo:inline font-family="Helvetica">&#x27B3; :</fo:inline>
+➳
+<fo:inline font-family="Helvetica">&#x27B4; :</fo:inline>
+➴
+<fo:inline font-family="Helvetica">&#x27B5; :</fo:inline>
+➵
+<fo:inline font-family="Helvetica">&#x27B6; :</fo:inline>
+➶
+<fo:inline font-family="Helvetica">&#x27B7; :</fo:inline>
+➷
+<fo:inline font-family="Helvetica">&#x27B8; :</fo:inline>
+➸
+<fo:inline font-family="Helvetica">&#x27B9; :</fo:inline>
+➹
+<fo:inline font-family="Helvetica">&#x27BA; :</fo:inline>
+➺
+<fo:inline font-family="Helvetica">&#x27BB; :</fo:inline>
+➻
+<fo:inline font-family="Helvetica">&#x27BC; :</fo:inline>
+➼
+<fo:inline font-family="Helvetica">&#x27BD; :</fo:inline>
+➽
+<fo:inline font-family="Helvetica">&#x27BE; :</fo:inline>
+➾
+<fo:inline font-family="Helvetica">&#xF8E0; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8DE; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8E3; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8DD; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8D7; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8E1; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8DB; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8D8; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8DF; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8DA; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8D9; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8DC; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8E4; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8E2; :</fo:inline>
+
+</fo:block>
+</fo:table-cell>
+</fo:table-row>
+</fo:table-body>
+</fo:table>
+</fo:block>
+<fo:block font-family="Helvetica" font-size="14pt">Symbol:</fo:block>
+<fo:block space-after.optimum="10pt" font-family="Symbol" font-size="10pt">
+<fo:table>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="75pt"/>
+<fo:table-body>
+<fo:table-row>
+<fo:table-cell>
+<fo:block>
+<fo:inline font-family="Helvetica">&#x21; :</fo:inline>
+!
+<fo:inline font-family="Helvetica">&#x23; :</fo:inline>
+#
+<fo:inline font-family="Helvetica">&#x25; :</fo:inline>
+%
+<fo:inline font-family="Helvetica">&#x26; :</fo:inline>
+&
+<fo:inline font-family="Helvetica">&#x28; :</fo:inline>
+(
+<fo:inline font-family="Helvetica">&#x29; :</fo:inline>
+)
+<fo:inline font-family="Helvetica">&#x2B; :</fo:inline>
++
+<fo:inline font-family="Helvetica">&#x2C; :</fo:inline>
+,
+<fo:inline font-family="Helvetica">&#x2E; :</fo:inline>
+.
+<fo:inline font-family="Helvetica">&#x2F; :</fo:inline>
+/
+<fo:inline font-family="Helvetica">&#x30; :</fo:inline>
+0
+<fo:inline font-family="Helvetica">&#x31; :</fo:inline>
+1
+<fo:inline font-family="Helvetica">&#x32; :</fo:inline>
+2
+<fo:inline font-family="Helvetica">&#x33; :</fo:inline>
+3
+<fo:inline font-family="Helvetica">&#x34; :</fo:inline>
+4
+<fo:inline font-family="Helvetica">&#x35; :</fo:inline>
+5
+<fo:inline font-family="Helvetica">&#x36; :</fo:inline>
+6
+<fo:inline font-family="Helvetica">&#x37; :</fo:inline>
+7
+<fo:inline font-family="Helvetica">&#x38; :</fo:inline>
+8
+<fo:inline font-family="Helvetica">&#x39; :</fo:inline>
+9
+<fo:inline font-family="Helvetica">&#x3A; :</fo:inline>
+:
+<fo:inline font-family="Helvetica">&#x3B; :</fo:inline>
+;
+<fo:inline font-family="Helvetica">&#x3C; :</fo:inline>
+<
+<fo:inline font-family="Helvetica">&#x3D; :</fo:inline>
+=
+<fo:inline font-family="Helvetica">&#x3E; :</fo:inline>
+>
+<fo:inline font-family="Helvetica">&#x3F; :</fo:inline>
+?
+<fo:inline font-family="Helvetica">&#x5B; :</fo:inline>
+[
+<fo:inline font-family="Helvetica">&#x5D; :</fo:inline>
+]
+<fo:inline font-family="Helvetica">&#x5F; :</fo:inline>
+_
+<fo:inline font-family="Helvetica">&#x6D; :</fo:inline>
+m
+<fo:inline font-family="Helvetica">&#x7B; :</fo:inline>
+{
+<fo:inline font-family="Helvetica">&#x7C; :</fo:inline>
+|
+<fo:inline font-family="Helvetica">&#x7D; :</fo:inline>
+}
+<fo:inline font-family="Helvetica">&#xAC; :</fo:inline>
+¬
+<fo:inline font-family="Helvetica">&#xB0; :</fo:inline>
+°
+<fo:inline font-family="Helvetica">&#xB1; :</fo:inline>
+±
+<fo:inline font-family="Helvetica">&#xB5; :</fo:inline>
+µ
+<fo:inline font-family="Helvetica">&#xD7; :</fo:inline>
+×
+<fo:inline font-family="Helvetica">&#xF7; :</fo:inline>
+÷
+<fo:inline font-family="Helvetica">&#x0192; :</fo:inline>
+ƒ
+<fo:inline font-family="Helvetica">&#x0391; :</fo:inline>
+Α
+<fo:inline font-family="Helvetica">&#x0392; :</fo:inline>
+Β
+<fo:inline font-family="Helvetica">&#x0393; :</fo:inline>
+Γ
+<fo:inline font-family="Helvetica">&#x0395; :</fo:inline>
+Ε
+<fo:inline font-family="Helvetica">&#x0396; :</fo:inline>
+Ζ
+<fo:inline font-family="Helvetica">&#x0397; :</fo:inline>
+Η
+<fo:inline font-family="Helvetica">&#x0398; :</fo:inline>
+Θ
+</fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block></fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block>
+<fo:inline font-family="Helvetica">&#x0399; :</fo:inline>
+Ι
+<fo:inline font-family="Helvetica">&#x039A; :</fo:inline>
+Κ
+<fo:inline font-family="Helvetica">&#x039B; :</fo:inline>
+Λ
+<fo:inline font-family="Helvetica">&#x039C; :</fo:inline>
+Μ
+<fo:inline font-family="Helvetica">&#x039D; :</fo:inline>
+Ν
+<fo:inline font-family="Helvetica">&#x039E; :</fo:inline>
+Ξ
+<fo:inline font-family="Helvetica">&#x039F; :</fo:inline>
+Ο
+<fo:inline font-family="Helvetica">&#x03A0; :</fo:inline>
+Π
+<fo:inline font-family="Helvetica">&#x03A1; :</fo:inline>
+Ρ
+<fo:inline font-family="Helvetica">&#x03A3; :</fo:inline>
+Σ
+<fo:inline font-family="Helvetica">&#x03A4; :</fo:inline>
+Τ
+<fo:inline font-family="Helvetica">&#x03A5; :</fo:inline>
+Υ
+<fo:inline font-family="Helvetica">&#x03A6; :</fo:inline>
+Φ
+<fo:inline font-family="Helvetica">&#x03A7; :</fo:inline>
+Χ
+<fo:inline font-family="Helvetica">&#x03A8; :</fo:inline>
+Ψ
+<fo:inline font-family="Helvetica">&#x03B1; :</fo:inline>
+α
+<fo:inline font-family="Helvetica">&#x03B2; :</fo:inline>
+β
+<fo:inline font-family="Helvetica">&#x03B3; :</fo:inline>
+γ
+<fo:inline font-family="Helvetica">&#x03B4; :</fo:inline>
+δ
+<fo:inline font-family="Helvetica">&#x03B5; :</fo:inline>
+ε
+<fo:inline font-family="Helvetica">&#x03B6; :</fo:inline>
+ζ
+<fo:inline font-family="Helvetica">&#x03B7; :</fo:inline>
+η
+<fo:inline font-family="Helvetica">&#x03B8; :</fo:inline>
+θ
+<fo:inline font-family="Helvetica">&#x03B9; :</fo:inline>
+ι
+<fo:inline font-family="Helvetica">&#x03BA; :</fo:inline>
+κ
+<fo:inline font-family="Helvetica">&#x03BB; :</fo:inline>
+λ
+<fo:inline font-family="Helvetica">&#x03BD; :</fo:inline>
+ν
+<fo:inline font-family="Helvetica">&#x03BE; :</fo:inline>
+ξ
+<fo:inline font-family="Helvetica">&#x03BF; :</fo:inline>
+ο
+<fo:inline font-family="Helvetica">&#x03C0; :</fo:inline>
+π
+<fo:inline font-family="Helvetica">&#x03C1; :</fo:inline>
+ρ
+<fo:inline font-family="Helvetica">&#x03C2; :</fo:inline>
+ς
+<fo:inline font-family="Helvetica">&#x03C3; :</fo:inline>
+σ
+<fo:inline font-family="Helvetica">&#x03C4; :</fo:inline>
+τ
+<fo:inline font-family="Helvetica">&#x03C5; :</fo:inline>
+υ
+<fo:inline font-family="Helvetica">&#x03C6; :</fo:inline>
+φ
+<fo:inline font-family="Helvetica">&#x03C7; :</fo:inline>
+χ
+<fo:inline font-family="Helvetica">&#x03C8; :</fo:inline>
+ψ
+<fo:inline font-family="Helvetica">&#x03C9; :</fo:inline>
+ω
+<fo:inline font-family="Helvetica">&#x03D1; :</fo:inline>
+ϑ
+<fo:inline font-family="Helvetica">&#x03D2; :</fo:inline>
+ϒ
+<fo:inline font-family="Helvetica">&#x03D5; :</fo:inline>
+ϕ
+<fo:inline font-family="Helvetica">&#x03D6; :</fo:inline>
+ϖ
+<fo:inline font-family="Helvetica">&#x2022; :</fo:inline>
+•
+<fo:inline font-family="Helvetica">&#x2026; :</fo:inline>
+…
+<fo:inline font-family="Helvetica">&#x2032; :</fo:inline>
+′
+<fo:inline font-family="Helvetica">&#x2033; :</fo:inline>
+″
+</fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block></fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block>
+<fo:inline font-family="Helvetica">&#x2044; :</fo:inline>
+⁄
+<fo:inline font-family="Helvetica">&#x2111; :</fo:inline>
+ℑ
+<fo:inline font-family="Helvetica">&#x2118; :</fo:inline>
+℘
+<fo:inline font-family="Helvetica">&#x211C; :</fo:inline>
+ℜ
+<fo:inline font-family="Helvetica">&#x2126; :</fo:inline>
+Ω
+<fo:inline font-family="Helvetica">&#x2135; :</fo:inline>
+ℵ
+<fo:inline font-family="Helvetica">&#x2190; :</fo:inline>
+←
+<fo:inline font-family="Helvetica">&#x2191; :</fo:inline>
+↑
+<fo:inline font-family="Helvetica">&#x2192; :</fo:inline>
+→
+<fo:inline font-family="Helvetica">&#x2193; :</fo:inline>
+↓
+<fo:inline font-family="Helvetica">&#x2194; :</fo:inline>
+↔
+<fo:inline font-family="Helvetica">&#x21B5; :</fo:inline>
+↵
+<fo:inline font-family="Helvetica">&#x21D0; :</fo:inline>
+⇐
+<fo:inline font-family="Helvetica">&#x21D1; :</fo:inline>
+⇑
+<fo:inline font-family="Helvetica">&#x21D2; :</fo:inline>
+⇒
+<fo:inline font-family="Helvetica">&#x21D3; :</fo:inline>
+⇓
+<fo:inline font-family="Helvetica">&#x21D4; :</fo:inline>
+⇔
+<fo:inline font-family="Helvetica">&#x2200; :</fo:inline>
+∀
+<fo:inline font-family="Helvetica">&#x2202; :</fo:inline>
+∂
+<fo:inline font-family="Helvetica">&#x2203; :</fo:inline>
+∃
+<fo:inline font-family="Helvetica">&#x2205; :</fo:inline>
+∅
+<fo:inline font-family="Helvetica">&#x2206; :</fo:inline>
+∆
+<fo:inline font-family="Helvetica">&#x2207; :</fo:inline>
+∇
+<fo:inline font-family="Helvetica">&#x2208; :</fo:inline>
+∈
+<fo:inline font-family="Helvetica">&#x2209; :</fo:inline>
+∉
+<fo:inline font-family="Helvetica">&#x220B; :</fo:inline>
+∋
+<fo:inline font-family="Helvetica">&#x220F; :</fo:inline>
+∏
+<fo:inline font-family="Helvetica">&#x2211; :</fo:inline>
+∑
+<fo:inline font-family="Helvetica">&#x2212; :</fo:inline>
+−
+<fo:inline font-family="Helvetica">&#x2217; :</fo:inline>
+∗
+<fo:inline font-family="Helvetica">&#x221A; :</fo:inline>
+√
+<fo:inline font-family="Helvetica">&#x221D; :</fo:inline>
+∝
+<fo:inline font-family="Helvetica">&#x221E; :</fo:inline>
+∞
+<fo:inline font-family="Helvetica">&#x2220; :</fo:inline>
+∠
+<fo:inline font-family="Helvetica">&#x2227; :</fo:inline>
+∧
+<fo:inline font-family="Helvetica">&#x2228; :</fo:inline>
+∨
+<fo:inline font-family="Helvetica">&#x2229; :</fo:inline>
+∩
+<fo:inline font-family="Helvetica">&#x222A; :</fo:inline>
+∪
+<fo:inline font-family="Helvetica">&#x222B; :</fo:inline>
+∫
+<fo:inline font-family="Helvetica">&#x2234; :</fo:inline>
+∴
+<fo:inline font-family="Helvetica">&#x223C; :</fo:inline>
+∼
+<fo:inline font-family="Helvetica">&#x2245; :</fo:inline>
+≅
+<fo:inline font-family="Helvetica">&#x2248; :</fo:inline>
+≈
+<fo:inline font-family="Helvetica">&#x2260; :</fo:inline>
+≠
+<fo:inline font-family="Helvetica">&#x2261; :</fo:inline>
+≡
+<fo:inline font-family="Helvetica">&#x2264; :</fo:inline>
+≤
+<fo:inline font-family="Helvetica">&#x2265; :</fo:inline>
+≥
+</fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block></fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block>
+<fo:inline font-family="Helvetica">&#x2282; :</fo:inline>
+⊂
+<fo:inline font-family="Helvetica">&#x2283; :</fo:inline>
+⊃
+<fo:inline font-family="Helvetica">&#x2284; :</fo:inline>
+⊄
+<fo:inline font-family="Helvetica">&#x2286; :</fo:inline>
+⊆
+<fo:inline font-family="Helvetica">&#x2287; :</fo:inline>
+⊇
+<fo:inline font-family="Helvetica">&#x2295; :</fo:inline>
+⊕
+<fo:inline font-family="Helvetica">&#x2297; :</fo:inline>
+⊗
+<fo:inline font-family="Helvetica">&#x22A5; :</fo:inline>
+⊥
+<fo:inline font-family="Helvetica">&#x22C5; :</fo:inline>
+⋅
+<fo:inline font-family="Helvetica">&#x2320; :</fo:inline>
+⌠
+<fo:inline font-family="Helvetica">&#x2321; :</fo:inline>
+⌡
+<fo:inline font-family="Helvetica">&#x2329; :</fo:inline>
+〈
+<fo:inline font-family="Helvetica">&#x232A; :</fo:inline>
+〉
+<fo:inline font-family="Helvetica">&#x25CA; :</fo:inline>
+◊
+<fo:inline font-family="Helvetica">&#x2660; :</fo:inline>
+♠
+<fo:inline font-family="Helvetica">&#x2663; :</fo:inline>
+♣
+<fo:inline font-family="Helvetica">&#x2665; :</fo:inline>
+♥
+<fo:inline font-family="Helvetica">&#x2666; :</fo:inline>
+♦
+<fo:inline font-family="Helvetica">&#xF6D9; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF6DA; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF6DB; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8E5; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8E6; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8E7; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8E8; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8E9; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8EA; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8EB; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8EC; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8ED; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8EE; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8EF; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8F0; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8F1; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8F2; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8F3; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8F4; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8F5; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8F6; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8F7; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8F8; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8F9; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8FA; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8FB; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8FC; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8FD; :</fo:inline>
+
+<fo:inline font-family="Helvetica">&#xF8FE; :</fo:inline>
+
+</fo:block>
+</fo:table-cell>
+</fo:table-row>
+</fo:table-body>
+</fo:table>
+</fo:block>
+<fo:block font-family="Helvetica" font-size="12pt">Some special characters:</fo:block>
+<fo:block space-after.optimum="10pt" font-family="Helvetica">Euro ( dec 8364, hex 20AC): €</fo:block>
+<fo:block space-after.optimum="10pt" font-family="Helvetica"></fo:block>
+</fo:flow>
+</fo:page-sequence>
+</fo:root>
