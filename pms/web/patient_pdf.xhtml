@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<!--  defines the layout master  -->
+<fo:layout-master-set>
+<fo:simple-page-master master-name="first" page-height="29.7cm" page-width="21cm" margin-top="1cm" margin-bottom="2cm" margin-left="2.5cm" margin-right="2.5cm">
+<fo:region-body margin-top="1cm"/>
+<fo:region-before extent="1cm"/>
+<fo:region-after extent="1.5cm"/>
+</fo:simple-page-master>
+</fo:layout-master-set>
+<!--  starts actual layout  -->
+<fo:page-sequence master-reference="first">
+<fo:flow flow-name="xsl-region-body">
+<fo:block font-family="Helvetica" font-size="14pt">Helvetica</fo:block>
+<fo:block space-after.optimum="10pt" font-family="Helvetica" font-size="10pt">
+<fo:table>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="65pt"/>
+<fo:table-column column-width="30pt"/>
+<fo:table-column column-width="65pt"/>
+<fo:table-body>
+<fo:table-row>
+<fo:table-cell>
+<fo:block>
+asdf; asdf;asd f;asdf;
+</fo:block>
+</fo:table-cell>
+<fo:table-cell>
+<fo:block></fo:block>
+</fo:table-cell>
+
+</fo:table-row>
+</fo:table-body>
+</fo:table>
+</fo:block>
+</fo:flow>
+</fo:page-sequence>
+
+</fo:root>
+
