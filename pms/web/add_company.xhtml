@@ -57,13 +57,14 @@
                                    requiredIndicator="(*)" indicatorPosition="right" class="text-entry_size"/>
 
                     <h:outputLabel>&nbsp;</h:outputLabel>
-                    <h:commandButton value="Register Company" action="#{companyController.registerCompany}" class="submit" />
-
+                    <h:commandButton value="Register Company" action="#{companyController.registerCompany}" class="submit"   />
+                    
                 </h:panelGrid>
                 <div style="width: 100%; min-height: 30px; text-align: center;">
                     <h:outputText value="#{companyController.message}" class="#{companyController.cssClass}" />
                 </div>
             </ace:panel>
+            <ace:linkButton value="gooo" href="report.fo" />
             <!-- your code ends here-->
         </h:form>
         <!-- footer inclusion-->
