@@ -24,6 +24,8 @@ import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.UnitValue;
 import java.io.File;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 
 
 /**
@@ -167,11 +169,13 @@ public class CompaniesController implements Serializable {
         List<Company> listCompanies = commonService.getListCompanies();
         //System.out.println("list size = " + listCompanies.size());
         
+         
+        
         try {
-            System.out.println("ok till here 1");
-            File tempFile = File.createTempFile("invoice", ".pdf");
             
-            PdfDocument pdfDocument = new PdfDocument(new PdfWriter("abc.pdf"));
+            System.out.println("ok till here 1");
+                        
+            PdfDocument pdfDocument = new PdfDocument(new PdfWriter("./abcdd.pdf"));
             //PdfDocument pdfDocument = new PdfDocument(new PdfWriter("../reports/first-invoince.pdf"));
             Document layoutDocument = new Document(pdfDocument);
 System.out.println("ok till here 1....111");
