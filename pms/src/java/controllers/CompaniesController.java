@@ -7,11 +7,23 @@ package controllers;
 
 import entity.Company;
 import java.io.Serializable;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import services.CommonService;
 import services.CompaniesService;
+
+
+
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.layout.property.UnitValue;
+
 
 /**
  *
@@ -139,6 +151,61 @@ public class CompaniesController implements Serializable {
                 cssClass = "failure-class";
             }
 
+        }
+        
+    }
+    
+    
+    /**
+     * pdf of all companies report generation code starts here
+     */
+    
+    public void printAllCompanies() {
+        System.out.println("print method called");
+        List<Company> listCompanies = commonService.getListCompanies();
+        System.out.println("list size = " + listCompanies.size());
+        
+        try {
+            PdfDocument pdfDocument = new PdfDocument(new PdfWriter("src/reports/first-invoince.pdf"));
+        Document layoutDocument = new Document(pdfDocument);
+
+        // title
+        layoutDocument.add(new Paragraph("ALL COMPANIES").setBold().setUnderline().setTextAlignment(TextAlignment.CENTER));
+
+        // customer reference information
+        layoutDocument.add(new Paragraph("DR NAJM-UD-DIN").setTextAlignment(
+                TextAlignment.LEFT).setMultipliedLeading(0.2f));
+        layoutDocument.add(new Paragraph("PESHAWAR").setMultipliedLeading(.2f));
+        layoutDocument.add(new Paragraph("tel: 1234567890").setMultipliedLeading(.2f));
+        
+        //create items to add into pdf
+       
+        
+        //create a table to display items into tabular form
+        Table table = new Table(UnitValue.createPointArray(new float[]{60f, 180f, 50f, 80f, 110f}));
+        // headers
+        table.addCell(new Paragraph("S.N.O").setBold());
+        table.addCell(new Paragraph("COMPANY NAME").setBold());
+        table.addCell(new Paragraph("ADDRESS").setBold());
+        table.addCell(new Paragraph("PHONE NUMBER").setBold());
+        //table.addCell(new Paragraph("AMOUNT IN RS.").setBold());
+
+        //now add items into the table
+        for (Company c : listCompanies) {
+            table.addCell(new Paragraph(c.getCompanyId() + ""));
+            table.addCell(new Paragraph(c.getCompanyName()));
+            table.addCell(new Paragraph(c.getAddress()));
+            table.addCell(new Paragraph(c.getPhoneNumber()));
+            //table.addCell(new Paragraph((item.quantity * item.unitPrice) + ""));
+        }
+        
+        // add table to pdf
+        layoutDocument.add(table);
+        
+        // close the document
+        layoutDocument.close();
+        } catch(Throwable th) {
+            th.printStackTrace();
         }
         
     }

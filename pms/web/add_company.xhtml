@@ -64,7 +64,8 @@
                     <h:outputText value="#{companyController.message}" class="#{companyController.cssClass}" />
                 </div>
             </ace:panel>
-            <ace:linkButton value="gooo" href="report.fo" />
+            
+            <ace:pushButton value="Print" action="#{companyController.printAllCompanies}" />
             <!-- your code ends here-->
         </h:form>
         <!-- footer inclusion-->
