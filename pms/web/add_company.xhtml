@@ -65,7 +65,9 @@
                 </div>
             </ace:panel>
             
-            <ace:pushButton value="Print" action="#{companyController.printAllCompanies}" />
+            <ace:pushButton value="Print">
+             <ace:ajax listener="#{companyController.printAllCompanies}" />
+            </ace:pushButton>
             <!-- your code ends here-->
         </h:form>
         <!-- footer inclusion-->

@@ -161,13 +161,14 @@ public class CompaniesController implements Serializable {
      */
     
     public void printAllCompanies() {
-        System.out.println("print method called");
+        
+         commonService = new CommonService();
         List<Company> listCompanies = commonService.getListCompanies();
-        System.out.println("list size = " + listCompanies.size());
+        //System.out.println("list size = " + listCompanies.size());
         
         try {
-            PdfDocument pdfDocument = new PdfDocument(new PdfWriter("src/reports/first-invoince.pdf"));
-        Document layoutDocument = new Document(pdfDocument);
+            PdfDocument pdfDocument = new PdfDocument(new PdfWriter("../reports/first-invoince.pdf"));
+            Document layoutDocument = new Document(pdfDocument);
 
         // title
         layoutDocument.add(new Paragraph("ALL COMPANIES").setBold().setUnderline().setTextAlignment(TextAlignment.CENTER));
@@ -175,14 +176,15 @@ public class CompaniesController implements Serializable {
         // customer reference information
         layoutDocument.add(new Paragraph("DR NAJM-UD-DIN").setTextAlignment(
                 TextAlignment.LEFT).setMultipliedLeading(0.2f));
+        
         layoutDocument.add(new Paragraph("PESHAWAR").setMultipliedLeading(.2f));
         layoutDocument.add(new Paragraph("tel: 1234567890").setMultipliedLeading(.2f));
-        
+        System.out.println("ok till here 1");
         //create items to add into pdf
        
         
         //create a table to display items into tabular form
-        Table table = new Table(UnitValue.createPointArray(new float[]{60f, 180f, 50f, 80f, 110f}));
+        Table table = new Table(UnitValue.createPointArray(new float[]{60f, 180f, 50f, 80f}));
         // headers
         table.addCell(new Paragraph("S.N.O").setBold());
         table.addCell(new Paragraph("COMPANY NAME").setBold());
@@ -198,16 +200,16 @@ public class CompaniesController implements Serializable {
             table.addCell(new Paragraph(c.getPhoneNumber()));
             //table.addCell(new Paragraph((item.quantity * item.unitPrice) + ""));
         }
-        
+        System.out.println("ok till here 2");
         // add table to pdf
         layoutDocument.add(table);
-        
+        System.out.println("ok till here 3");
         // close the document
         layoutDocument.close();
         } catch(Throwable th) {
             th.printStackTrace();
         }
-        
+        System.out.println("ok till here 4");
     }
 
 }
