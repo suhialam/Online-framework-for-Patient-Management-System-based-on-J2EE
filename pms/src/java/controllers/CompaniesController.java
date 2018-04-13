@@ -167,7 +167,7 @@ public class CompaniesController implements Serializable {
         //System.out.println("list size = " + listCompanies.size());
         
         try {
-            PdfDocument pdfDocument = new PdfDocument(new PdfWriter("../reports/first-invoince.pdf"));
+            PdfDocument pdfDocument = new PdfDocument(new PdfWriter("../../reports/first-invoince.pdf"));
             Document layoutDocument = new Document(pdfDocument);
 
         // title
