@@ -23,6 +23,7 @@ import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.UnitValue;
+import java.io.File;
 
 
 /**
@@ -167,9 +168,13 @@ public class CompaniesController implements Serializable {
         //System.out.println("list size = " + listCompanies.size());
         
         try {
-            PdfDocument pdfDocument = new PdfDocument(new PdfWriter("../reports/first-invoince.pdf"));
+            System.out.println("ok till here 1");
+            File tempFile = File.createTempFile("invoice", ".pdf");
+            
+            PdfDocument pdfDocument = new PdfDocument(new PdfWriter("abc.pdf"));
+            //PdfDocument pdfDocument = new PdfDocument(new PdfWriter("../reports/first-invoince.pdf"));
             Document layoutDocument = new Document(pdfDocument);
-
+System.out.println("ok till here 1....111");
         // title
         layoutDocument.add(new Paragraph("ALL COMPANIES").setBold().setUnderline().setTextAlignment(TextAlignment.CENTER));
 
@@ -179,7 +184,7 @@ public class CompaniesController implements Serializable {
         
         layoutDocument.add(new Paragraph("PESHAWAR").setMultipliedLeading(.2f));
         layoutDocument.add(new Paragraph("tel: 1234567890").setMultipliedLeading(.2f));
-        System.out.println("ok till here 1");
+        
         //create items to add into pdf
        
         
