@@ -20,12 +20,9 @@
         </div>
         
         <span style="float:right;color:#ffffff;font-size: 25px;margin-right: 250px;margin-top: 10px;">
-            welcome <h:outputText value="#{loginController.user.displayName}" /><h:outputLink value="Logout" />
+            <h:outputText value="#{loginController.user.displayName}" /><h:outputLink value="Logout" />
             </span>
-    <h:form>    
-        <h:commandButton value="Logout"
-                         action="#{loginController.logout}" />
-    </h:form>
+    
     </div>
     
 </ui:composition>

@@ -1,8 +1,9 @@
 
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ace="http://www.icefaces.org/icefaces/components"
-                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:form id="menus_form">
     <ace:menuBar id="main_menu_bar" autoSubmenuDisplay="true">
         <ace:menuItem value="Home" url="home.xhtml" icon="ui-icon ui-icon-home" />
 
@@ -27,7 +28,13 @@
             <ace:menuItem id="new_prescription" value="New Prescription" url="prescription.xhtml" />
             <ace:menuItem id="search_patient_history" value="Prescription History" url="search_patient_history.xhtml" />
         </ace:submenu>
+        
+        <ace:submenu id="profile" label="Profile">
+            <ace:menuItem id="logout" value="Logout">
+                <ace:ajax listener="#{loginController.logout}" />
+            </ace:menuItem>
+        </ace:submenu>
 
     </ace:menuBar>
-
+    </h:form>
 </ui:composition>

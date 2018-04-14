@@ -14,8 +14,6 @@ import javax.faces.bean.ViewScoped;
 import services.CommonService;
 import services.CompaniesService;
 
-
-
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
@@ -23,10 +21,8 @@ import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.UnitValue;
+import java.awt.Desktop;
 import java.io.File;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
-
 
 /**
  *
@@ -120,12 +116,11 @@ public class CompaniesController implements Serializable {
 
         company = commonService.findCompany(companyId);
 
-
     }
 
     public void updateCompany() {
         int rowsAffected = 0;
-                System.out.println(company.getCompanyId());
+        System.out.println(company.getCompanyId());
         System.out.println(company.getCompanyName());
         System.out.println(company.getAddress());
         System.out.println(company.getPhoneNumber());
@@ -137,7 +132,7 @@ public class CompaniesController implements Serializable {
             message = "Empty data can not be updated. Please fill the form properly.";
             cssClass = "failure-class";
         } else {
-            
+
             CompaniesService companiesService = new CompaniesService();
             rowsAffected = companiesService.updateCompany(company);
 
@@ -155,66 +150,76 @@ public class CompaniesController implements Serializable {
             }
 
         }
-        
+
     }
-    
-    
+
     /**
      * pdf of all companies report generation code starts here
      */
-    
     public void printAllCompanies() {
-        
-         commonService = new CommonService();
+
+        commonService = new CommonService();
         List<Company> listCompanies = commonService.getListCompanies();
-        //System.out.println("list size = " + listCompanies.size());
-        
-         
         
         try {
             PdfDocument pdfDocument = new PdfDocument(new PdfWriter("../../reports/first-invoince.pdf"));
             Document layoutDocument = new Document(pdfDocument);
-System.out.println("ok till here 1....111");
-        // title
-        layoutDocument.add(new Paragraph("ALL COMPANIES").setBold().setUnderline().setTextAlignment(TextAlignment.CENTER));
+            
+            // title
+            layoutDocument.add(new Paragraph("ALL COMPANIES").setBold().setUnderline().setTextAlignment(TextAlignment.CENTER));
 
-        // customer reference information
-        layoutDocument.add(new Paragraph("DR NAJM-UD-DIN").setTextAlignment(
-                TextAlignment.LEFT).setMultipliedLeading(0.2f));
-        
-        layoutDocument.add(new Paragraph("PESHAWAR").setMultipliedLeading(.2f));
-        layoutDocument.add(new Paragraph("tel: 1234567890").setMultipliedLeading(.2f));
-        
-        //create items to add into pdf
-       
-        
-        //create a table to display items into tabular form
-        Table table = new Table(UnitValue.createPointArray(new float[]{60f, 180f, 50f, 80f}));
-        // headers
-        table.addCell(new Paragraph("S.N.O").setBold());
-        table.addCell(new Paragraph("COMPANY NAME").setBold());
-        table.addCell(new Paragraph("ADDRESS").setBold());
-        table.addCell(new Paragraph("PHONE NUMBER").setBold());
-        //table.addCell(new Paragraph("AMOUNT IN RS.").setBold());
+            // customer reference information
+            layoutDocument.add(new Paragraph("DR NAJM-UD-DIN").setTextAlignment(
+                    TextAlignment.LEFT).setMultipliedLeading(0.2f));
 
-        //now add items into the table
-        for (Company c : listCompanies) {
-            table.addCell(new Paragraph(c.getCompanyId() + ""));
-            table.addCell(new Paragraph(c.getCompanyName()));
-            table.addCell(new Paragraph(c.getAddress()));
-            table.addCell(new Paragraph(c.getPhoneNumber()));
-            //table.addCell(new Paragraph((item.quantity * item.unitPrice) + ""));
-        }
-        System.out.println("ok till here 2");
-        // add table to pdf
-        layoutDocument.add(table);
-        System.out.println("ok till here 3");
-        // close the document
-        layoutDocument.close();
-        } catch(Throwable th) {
+            layoutDocument.add(new Paragraph("PESHAWAR").setMultipliedLeading(.2f));
+            layoutDocument.add(new Paragraph("tel: 1234567890").setMultipliedLeading(.2f));
+
+            //create items to add into pdf
+            //create a table to display items into tabular form
+            Table table = new Table(UnitValue.createPointArray(new float[]{60f, 180f, 50f, 80f}));
+            // headers
+            table.addCell(new Paragraph("S.N.O").setBold());
+            table.addCell(new Paragraph("COMPANY NAME").setBold());
+            table.addCell(new Paragraph("ADDRESS").setBold());
+            table.addCell(new Paragraph("PHONE NUMBER").setBold());
+            //table.addCell(new Paragraph("AMOUNT IN RS.").setBold());
+
+            //now add items into the table
+            for (Company c : listCompanies) {
+                table.addCell(new Paragraph(c.getCompanyId() + ""));
+                table.addCell(new Paragraph(c.getCompanyName()));
+                table.addCell(new Paragraph(c.getAddress()));
+                table.addCell(new Paragraph(c.getPhoneNumber()));
+                //table.addCell(new Paragraph((item.quantity * item.unitPrice) + ""));
+            }
+            
+            // add table to pdf
+            layoutDocument.add(table);
+            
+            // close the document
+            layoutDocument.close();
+
+            /**
+             * to open it in browser
+             */
+            //FacesContext.getCurrentInstance (). getExternalContext (). redirect("../../reports/first-invoince.pdf");
+            File pdfFile = new File("../../reports/first-invoince.pdf");
+		if (pdfFile.exists()) {
+			if (Desktop.isDesktopSupported()) {
+				Desktop.getDesktop().open(pdfFile);
+                                System.out.println("File has been opened successfully.");
+			} else {
+				System.out.println("Awt Desktop is not supported!");
+			}
+
+		} else {
+			System.out.println("File is not exists!");
+		}
+        } catch (Throwable th) {
             th.printStackTrace();
         }
-        System.out.println("ok till here 4");
+        
     }
 
 }

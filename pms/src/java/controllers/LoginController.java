@@ -73,6 +73,8 @@ public class LoginController implements Serializable {
             //FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "index.xtml");
             //Object obj = (Object) user;
             HttpSession session = SessionUtils.getSession();
+            
+            user.setDisplayName("Wellcome " + user.getDisplayName());
             session.setAttribute("user", user);
 
             redirectionPath = "home?faces-redirect=true";
