@@ -26,7 +26,7 @@ import java.io.File;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 @ManagedBean(name = "companyController")
 @ViewScoped
@@ -81,8 +81,10 @@ public class CompaniesController implements Serializable {
     }
 
     public void registerCompany() {
+        System.out.println("Register Company");
         int rowsAffected = 0;
-
+        System.out.println("If Condition");
+        System.out.println(company.getCompanyName());
         if (company.getCompanyName().trim().equals("")
                 || company.getAddress().trim().equals("")
                 || company.getPhoneNumber().trim().equals("")) {
@@ -105,6 +107,9 @@ public class CompaniesController implements Serializable {
             } else {
                 message = company.getCompanyName() + " already exists !";
                 cssClass = "failure-class";
+                company.setCompanyName("");
+                company.setAddress("");
+                company.setPhoneNumber("");
             }
 
         }
@@ -125,14 +130,14 @@ public class CompaniesController implements Serializable {
         System.out.println(company.getAddress());
         System.out.println(company.getPhoneNumber());
 
-        if (company.getCompanyName().trim().equals("")
+        if(company.getCompanyName().trim().equals("")
                 || company.getAddress().trim().equals("")
                 || company.getPhoneNumber().trim().equals("")) {
             System.out.println("empty data can not be updated.");
             message = "Empty data can not be updated. Please fill the form properly.";
             cssClass = "failure-class";
         } else {
-
+             System.out.println("ELse Condition");
             CompaniesService companiesService = new CompaniesService();
             rowsAffected = companiesService.updateCompany(company);
 
@@ -166,18 +171,19 @@ public class CompaniesController implements Serializable {
             Document layoutDocument = new Document(pdfDocument);
             
             // title
-            layoutDocument.add(new Paragraph("ALL COMPANIES").setBold().setUnderline().setTextAlignment(TextAlignment.CENTER));
+           // layoutDocument.add(new Paragraph("ALL COMPANIES").setBold().setUnderline().setTextAlignment(TextAlignment.CENTER));
 
             // customer reference information
-            layoutDocument.add(new Paragraph("DR NAJM-UD-DIN").setTextAlignment(
-                    TextAlignment.LEFT).setMultipliedLeading(0.2f));
+           // layoutDocument.add(new Paragraph("DR NAJM-UD-DIN").setTextAlignment(
+                   // TextAlignment.LEFT).setMultipliedLeading(0.2f));
 
-            layoutDocument.add(new Paragraph("PESHAWAR").setMultipliedLeading(.2f));
-            layoutDocument.add(new Paragraph("tel: 1234567890").setMultipliedLeading(.2f));
+            //layoutDocument.add(new Paragraph("PESHAWAR").setMultipliedLeading(.2f));
+            //layoutDocument.add(new Paragraph("tel: 1234567890").setMultipliedLeading(.2f));
 
             //create items to add into pdf
             //create a table to display items into tabular form
-            Table table = new Table(UnitValue.createPointArray(new float[]{60f, 180f, 50f, 80f}));
+            Table table = new Table(UnitValue.createPointArray(new float[]{60f, 180f, 70f, 80f}));
+           
             // headers
             table.addCell(new Paragraph("S.N.O").setBold());
             table.addCell(new Paragraph("COMPANY NAME").setBold());
@@ -214,7 +220,7 @@ public class CompaniesController implements Serializable {
 			}
 
 		} else {
-			System.out.println("File is not exists!");
+			System.out.println("File do not exists!");
 		}
         } catch (Throwable th) {
             th.printStackTrace();

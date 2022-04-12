@@ -11,7 +11,7 @@ import javax.faces.bean.SessionScoped;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 @ManagedBean(name = "anyUser")
 @SessionScoped
@@ -20,7 +20,7 @@ public class User implements  Serializable{
     private String displayName;
     private String userName;
     private String password;
-    private int isActive;
+    //private int isActive;
 
     public User() {
     }
@@ -57,13 +57,7 @@ public class User implements  Serializable{
         this.password = password;
     }
 
-    public int getIsActive() {
-        return isActive;
-    }
-
-    public void setIsActive(int isActive) {
-        this.isActive = isActive;
-    }
+   
     
     
 }

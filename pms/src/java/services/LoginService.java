@@ -10,7 +10,7 @@ import entity.User;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 public class LoginService {
     private LoginDAO loginDAO;

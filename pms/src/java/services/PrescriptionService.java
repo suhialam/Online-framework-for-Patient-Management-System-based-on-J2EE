@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 public class PrescriptionService {
 

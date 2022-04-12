@@ -13,7 +13,7 @@ import util.SQLQueryUtil;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 public class CompaniesService {
 
@@ -30,7 +30,7 @@ public class CompaniesService {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
 
-        String queryCheck = "SELECT count(*) as count from pms_schema.companies where company_name like('" + company.getCompanyName() + "');";
+        String queryCheck = "SELECT count(*) as count from company where company_name like('" + company.getCompanyName() + "');";
         System.out.println(queryCheck);
         try {
             ResultSet resultSet = sql.executeQuery(queryCheck);

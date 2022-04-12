@@ -42,7 +42,7 @@
                     <ace:comboBox id="p_combobox" required="true" class="margin" 
                                   width="208" value="#{prescriptionController.patientId}">
                         <c:forEach items="#{commonController.listPatient}" var="objPatient">
-                            <f:selectItem itemValue="#{objPatient.patientId}" itemLabel="#{objPatient.patientName} from #{objPatient.address}" />
+                            <f:selectItem itemValue="#{objPatient.patientId}" itemLabel="#{objPatient.patientId}: #{objPatient.patientName} from #{objPatient.address}" />
                         </c:forEach>
                      </ace:comboBox>
 
@@ -124,7 +124,9 @@
 
 
                 <h:commandButton value="Save" class="submit" style="width: 150px; float: right;" id="finish_prescription" action="#{prescriptionController.finishPrescription}" />
-                    
+                <ace:pushButton value="Print" action="#{prescriptionController.printPrescription}" />
+                   
+            
                 <div style="width: 100%; min-height: 30px; text-align: center;">
                     <h:outputText value="#{prescriptionController.message}" class="success-class" />
                 </div>

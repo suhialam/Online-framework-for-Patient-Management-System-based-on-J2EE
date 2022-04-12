@@ -17,10 +17,16 @@ import util.SQLQueryUtil;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 public class CommonDAO {
-
+    
+public static void main(String[] args) {
+    
+       CommonDAO com = new CommonDAO();
+        //String ab=(com.findPacking(medicineId));
+        System.out.println();
+    }
     public List<Company> getListCompanies() {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
@@ -29,29 +35,32 @@ public class CommonDAO {
 
         List<Company> listCompanies = new ArrayList<Company>();
 
-        String query = "SELECT * FROM pms_schema.companies ORDER BY id ASC;";
+        String query = "select * from company ORDER BY company_id ASC;";
         try {
             ResultSet rs = sql.executeQuery(query);
             while (rs.next()) {
                 company = new Company();
-                company.setCompanyId(rs.getString("id"));
+                company.setCompanyId(rs.getInt("company_id"));
                 company.setCompanyName(rs.getString("company_name"));
                 company.setAddress(rs.getString("address"));
                 company.setPhoneNumber(rs.getString("phone_number"));
 
                 listCompanies.add(company);
-
+                
+   
             }
 
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
+           
             sql.disconnect();
         }
 
         return listCompanies;
     }
 
+    
     public List<Medicine> getListMedicines() {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
@@ -60,13 +69,13 @@ public class CommonDAO {
         Company company = new Company();
         List<Medicine> listMedicines = new ArrayList<Medicine>();
 
-        String query = "SELECT * FROM pms_schema.medicines where company_id="
+        String query = "SELECT * FROM medicines where company_id="
                 + company.getCompanyId() + ";";
         try {
             ResultSet rs = sql.executeQuery(query);
             while (rs.next()) {
                 medicine = new Medicine();
-                medicine.setMedicineId(rs.getInt("id"));
+                medicine.setMedicineId(rs.getInt("medicine_id"));
                 medicine.setMedicineName(rs.getString("medicine_name"));
 
                 medicine.setCompany(company);
@@ -91,13 +100,13 @@ public class CommonDAO {
 
         List<Medicine> listMedicines = new ArrayList<Medicine>();
 
-        String query = "SELECT * FROM pms_schema.medicines where company_id="
+        String query = "SELECT * FROM medicines where company_id="
                 + companyId + ";";
         try {
             ResultSet rs = sql.executeQuery(query);
             while (rs.next()) {
                 medicine = new Medicine();
-                medicine.setMedicineId(rs.getInt("id"));
+                medicine.setMedicineId(rs.getInt("medicine_id"));
                 medicine.setMedicineName(rs.getString("medicine_name"));
 
                 //medicine.setCompany(company);
@@ -120,13 +129,13 @@ public class CommonDAO {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
 
-        String query = "SELECT * FROM pms_schema.companies where id=" + companyId + ";";
+        String query = "SELECT * FROM company where company_id=" + companyId + ";";
         System.out.println(query);
         try {
             ResultSet resultSet = sql.executeQuery(query);
             resultSet.next();
 
-            selectedCompany.setCompanyId(resultSet.getString("id"));
+            selectedCompany.setCompanyId(resultSet.getInt("company_id"));
             selectedCompany.setCompanyName(resultSet.getString("company_name"));
             selectedCompany.setAddress(resultSet.getString("address"));
             selectedCompany.setPhoneNumber(resultSet.getString("phone_number"));
@@ -144,14 +153,14 @@ public class CommonDAO {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
 
-        String query = "SELECT * FROM pms_schema.medicines where id="
+        String query = "SELECT * FROM medicines where medicine_id="
                 + medicineId + ";";
         System.out.println(query);
         try {
             ResultSet resultSet = sql.executeQuery(query);
             resultSet.next();
 
-            selectedMedcine.setMedicineId(resultSet.getInt("id"));
+            selectedMedcine.setMedicineId(resultSet.getInt("medicine_id"));
             selectedMedcine.setMedicineName(resultSet.getString("medicine_name"));
 
             System.out.println(selectedMedcine);
@@ -162,7 +171,7 @@ public class CommonDAO {
         }
         return selectedMedcine;
     }
-
+    
     public List<Patient> getListPatient() {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
@@ -170,13 +179,13 @@ public class CommonDAO {
         List<Patient> listPatient = new ArrayList<Patient>();
         Patient patient;
 
-        String query = "SELECT * FROM pms_schema.patients ORDER BY id ASC;";
+        String query = "SELECT * FROM patients ORDER BY patient_id ASC;";
 
         try {
             ResultSet rs = sql.executeQuery(query);
             while (rs.next()) {
                 patient = new Patient();
-                patient.setPatientId(rs.getString("id"));
+                patient.setPatientId(rs.getString("patient_id"));
                 patient.setPatientName(rs.getString("patient_name"));
                 patient.setAddress(rs.getString("address"));
                 patient.setPhoneNumber(rs.getString("phone_number"));
@@ -192,20 +201,21 @@ public class CommonDAO {
 
     }
 
+    
     public Patient findPatient(String patientId) {
         Patient selectedPatient = new Patient();
 
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
 
-        String query = "SELECT * FROM pms_schema.patients where id=" + patientId + ";";
+        String query = "SELECT * FROM patients where patient_id=" + patientId + ";";
 
         try {
             ResultSet rs = sql.executeQuery(query);
             rs.next();
 
             selectedPatient = new Patient();
-            selectedPatient.setPatientId(rs.getString("id"));
+            selectedPatient.setPatientId(rs.getString("patient_id"));
             selectedPatient.setPatientName(rs.getString("patient_name"));
             selectedPatient.setAddress(rs.getString("address"));
             selectedPatient.setPhoneNumber(rs.getString("phone_number"));
@@ -245,7 +255,7 @@ public class CommonDAO {
 
                 medicine = new Medicine();
 
-                company.setCompanyId(rs.getString("id"));
+                company.setCompanyId(rs.getInt("company_id"));
                 company.setCompanyName(rs.getString("company_name"));
                 medicine.setCompany(company);
 
@@ -281,14 +291,14 @@ public class CommonDAO {
         List<Medicine> listofPakcing = new ArrayList<Medicine>();
         Medicine medicine;
 
-        String query = "select * from pms_schema.medicine_details where "
+        String query = "select * from medicine_detail where "
                 + "medicine_id=" + medicineId + ";";
 
         try {
             ResultSet rs = sql.executeQuery(query);
             while (rs.next()) {
                 medicine = new Medicine();
-                medicine.setMedicineDetailId(rs.getInt("id"));
+                medicine.setMedicineDetailId(rs.getInt("medicine_detail_id"));
                 medicine.setPacking(rs.getString("packing"));
 
                 listofPakcing.add(medicine);
@@ -319,11 +329,11 @@ public class CommonDAO {
 
         Medicine medicine = null;
 
-        String query = "select * from pms_schema.companies as c, pms_schema.medicines as m, "
-                + " pms_schema.medicine_details as md, " 
-                +  "pms_schema.patient_history as ph " 
-                + "where c.id=m.company_id and m.id=md.medicine_id " 
-                + "and md.id=ph.medicine_detail_id and ph.patient_id='" + patientId
+        String query = "select * from company as c,medicines as m, "
+                + " medicine_detail as md, " 
+                +  "patient_history as ph " 
+                + "where c.company_id=m.company_id and m.medicine_id=md.medicine_id " 
+                + "and md.medicine_detail_id=ph.medicine_detail_id and ph.patient_id='" + patientId
                 + "' order by prescription_date desc;";
 
         try {

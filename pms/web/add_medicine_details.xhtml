@@ -32,7 +32,7 @@
 
         <!-- your code starts here-->
         <h:form >
-            <ace:panel class="panel" id="personalInfoInputPanel" header="Add Medicine Detail"  styleClass="required-styling-demo" style="width: 600px; margin: 0 auto;margin-top: 50px;">
+            <ace:panel class="panel" id="personalInfoInputPanel" header="Add Medicine Detail"  styleClass="required-styling-demo" style="width: 600px;margin: 0 auto;margin-top: 50px;">
                 <h:panelGrid id="inputGrid" columns="2" width="100%" styleClass="textEntryInputTable">
                     <h:outputLabel  value="Select Company"/>
                     <ace:comboBox   required="true" class="margin " width="208" placeholder="Select Company" value="#{medicineController.companyId}" >
@@ -54,6 +54,9 @@
                     <h:commandButton value="Save"  class="submit width-size" action="#{medicineController.addMedicineDetail}" />
 
                 </h:panelGrid>
+                <div style="width: 100%; min-height: 30px; text-align: center;">
+                    <h:outputText value="#{medicineController.message}" class="#{medicineController.cssClass}" />
+                </div>
             </ace:panel>   
             <!-- your code ends here-->
         </h:form>

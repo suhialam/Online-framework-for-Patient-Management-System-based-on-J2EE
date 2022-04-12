@@ -18,7 +18,7 @@ import util.SessionUtils;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 @ManagedBean(name = "loginController")
 @SessionScoped

@@ -28,7 +28,7 @@
                     <h:outputLabel>Select Patient</h:outputLabel>
                     <ace:comboBox  id="cmbSelectPatient" value="#{prescriptionController.patientId}" width="210" >
                         <c:forEach items="#{commonController.listPatient}" var="pat">
-                            <f:selectItem itemValue="#{pat.patientId}" itemLabel="#{pat.patientName}" />
+                            <f:selectItem itemValue="#{pat.patientId}" itemLabel="#{pat.patientId}: #{pat.patientName} from #{pat.address}" />
                         </c:forEach>
                     </ace:comboBox>
    

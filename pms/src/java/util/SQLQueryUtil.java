@@ -13,30 +13,31 @@ import java.sql.Statement;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 public class SQLQueryUtil {
    
     private Connection connection;
     private Statement statement;
-
+    
+    
     public void connect(boolean autoCommit) {
         try {
-            Class.forName("org.postgresql.Driver");
-            //System.out.println("Driver Loaded.");
+            Class.forName("com.mysql.jdbc.Driver");
+            System.out.println("Driver Loaded.");
 
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/"
-                    + "pms", "pms_user", "pms_user");
-            //System.out.println("Connection established.");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/pms","root","");
+            System.out.println("Connection established.");
 
             connection.setAutoCommit(autoCommit);
             statement = connection.createStatement();
-            //System.out.println("Statement Created.");
+            System.out.println("Statement Created.");
         } catch (Throwable th) {
             th.printStackTrace();
         }
 
     }
+    
 
     public ResultSet executeQuery(String query) throws SQLException {
         return statement.executeQuery(query);
@@ -71,4 +72,8 @@ public class SQLQueryUtil {
         return connection;
     }
 
+    public static void main(String[] args) {
+        SQLQueryUtil sq = new SQLQueryUtil();
+        sq.connect(true);
+    }
 }

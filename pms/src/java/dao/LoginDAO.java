@@ -13,7 +13,7 @@ import util.SQLQueryUtil;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 public class LoginDAO {
     
@@ -23,7 +23,7 @@ public class LoginDAO {
          
          Boolean value = false;
          
-         String query = "Select *  from pms_schema.users where "
+         String query = "Select *  from user where "
                  + "user_name like('" + user.getUserName() + "') and "
                  + "password like('" + user.getPassword() + "');";
          try {

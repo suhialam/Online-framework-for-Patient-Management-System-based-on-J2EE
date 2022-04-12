@@ -16,7 +16,7 @@ import services.MedicineService;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 @ManagedBean(name = "medicineController")
 @ViewScoped
@@ -159,7 +159,7 @@ public class MedicinesController implements Serializable {
     }
 
     public void addMedicineDetail() {
-        int rowAffected = 0;
+        int rowsAffected = 0;
         
         packing = packing.trim();
         if (packing.equals("") || medicineId.equals("")) {
@@ -168,14 +168,16 @@ public class MedicinesController implements Serializable {
             cssClass = "failure-class";
         } else {
             MedicineService medicineService = new MedicineService();
-            rowAffected = medicineService.addMedicineDetail(medicineId, packing);
+            rowsAffected = medicineService.addMedicineDetail(medicineId, packing);
 
-            if (rowAffected > 0) {
+            if (rowsAffected > 0) {
+                System.out.println("packing saved");
                 message = " packing saved successfully.";
                 cssClass = "success-class";
 
                 medicine.setMedicineName("");
             } else {
+                System.out.println("already or failure class");
                 message = " already exists";
                 cssClass = "failure-class";
             }

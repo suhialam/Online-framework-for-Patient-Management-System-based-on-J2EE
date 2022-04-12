@@ -11,7 +11,7 @@ import javax.faces.bean.ViewScoped;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 @ManagedBean(name = "anyCompany")
 @ViewScoped
@@ -25,7 +25,7 @@ public class Company implements Serializable {
     
     private static final long serialVersionUID = 1L;
 
-    private String companyId;
+    private int companyId;
     private String companyName;
     private String address;
     private String phoneNumber;
@@ -33,11 +33,11 @@ public class Company implements Serializable {
     public Company() {
     }
 
-    public String getCompanyId() {
+    public int getCompanyId() {
         return companyId;
     }
 
-    public void setCompanyId(String companyId) {
+    public void setCompanyId(int companyId) {
         this.companyId = companyId;
     }
 

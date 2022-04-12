@@ -11,7 +11,7 @@ import util.SQLQueryUtil;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 public class MedicinesDAO {
 
@@ -20,7 +20,7 @@ public class MedicinesDAO {
         sql.connect(false);
         int rowsAffected = 0;
 
-        String insertQuery = "insert into pms_schema.medicines (medicine_name,company_id)"
+        String insertQuery = "insert into medicines (medicine_name,company_id)"
                 + " values('" + medicine.getMedicineName() + "'," + companyId + ");";
         try {
             rowsAffected = sql.executeUpdate(insertQuery);
@@ -40,8 +40,8 @@ public class MedicinesDAO {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
 
-        String Updatequery = "UPDATE pms_schema.medicines SET medicine_name = '" + 
-                medicine.getMedicineName()+ "' WHERE id=" + medicine.getMedicineId()  +"; ";
+        String Updatequery = "UPDATE medicines SET medicine_name = '" + 
+                medicine.getMedicineName()+ "' WHERE medicine_id=" + medicine.getMedicineId()  +"; ";
 
         System.out.println(Updatequery);
 
@@ -64,10 +64,11 @@ public class MedicinesDAO {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
         
-        String query = "insert into pms_schema.medicine_details (packing, medicine_id)"
+        String query = "insert into medicine_detail (packing, medicine_id)"
                 + " values('" + packing + "', " + medicineId + ");";
-        System.out.println(query);
+        System.out.println("query="+query);
         try {
+           // System.out.println("try body");
             rowsAffected = sql.executeUpdate(query);
             sql.commit();
 

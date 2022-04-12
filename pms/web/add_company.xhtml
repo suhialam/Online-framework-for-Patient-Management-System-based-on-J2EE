@@ -57,7 +57,7 @@
                                    requiredIndicator="(*)" indicatorPosition="right" class="text-entry_size"/>
 
                     <h:outputLabel>&nbsp;</h:outputLabel>
-                    <h:commandButton value="Register Company" action="#{companyController.registerCompany}" class="submit"   />
+                    <ace:pushButton value="Register Company" action="#{companyController.registerCompany}" class="submit"   />
                     
                 </h:panelGrid>
                 <div style="width: 100%; min-height: 30px; text-align: center;">
@@ -65,10 +65,10 @@
                 </div>
             </ace:panel>
             
-            <ace:pushButton value="Print">
+           <ace:pushButton value="Print">
              <ace:ajax listener="#{companyController.printAllCompanies}" />
-            </ace:pushButton>
-            <!-- your code ends here-->
+            </ace:pushButton> 
+           <!-- your code ends here-->
         </h:form>
         <!-- footer inclusion-->
         <ui:include src="config/footer.xhtml" />

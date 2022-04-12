@@ -11,7 +11,7 @@ import util.SQLQueryUtil;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 public class PatientsDAO {
 
@@ -21,7 +21,7 @@ public class PatientsDAO {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
 
-        String query = "INSERT INTO pms_schema.patients (patient_name, address, phone_number) "
+        String query = "INSERT INTO patients (patient_name, address, phone_number) "
                 + "VALUES('" + patient.getPatientName() + "',"
                 + "'" + patient.getAddress() + "',"
                 + "'" + patient.getPhoneNumber() + "');";
@@ -47,9 +47,9 @@ public class PatientsDAO {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
 
-        String queryInsert = "UPDATE pms_schema.patients SET patient_name='" + patient.getPatientName()
+        String queryInsert = "UPDATE patients SET patient_name='" + patient.getPatientName()
                 + "', address='" + patient.getAddress() + "', phone_number='" + patient.getPhoneNumber()
-                + "' WHERE id=" + patientId + ";";
+                + "' WHERE patient_id=" + patientId + ";";
         
         try{
             rowsAffected = sql.executeUpdate(queryInsert);

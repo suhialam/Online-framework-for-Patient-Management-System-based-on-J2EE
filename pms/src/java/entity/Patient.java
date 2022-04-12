@@ -11,7 +11,7 @@ import javax.faces.bean.ViewScoped;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 @ManagedBean(name = "anyPatient")
 @ViewScoped

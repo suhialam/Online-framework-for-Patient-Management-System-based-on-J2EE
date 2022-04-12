@@ -15,7 +15,7 @@ import services.PatientService;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 @ManagedBean(name = "patientBean")
 @ViewScoped

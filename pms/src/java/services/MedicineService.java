@@ -13,7 +13,7 @@ import util.SQLQueryUtil;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 public class MedicineService {
     private MedicinesDAO medicinesDAO;
@@ -30,7 +30,7 @@ public class MedicineService {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
         
-        String queryCheck = "SELECT count(*) as count from pms_schema.medicines where medicine_name like("
+        String queryCheck = "SELECT count(*) as count from medicines where medicine_name like("
                 + "'"+medicine.getMedicineName()+"');";
         
         System.out.println(queryCheck);

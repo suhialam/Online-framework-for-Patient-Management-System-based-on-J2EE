@@ -14,7 +14,7 @@ import util.SQLQueryUtil;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 public class PatientService {
     
@@ -31,7 +31,7 @@ public class PatientService {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
         
-        String query = "SELECT count(*) as count from pms_schema.patients "
+        String query = "SELECT count(*) as count from patients "
                 + "where patient_name "
                 + "like('" + patient.getPatientName() + "') and address "
                 + "like('" + patient.getAddress() + "');";

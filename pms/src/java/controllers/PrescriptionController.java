@@ -5,10 +5,19 @@
  */
 package controllers;
 
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.layout.property.UnitValue;
 import entity.Company;
 import entity.Medicine;
 import entity.Patient;
 import entity.Prescription;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -23,7 +32,7 @@ import services.PrescriptionService;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 @ManagedBean(name = "prescriptionController")
 @ViewScoped
@@ -214,6 +223,8 @@ public class PrescriptionController implements Serializable {
         Prescription newPrescription = prescriptionService.addToList(companyId, MedicineId, medicineDetailId, quantity, dosage);
         
         listofPrescription.add(newPrescription);
+        
+        
     }
 
     public void onCompanyChange() {
@@ -265,12 +276,89 @@ public class PrescriptionController implements Serializable {
         
         prescriptionService = new PrescriptionService();
         prescriptionService.finishPrescription(patientId, formatedDate, listofPrescription);
-        listofPrescription = null;
+        //listofPrescription = null;
         message = "Prescription Saved Successfully";
     }
     
     public void findPatientHistory() {
         System.out.println(patientId);
         listPrescription = commonService.findPatientHistory(patientId);
+    }
+   
+    
+     public void printPrescription() {
+         System.out.println("Print Prescription");
+      // prescriptionService = new PrescriptionService();
+      
+        
+        try {
+            PdfDocument pdfDocument = new PdfDocument(new PdfWriter("../../reports/second-invoince.pdf"));
+            Document layoutDocument = new Document(pdfDocument);
+            
+            // title
+            layoutDocument.add(new Paragraph("Prescription").setBold().setUnderline().setTextAlignment(TextAlignment.CENTER));
+
+            // customer reference information
+            layoutDocument.add(new Paragraph("DR NAJM-UD-DIN").setTextAlignment(
+                    TextAlignment.LEFT).setMultipliedLeading(0.2f));
+            
+             layoutDocument.add(new Paragraph("Patient Name :").setTextAlignment(
+                    TextAlignment.RIGHT).setMultipliedLeading(0.2f));
+             
+              layoutDocument.add(new Paragraph("Ali Khan").setTextAlignment(
+                    TextAlignment.RIGHT).setMultipliedLeading(0.2f));
+
+            layoutDocument.add(new Paragraph("PESHAWAR").setMultipliedLeading(.2f));
+            layoutDocument.add(new Paragraph("tel: 12345678900").setMultipliedLeading(.2f));
+
+            
+
+            //create items to add into pdf
+            //create a table to display items into tabular form
+            Table table = new Table(UnitValue.createPointArray(new float[]{60f, 180f, 180f, 80f}));
+            // headers
+            table.addCell(new Paragraph("S.N.O").setBold());
+            table.addCell(new Paragraph("COMPANY NAME").setBold());
+            table.addCell(new Paragraph("Medicine Name").setBold());
+            //table.addCell(new Paragraph("Packing").setBold());
+            //table.addCell(new Paragraph("Quantity").setBold());
+            table.addCell(new Paragraph("Dosage").setBold());
+            //table.addCell(new Paragraph("AMOUNT IN RS.").setBold());
+
+            //now add items into the table
+            for (Prescription p :listofPrescription) {
+                table.addCell(new Paragraph(p.getCompany().getCompanyId()+ ""));
+                table.addCell(new Paragraph(p.getCompany().getCompanyName()));
+                table.addCell(new Paragraph(p.getMedicine().getMedicineName()));
+                table.addCell(new Paragraph(p.getDosage()));
+                //table.addCell(new Paragraph((item.quantity * item.unitPrice) + ""));
+            }
+            
+            // add table to pdf
+            layoutDocument.add(table);
+            
+            // close the document
+            layoutDocument.close();
+
+            /**
+             * to open it in browser
+             */
+            //FacesContext.getCurrentInstance (). getExternalContext (). redirect("../../reports/first-invoince.pdf");
+            File pdfFile = new File("../../reports/second-invoince.pdf");
+		if (pdfFile.exists()) {
+			if (Desktop.isDesktopSupported()) {
+				Desktop.getDesktop().open(pdfFile);
+                                System.out.println("File has been opened successfully.");
+			} else {
+				System.out.println("Awt Desktop is not supported!");
+			}
+
+		} else {
+			System.out.println("File is not exists!");
+		}
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+        
     }
 }

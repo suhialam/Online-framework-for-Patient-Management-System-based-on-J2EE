@@ -11,7 +11,7 @@ import util.SQLQueryUtil;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 public class CompaniesDAO {
 
@@ -21,7 +21,7 @@ public class CompaniesDAO {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
 
-        String queryInsert = "INSERT INTO pms_schema.companies (company_name, address, phone_number) "
+        String queryInsert = "INSERT INTO company (company_name, address, phone_number) "
                 + "values('" + company.getCompanyName() + "', '" + company.getAddress() + "', '" + company.getPhoneNumber() + "');";
 
         System.out.println(queryInsert);
@@ -44,9 +44,9 @@ public class CompaniesDAO {
         SQLQueryUtil sql = new SQLQueryUtil();
         sql.connect(false);
 
-        String queryInsert = "UPDATE pms_schema.companies  SET company_name='"
+        String queryInsert = "UPDATE company  SET company_name='"
                  + company.getCompanyName() + "', address='" + company.getAddress() + "', phone_number='" + company.getPhoneNumber()
-                + "' WHERE id=" + company.getCompanyId() + ";";
+                + "' WHERE company_id=" + company.getCompanyId() + ";";
 
         System.out.println(queryInsert);
 

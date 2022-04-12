@@ -17,7 +17,7 @@ import util.SQLQueryUtil;
 
 /**
  *
- * @author babu
+ * @author suhail
  */
 public class PrescriptionDAO {
 
@@ -32,9 +32,9 @@ public class PrescriptionDAO {
         Company company = null;
         Medicine medicine = null;
 
-        String query = "SELECT * FROM pms_schema.companies AS c, pms_schema.medicines AS m,"
-                + " pms_schema.medicine_details AS md, pms_schema.patient_history AS ph"
-                + " WHERE c.id=m.company_id AND m.id=md.medicine_id AND md.id=ph.medicine_detail_id"
+        String query = "SELECT * FROM company AS c, medicines AS m,"
+                + " medicine_details AS md, AS ph"
+                + " WHERE c.company_id=m.company_id AND m.medicine_id=md.medicine_id AND md.medicine_detail_id=ph.medicine_detail_id"
                 + " AND ph.patient_id=" + patient.getPatientId() + " ORDER by patient_id ASC;";
 
         try {
@@ -47,12 +47,12 @@ public class PrescriptionDAO {
 
                 medicine = new Medicine();
 
-                company.setCompanyId(rs.getString("id"));
+                company.setCompanyId(rs.getInt("company_id"));
                 company.setCompanyName(rs.getString("company_name"));
                 medicine.setCompany(company);
 
-                medicine.setMedicineId(rs.getInt("id"));
-                medicine.setMedicineDetailId(rs.getInt("id"));
+                medicine.setMedicineId(rs.getInt("medicine_id"));
+                medicine.setMedicineDetailId(rs.getInt("medicine_detail_id"));
                 medicine.setPacking(rs.getString("packing"));
                 medicine.setMedicineName(rs.getString("medicine_name"));
 
@@ -84,14 +84,14 @@ public class PrescriptionDAO {
         sql.connect(false);
 
         String query = "SELECT c.company_name, m.medicine_name, md.packing from "
-                + "pms_schema.companies as c, pms_schema.medicines as m, "
-                + "pms_schema.medicine_details as md where c.id=" + companyId
-                + " and m.id=" + MedicineId + " and md.id=" + medicineDetailId + ";";
+                + "company as c,medicines as m, "
+                + "medicine_detail as md where c.company_id=" + companyId
+                + " and m.medicine_id=" + MedicineId + " and md.medicine_detail_id=" + medicineDetailId + ";";
         try {
             ResultSet rs = sql.executeQuery(query);
             rs.next();
 
-            temp.getCompany().setCompanyId(companyId);
+            //temp.getCompany().setCompanyId(companyId);
             temp.getCompany().setCompanyName(rs.getString("company_name"));
 
             temp.getMedicine().setMedicineId(Integer.parseInt(MedicineId));
@@ -129,7 +129,7 @@ public class PrescriptionDAO {
                 medicineDetailId = listofPrescription.get(i).getMedicine().getMedicineDetailId() + "";
         quantity = listofPrescription.get(i).getQuantity();
         dosage = listofPrescription.get(i).getDosage();
-                query = "INSERT INTO pms_schema.patient_history (patient_id, "
+                query = "INSERT INTO patient_history (patient_id, "
                         + "medicine_detail_id, quantity, dosage, prescription_date) "
                         + "values(" + patientId + "," + medicineDetailId + "," + quantity 
                         + ",'" + dosage + "','" + formatedDate + "');";
